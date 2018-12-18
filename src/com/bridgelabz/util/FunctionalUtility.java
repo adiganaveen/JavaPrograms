@@ -91,7 +91,7 @@ public class FunctionalUtility
 		}
 	}
 	
-	public static void primeFactors(int n) 
+	public void primeFactors(int n) 
     { 
         while (n%2==0) 
         { 
@@ -109,6 +109,32 @@ public class FunctionalUtility
         //if (n > 2) 
         //    System.out.print(n); 
     } 
+	
+	public void gambleing(int stack,int bet,int chance)
+	{
+		Random r=new Random();
+		int win=0,loss=0;
+		int ch=chance;
+		while(chance>0)
+		{
+			int rand=r.nextInt(2);
+			if(rand==0)
+			{
+				loss++;
+				stack=stack-bet;
+			}
+			else
+				win++;
+				stack=stack+bet;
+			chance--;
+		}
+		System.out.println("win "+win);
+		System.out.println("loss "+loss);
+		System.out.println("win percentage is "+win*100/ch);
+		System.out.println("win percentage is "+loss*100/ch);
+		System.out.println("remaining stack"+stack);
+		System.out.println("remaining chance"+chance);
+	}
 	
 	
 }
