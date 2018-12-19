@@ -255,5 +255,17 @@ public class FunctionalUtility<E> {
 		double result = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
 		return result;
 	}
+	
+	//to find roots
+	public void rootsValue(int a,int b,int c)
+	{
+		double delta = (b*b) - (4*a*c);
+		double d=Math.sqrt(delta);
+		double root1 = (-b +d )/(2*a);
+		double root2 = (-b -d)/(2*a);
+		System.out.println("Root 1 of x is "+root1);
+		System.out.println("Root 2 of x is "+root2);
+
+	}
 
 }

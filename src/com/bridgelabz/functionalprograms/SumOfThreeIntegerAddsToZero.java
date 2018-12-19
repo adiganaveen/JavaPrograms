@@ -1,3 +1,10 @@
+//Sum Of Three Integer Adds To Zero 
+/*Naveen Adiga
+  19/12/2018
+ */
+
+
+
 package com.bridgelabz.functionalprograms;
 
 import java.util.Scanner;
