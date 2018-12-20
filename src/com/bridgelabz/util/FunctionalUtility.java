@@ -9,6 +9,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Scanner;
 
 public class FunctionalUtility<E> {
@@ -255,17 +257,46 @@ public class FunctionalUtility<E> {
 		double result = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
 		return result;
 	}
-	
-	//to find roots
-	public void rootsValue(int a,int b,int c)
-	{
-		double delta = (b*b) - (4*a*c);
-		double d=Math.sqrt(delta);
-		double root1 = (-b +d )/(2*a);
-		double root2 = (-b -d)/(2*a);
-		System.out.println("Root 1 of x is "+root1);
-		System.out.println("Root 2 of x is "+root2);
 
+	// to find roots
+	public void rootsValue(int a, int b, int c) {
+		double delta = (b * b) - (4 * a * c);
+		double d = Math.sqrt(delta);
+		double root1 = (-b + d) / (2 * a);
+		double root2 = (-b - d) / (2 * a);
+		System.out.println("Root 1 of x is " + root1);
+		System.out.println("Root 2 of x is " + root2);
+
+	}
+
+	// simulate stop watch
+	long startTime = 0;
+	long stopTime = 0;
+	long diffTime = 0;
+
+	public void start() {
+		Calendar cal = Calendar.getInstance();
+		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+		System.out.println(sdf.format(cal.getTime()));
+		startTime = System.currentTimeMillis();
+		System.out.println("The start time is " + startTime);
+	}
+
+	public void stop() {
+		Calendar cal = Calendar.getInstance();
+		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+		System.out.println(sdf.format(cal.getTime()));
+		stopTime = System.currentTimeMillis();
+		System.out.println("The stop time is " + stopTime);
+	}
+
+	public void differentialTime() {
+		long time = stopTime - startTime;
+		// diffTime=startTime-stopTime;
+		// return diffTime;
+		System.out.println("Time of stopwatch is : " + time + "millisec");
+		System.out.println("Time of stopwatch is : " + (time / 1000) + "sec");
+		System.out.println("Time in minutes is : " + (time / 60000) + "mins");
 	}
 
 }
