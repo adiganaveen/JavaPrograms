@@ -10,7 +10,9 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Scanner;
 
 public class FunctionalUtility<E> {
@@ -303,6 +305,93 @@ public class FunctionalUtility<E> {
 	public double calcWindChill(double t, double v) {
 		double w = 35.74 + 0.6215 * t + (0.4275 * t - 35.75) * Math.pow(v, 0.16);
 		return w;
+	}
+	
+	
+	//recursive combination
+	public void recursion(String str,int initial,int last)
+	{
+		if(initial==last)
+		{
+			System.out.println(str);
+		}
+		else
+		{
+			for(int i=initial;i<last;i++)
+			{
+				str = swap(str,initial,i); 
+                recursion(str, (initial+1), last);
+                str = swap(str,initial,i); 
+        
+			}
+		}
+	}
+//	public void iteration(String str,int num)
+//	{
+//		String str2="";
+//		int fact=1;
+//		for(int i=1;i<=num;i++)
+//		{
+//			fact= fact*i;
+//		}
+//		while(fact>0)
+//		{
+//		for(int i=0;i<num;i++)
+//		{
+//			for(int j=i;j<num;j++)
+//			{
+//			str2=swap(str,i,j);
+//			System.out.println(str2);
+//			
+//			}
+//			
+//		}
+//		fact--;
+//		}
+//		}
+	public static void iteration(String s)
+	{
+		// create an empty ArrayList to store (partial) permutations
+		List<String> partial = new ArrayList<>();
+
+		// initialize the list with the first character of the string
+		partial.add(String.valueOf(s.charAt(0)));
+
+		// do for every character of the specified string
+		for (int i = 1; i < s.length(); i++)
+		{
+			// consider previously constructed partial permutation one by one
+
+			// (iterate backwards to avoid ConcurrentModificationException)
+			for (int j = partial.size() - 1; j >= 0 ; j--)
+			{
+				// remove current partial permutation from the ArrayList
+				String str = partial.remove(j);
+
+				// Insert next character of the specified string in all
+				// possible positions of current partial permutation. Then
+				// insert each of these newly constructed string in the list
+
+				for (int k = 0; k <= str.length(); k++)
+				{
+					// Advice: use StringBuilder for concatenation
+					partial.add(str.substring(0, k) + s.charAt(i) +
+								str.substring(k));
+				}
+			}
+		}
+
+		System.out.println(partial);
+	}
+	public String swap(String str,int i,int j)
+	{
+		char temp;
+		char [] ch=str.toCharArray();
+		temp=ch[i];
+		ch[i]=ch[j];
+		ch[j]=temp;
+		return String.valueOf(ch);
+		
 	}
 
 }

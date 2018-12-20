@@ -26,5 +26,4 @@ public class SimulateStopwatchProgram {
 		func.differentialTime();
 		sc.close();
 	}
-
 }
