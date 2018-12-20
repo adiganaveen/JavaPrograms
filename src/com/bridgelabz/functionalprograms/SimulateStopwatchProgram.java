@@ -1,6 +1,6 @@
 //Simulate Stopwatch Program
 /*Naveen Adiga
-  19/12/2018
+  20/12/2018
  */
 
 package com.bridgelabz.functionalprograms;

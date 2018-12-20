@@ -1,4 +1,4 @@
-//User Input and Replace String Template “Hello <<UserName>>, How are you?”
+//User Input and Replace String Template ï¿½Hello <<UserName>>, How are you?ï¿½
 /*Naveen Adiga
 18/12/2018*/
 
@@ -12,9 +12,10 @@ public class ReplaceString
 	{
 		FunctionalUtility func=new FunctionalUtility();
 		Scanner sc=new Scanner(System.in);
+		String str="Hello <<UserName>>, How are you?";
 		System.out.println("enter user name");
 		String uname=sc.nextLine();
-		func.replaceString(uname);
+		func.replaceString(str,uname);
 	}
 
 }

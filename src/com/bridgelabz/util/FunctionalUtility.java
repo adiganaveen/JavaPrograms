@@ -16,11 +16,13 @@ import java.util.Scanner;
 public class FunctionalUtility<E> {
 
 	// replace_string
-	public void replaceString(String uname) {
+	public void replaceString(String str, String uname) {
 		if (uname.length() < 3) {
 			System.out.println("enter a name greater than 3 alphabets");
-		} else
-			System.out.println("Hai " + uname + " ,How are you?");
+		} else {
+			String str2 = str.replace("<<UserName>>", uname);
+			System.out.println(str2);
+		}
 	}
 
 	// leap_year
@@ -71,8 +73,8 @@ public class FunctionalUtility<E> {
 	}
 
 	/*
-	 * public void factorial(int n) { int[] a=new int[n/2]; int[] b=null;
-	 * for(int i=1;i<=n/2;i++) { if(n%i==0) { } } }
+	 * public void factorial(int n) { int[] a=new int[n/2]; int[] b=null; for(int
+	 * i=1;i<=n/2;i++) { if(n%i==0) { } } }
 	 */
 
 	// primefactors
@@ -94,12 +96,10 @@ public class FunctionalUtility<E> {
 	// gambling
 	public void gambleing(int stack, int goal, int chance) {
 		/*
-		 * int win=0,loss=0; int ch=chance; while(chance>0) {
-		 * if(Math.random()<0.5) { loss++; stack=stack-bet; } else { win++;
-		 * stack=stack+bet; }
+		 * int win=0,loss=0; int ch=chance; while(chance>0) { if(Math.random()<0.5) {
+		 * loss++; stack=stack-bet; } else { win++; stack=stack+bet; }
 		 * 
-		 * chance--; } System.out.println("win "+win);
-		 * System.out.println("loss "+loss);
+		 * chance--; } System.out.println("win "+win); System.out.println("loss "+loss);
 		 * System.out.println("win percentage is "+win*100/ch);
 		 * System.out.println("win percentage is "+loss*100/ch);
 		 * System.out.println("remaining stack "+stack);
@@ -297,6 +297,12 @@ public class FunctionalUtility<E> {
 		System.out.println("Time of stopwatch is : " + time + "millisec");
 		System.out.println("Time of stopwatch is : " + (time / 1000) + "sec");
 		System.out.println("Time in minutes is : " + (time / 60000) + "mins");
+	}
+
+	// wind chill
+	public double calcWindChill(double t, double v) {
+		double w = 35.74 + 0.6215 * t + (0.4275 * t - 35.75) * Math.pow(v, 0.16);
+		return w;
 	}
 
 }
