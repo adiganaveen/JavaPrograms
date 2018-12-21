@@ -352,10 +352,10 @@ public class FunctionalUtility<E> {
 	public static void iteration(String s)
 	{
 		// create an empty ArrayList to store (partial) permutations
-		List<String> partial = new ArrayList<>();
+		ArrayList<String> arr = new ArrayList<>();
 
 		// initialize the list with the first character of the string
-		partial.add(String.valueOf(s.charAt(0)));
+		arr.add(String.valueOf(s.charAt(0)));
 
 		// do for every character of the specified string
 		for (int i = 1; i < s.length(); i++)
@@ -363,10 +363,10 @@ public class FunctionalUtility<E> {
 			// consider previously constructed partial permutation one by one
 
 			// (iterate backwards to avoid ConcurrentModificationException)
-			for (int j = partial.size() - 1; j >= 0 ; j--)
+			for (int j = arr.size() - 1; j >= 0 ; j--)
 			{
 				// remove current partial permutation from the ArrayList
-				String str = partial.remove(j);
+				String str = arr.remove(j);
 
 				// Insert next character of the specified string in all
 				// possible positions of current partial permutation. Then
@@ -375,14 +375,15 @@ public class FunctionalUtility<E> {
 				for (int k = 0; k <= str.length(); k++)
 				{
 					// Advice: use StringBuilder for concatenation
-					partial.add(str.substring(0, k) + s.charAt(i) +
+					arr.add(str.substring(0, k) + s.charAt(i) +
 								str.substring(k));
 				}
 			}
 		}
 
-		System.out.println(partial);
+		System.out.println(arr);
 	}
+	
 	public String swap(String str,int i,int j)
 	{
 		char temp;
