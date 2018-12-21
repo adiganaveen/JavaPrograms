@@ -1,3 +1,10 @@
+//Range of prime numbers
+/*Naveen Adiga
+  21/12/2018
+ */
+
+
+
 package com.bridgelabz.algorithmprograms;
 
 import java.util.Scanner;
