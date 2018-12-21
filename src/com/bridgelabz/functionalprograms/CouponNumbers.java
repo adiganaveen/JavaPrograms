@@ -13,6 +13,8 @@ import java.util.Scanner;
 
 import com.bridgelabz.util.FunctionalUtility;
 
+
+
 public class CouponNumbers 
 {
 	public static void main(String[] args) 
