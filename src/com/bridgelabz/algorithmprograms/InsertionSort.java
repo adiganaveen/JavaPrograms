@@ -30,7 +30,7 @@ public class InsertionSort {
         int n=str.length;
         for(int i=0;i<n;i++)
         {
-        	System.out.println(str2[i] + i);
+        	System.out.println(str2[i] + " element in position "+i);
         }
 
         } 

@@ -23,7 +23,7 @@ public class VendingMachine
         int money3=money2-money;
         int [] curr= {1,2,5,50,10,500,100,1000};
         System.out.println("Change given to the customer is ");
-        algo.minChange(curr,money3);
+        algo.minChange(curr,money);
         System.out.println("total money given is "+money3);
 	}
 

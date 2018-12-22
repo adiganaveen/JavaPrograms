@@ -32,7 +32,7 @@ public class FunctionalUtility<E> {
 		if (Integer.toString(year).length() != 4) {
 			System.out.println("please enter the valid 4 digit year");
 		} else {
-			if (year % 400 == 0 || year % 4 == 0 && year % 100 != 0) {
+			if (year % 4 == 0 && year % 100 != 0 ||year % 400 == 0)  {
 				System.out.println(year + "is a leap year");
 			} else
 				System.out.println(year + "not a leap year");
@@ -43,16 +43,16 @@ public class FunctionalUtility<E> {
 	public void flipCoin(int num) {
 		int headcount = 0, tailcount = 0;
 		int n = num;
-		while (num > 0) {
+		while (n > 0) {
 
 			if (Math.random() < 0.5)
 				headcount++;
 			else
 				tailcount++;
-			num--;
+			n--;
 		}
 		System.out.println(
-				"percentage of head is " + headcount * 100 / n + " & percentage of tail is " + tailcount * 100 / n);
+				"percentage of head is " + headcount * 100 / num + " & percentage of tail is " + tailcount * 100 / num);
 
 	}
 
@@ -97,22 +97,9 @@ public class FunctionalUtility<E> {
 
 	// gambling
 	public void gambleing(int stack, int goal, int chance) {
-		/*
-		 * int win=0,loss=0; int ch=chance; while(chance>0) { if(Math.random()<0.5) {
-		 * loss++; stack=stack-bet; } else { win++; stack=stack+bet; }
-		 * 
-		 * chance--; } System.out.println("win "+win); System.out.println("loss "+loss);
-		 * System.out.println("win percentage is "+win*100/ch);
-		 * System.out.println("win percentage is "+loss*100/ch);
-		 * System.out.println("remaining stack "+stack);
-		 * System.out.println("remaining chance "+chance); if(goal>stack) {
-		 * System.out.println("goal not reached"); } else
-		 * System.out.println("goal reached");
-		 */
-
 		int win = 0, loss = 0;
 		// int bets = 0;
-		int trail = chance;
+		//int trail = chance;
 		for (int i = 0; i < chance; i++) {
 			int cash = stack;
 			while (cash > 0 && cash < goal) {
@@ -128,9 +115,9 @@ public class FunctionalUtility<E> {
 			else
 				loss++;
 		}
-		System.out.println(win + ":" + loss + ":" + trail);
-		System.out.println("win percentage is " + win * 100 / trail);
-		System.out.println("loss percentage is " + loss * 100 / trail);
+		System.out.println(win + ":" + loss + ":" + chance);
+		System.out.println("win percentage is " + win * 100 / chance);
+		System.out.println("loss percentage is " + loss * 100 / chance);
 		// System.out.println("average wins is "+bets*100/trail);
 	}
 
@@ -243,11 +230,11 @@ public class FunctionalUtility<E> {
 		return integerArray;
 	}
 
-	public void display(E[][] genericArray) {
+	public void display(E[][] genericArray,int row ,int column) {
 		PrintWriter pw = new PrintWriter(System.out, true);
 		System.out.println("The matrix form is ");
-		for (int i = 0; i <= genericArray.length - 1; i++) {
-			for (int j = 0; j <= genericArray.length - 1; j++) {
+		for (int i = 0; i <row; i++) {
+			for (int j = 0; j < column; j++) {
 				pw.print("\t" + genericArray[i][j] + " ");
 			}
 			pw.println();
@@ -272,7 +259,7 @@ public class FunctionalUtility<E> {
 	}
 
 	// simulate stop watch
-	long startTime = 0;
+	private long startTime = 0;
 	long stopTime = 0;
 	long diffTime = 0;
 
