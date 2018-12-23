@@ -1,8 +1,14 @@
-//Binary search
-/*Naveen Adiga
-  21/12/2018
- */
-
+/******************************************************************************
+ *  Compilation:  javac -d bin BinarySearsch.java
+ *  Execution:    java -cp bin com.bridgelabz.algorithmprogram.BinarySearsch n
+ *  
+ *  Purpose: Converts the given decimal number to binary number.
+ *
+ *  @author  Naveen Adiga
+ *  @version 1.0
+ *  @since   22-12-2018
+ *
+ ******************************************************************************/
 
 
 package com.bridgelabz.algorithmprograms;

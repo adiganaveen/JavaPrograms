@@ -102,7 +102,7 @@ public class AlgorithmUtility {
 				temp += count;
 			}
 			if (count > 0)
-				System.out.println(count + " x " + curr[i] + "rs to customer");
+				System.out.println(count + " x " + curr[i] + "rs");
 		}
 		System.out.println("minimum number of notes to be given is " + temp);
 
