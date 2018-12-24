@@ -2,7 +2,7 @@
  *  Compilation:  javac -d bin InsertionSort.java
  *  Execution:    java -cp bin com.bridgelabz.algorithmprogram.InsertionSort n
  *  
- *  Purpose: Finds the day of the week for the given date.
+ *  Purpose: Sorts array of strings using insertion sort.
  *
  *  @author  Naveen Adiga
  *  @version 1.0

@@ -19,7 +19,7 @@ public class FlipCoinPercentage {
 		int times = sc.nextInt();
 		func.flipCoin(times);
 		i++;
-		}while(i<5);
+		}while(i<6);
 	}
 
 }

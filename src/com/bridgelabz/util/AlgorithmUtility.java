@@ -10,6 +10,32 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class AlgorithmUtility {
+	
+	static Scanner scanner;
+	
+	public AlgorithmUtility()
+	{
+		scanner=new Scanner(System.in);
+	}
+	
+	public static int userInteger()
+	{
+		try {
+			return scanner.nextInt();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			
+		}
+	 
+		return 0;
+	}
+	
+	
+	
+	
+	
+	
 	// anagram detection
 	public boolean anagramDetection(String str1, String str2) {
 		char[] ch1 = str1.toLowerCase().toCharArray();
@@ -59,30 +85,21 @@ public class AlgorithmUtility {
 		BigInteger b = new BigInteger(String.valueOf(num));
 		return b.isProbablePrime(1);
 	}
-
-	// Binary search
-	public String[] binarySearch(int num) {
-		Scanner sc = new Scanner(System.in);
-		String[] names = new String[num];
-		for (int i = 0; i < names.length; i++) {
-			System.out.println("enter " + i + "th name now");
-			names[i] = sc.next();
-		}
-		Arrays.sort(names);
-		return names;
-	}
-
+	
+	
 	// insertion sort
-	public String[] sortArray(String str[]) {
-		String temp;
-		for (int i = 0; i < str.length; i++) {
-			for (int j = i + 1; j < str.length; j++) {
-				if ((str[i].compareTo(str[j])) > 0) {
-					temp = str[i];
-					str[i] = str[j];
-					str[j] = temp;
-				}
+	public static String[] sortArray(String str[]) {
+		int length=str.length;
+		for(int i=1;i<length;i++)
+		{
+			String key=str[i];
+			int j=i-1;
+			while(j>=0 && ((str[j].compareTo(key)>0)))
+			{
+				str[j+1]=str[j];
+				j=j-1;
 			}
+			str[j+1]=key;
 		}
 		return str;
 	}
@@ -130,8 +147,7 @@ public class AlgorithmUtility {
 	}
 
 	// bubble sort
-	public int[] bubbleSort(int[] arr, int len) {
-//		for (int i = len - 1; i >= 0; i--) 
+	public static int[] bubbleSort(int[] arr, int len) {
 			for (int i = 0; i < len; i++){
 			for (int j = i+1; j < len; j++) {
 				if (arr[i] > arr[j]) {
@@ -142,7 +158,7 @@ public class AlgorithmUtility {
 		return arr;
 	}
 
-	public void swap(int j, int k, int[] arr) {
+	public static void swap(int j, int k, int[] arr) {
 		int temp;
 		temp = arr[j];
 		arr[j] = arr[k];
@@ -194,4 +210,118 @@ public class AlgorithmUtility {
 			System.out.print(binary[j]);
 		}
 	}
+	
+	//binary search
+	
+	public static String []  sort(String [] str)
+	{
+		int len=str.length;
+		for (int i = 0; i < len; i++){
+			for (int j = i+1; j < len; j++) {
+				if (str[i].compareTo(str[j])>0) {
+					String temp;
+					temp=str[i];
+					str[i]=str[j];
+					str[j]=temp;
+				}
+			}
+		}
+		return str;
+	}
+	
+	public static int binarySearch(String [] str,String key)
+	{
+		//int n=str.length;
+		int first  = 0;
+	    int last   = str.length - 1;
+	    int middle = (first + last)/2;
+	 
+	    while( first <= last )
+	    {
+	      if ( str[middle].compareTo(key)<0 )
+	        first = middle + 1;    
+	      else if ( str[middle].compareTo(key)==0 )
+	      {
+	       return middle;
+	      }
+	      else
+	         last = middle - 1;
+	 
+	      middle = (first + last)/2;
+	   }
+	 return -1;
+	}
+	
+	//utility class
+	public static int []  sort(int [] arr)
+	{
+		int len=arr.length;
+		for (int i = 0; i < len; i++){
+			for (int j = i+1; j < len; j++) {
+				if (arr[i]>arr[j]) {
+					int temp;
+					temp=arr[i];
+					arr[i]=arr[j];
+					arr[j]=temp;
+				}
+			}
+		}
+		return arr;
+	}
+	
+	public static int binarySearch(int [] arr,int key)
+	{
+		//int n=str.length;
+		int first  = 0;
+	    int last   = arr.length - 1;
+	    int middle = (first + last)/2;
+	 
+	    while( first <= last )
+	    {
+	      if (arr[middle]<key)
+	        first = middle + 1;    
+	      else if ( arr[middle]==key)
+	      {
+	       return middle;
+	      }
+	      else
+	         last = middle - 1;
+	 
+	      middle = (first + last)/2;
+	   }
+	 return -1;
+	}
+	
+	public static int[] sortArray(int arr[]) {
+		int length=arr.length;
+		for(int i=1;i<length;i++)
+		{
+			int key=arr[i];
+			int j=i-1;
+			while(j>=0 && (arr[j]>key))
+			{
+				arr[j+1]=arr[j];
+				j=j-1;
+			}
+			arr[j+1]=key;
+		}
+		return arr;
+	}
+	
+	public static String[] bubbleSort(String[] str, int len) {
+		for (int i = 0; i < len; i++){
+		for (int j = i+1; j < len; j++) {
+			if (str[i].compareTo(str[j])>0) {
+				swap(i, j, str);
+			}
+		}
+	}
+	return str;
+	}
+	public static void swap(int j, int k, String[] str) {
+		String temp;
+		temp = str[j];
+		str[j] = str[k];
+		str[k] = temp;
+}
 }

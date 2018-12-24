@@ -27,7 +27,9 @@ public class FunctionalUtility<E> {
 		}
 	}
 
-	// leap_year
+	/**
+	 * @param year
+	 */
 	public void leapYear(int year) {
 		if (Integer.toString(year).length() != 4) {
 			System.out.println("please enter the valid 4 digit year");
@@ -289,6 +291,11 @@ public class FunctionalUtility<E> {
 	}
 
 	// wind chill
+	/**
+	 * @param t
+	 * @param v
+	 * @return
+	 */
 	public double calcWindChill(double t, double v) {
 		double w = 35.74 + 0.6215 * t + (0.4275 * t - 35.75) * Math.pow(v, 0.16);
 		return w;
