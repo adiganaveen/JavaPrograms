@@ -25,16 +25,16 @@ public class BubbleSort
 	*/
 	public static void main(String[] args) {
 		AlgorithmUtility algo=new AlgorithmUtility();
-        Scanner sc=new Scanner(System.in);
+//        Scanner sc=new Scanner(System.in);
       //Reading input number of integers to be sorted from user
         System.out.println("enter the number of elements in an array");
-        int num=sc.nextInt();
+        int num=AlgorithmUtility.userInteger();
         int [] arr=new int[num];
       //Reading input number of integers to be sorted from user
         for(int i=0;i<arr.length;i++)
         {
         	System.out.println("enter "+i+"th element of an array");
-        	arr[i]=sc.nextInt();
+        	arr[i]=AlgorithmUtility.userInteger();
         }
       //Method 1- using non-static function of AlgorithmUtility class of
       //com.bridgelabz.util package

@@ -25,14 +25,14 @@ public class MonthlyPayment {
 	*/
 	public static void main(String[] args) {
 		AlgorithmUtility algo = new AlgorithmUtility();
-        Scanner sc=new Scanner(System.in);
+//        Scanner sc=new Scanner(System.in);
       //Reading inputs from user
         System.out.println("enter PRINCIPAL loan amount");
-        double p=sc.nextDouble();
+        double p=AlgorithmUtility.userDouble();
         System.out.println("enter per cent of interest");
-        double r=sc.nextDouble();
+        double r=AlgorithmUtility.userDouble();
         System.out.println("enter number of years");
-        double y=sc.nextDouble();
+        double y=AlgorithmUtility.userDouble();
 //		String i = args[0];
 //		String j = args[1];
 //		String k = args[2];

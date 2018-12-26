@@ -24,7 +24,7 @@ import com.bridgelabz.util.AlgorithmUtility;
 public class BinarySearsch {
 	public static void main(String[] args) throws FileNotFoundException {
 //		AlgorithmUtility algo = new AlgorithmUtility();
-		Scanner sc = new Scanner(System.in);
+//		Scanner sc = new Scanner(System.in);
 		// Get scanner instance
 		String csvFile = "/home/admin1/Desktop/file.csv";
 		BufferedReader fileReader = new BufferedReader(new FileReader(csvFile));
@@ -47,7 +47,7 @@ public class BinarySearsch {
 					System.out.println(token);
 				}
 				System.out.println("enter the key word which has to be searched ");
-				String key = sc.next();
+				String key = AlgorithmUtility.userString();
 				int i = AlgorithmUtility.binarySearch(tokens, key);
 				if (i >= 0) {
 					System.out.println(tokens[i] + " is present in " + (i + 1) + " position in the array");

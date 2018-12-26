@@ -27,9 +27,9 @@ public class VendingMachine
 	*/
 	public static void main(String[] args) {
 		AlgorithmUtility algo=new AlgorithmUtility();
-        Scanner sc=new Scanner(System.in);
+//        Scanner sc=new Scanner(System.in);
         System.out.println("Enter amount to be getting from vending machine");
-        int money=sc.nextInt();
+        int money=AlgorithmUtility.userInteger();
         int [] curr= {1,2,5,50,10,500,100,1000};
         System.out.println("Types and number of notes to be given is : ");
       //Method 1- using non-static function of AlgorithmUtility class of com.bridgelabz.util package

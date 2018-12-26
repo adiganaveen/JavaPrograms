@@ -11,12 +11,12 @@ import java.util.Scanner;
 
 public class AlgorithmUtility {
 	
-	static Scanner scanner;
+	static Scanner scanner=new Scanner(System.in);
 	
-	public AlgorithmUtility()
-	{
-		scanner=new Scanner(System.in);
-	}
+//	public AlgorithmUtility()
+//	{
+//		scanner=;
+//	}
 	
 	public static int userInteger()
 	{
@@ -27,9 +27,48 @@ public class AlgorithmUtility {
 			e.printStackTrace();
 			
 		}
-	 
 		return 0;
+	 
+	
 	}
+	public static double userDouble()
+	{
+		try {
+			return scanner.nextDouble();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			
+		}
+	 
+		return 0.0;
+	}
+	public static boolean userBoolean()
+	{
+		try {
+			return scanner.nextBoolean();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			
+		}
+	 
+		return false;
+	}
+	public static String userString()
+	{
+		try {
+			return scanner.next();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			
+		}
+		return null;
+	 
+		
+	}
+	
 	
 	
 	
@@ -46,22 +85,30 @@ public class AlgorithmUtility {
 		} else {
 			Arrays.sort(ch1);
 			Arrays.sort(ch2);
-			for (int i = 0; i < ch1.length; i++) {
-				if (ch1[i] == ch2[i]) {
-					return true;
-				}
-//			str1 = String.valueOf(ch1);
-//			str2 = String.valueOf(ch2);
-//			boolean  b = str1.equals(str2);
+//			for(int i=0;i<ch1.length;i++)
 //			{
-//				if (b == true)
-//					return true;
+//				System.out.print(ch1[i]);
 //			}
+//			System.out.println();
+//			for(int i=0;i<ch2.length;i++)
+//			{
+//				System.out.print(ch2[i]);
+//			}
+//			for (int i = 0; i < ch1.length; i++) {
+//				if (ch1[i] == ch2[i]) {
+//					return true;
+//				}
+			str1 = String.valueOf(ch1);
+			str2 = String.valueOf(ch2);
+			boolean  b = str1.equals(str2);
+			{
+				if (b == true)
+					return true;
+			}
 			}
 			return false;
 		}
 
-	}
 
 	// to find range of prime numbers
 	public boolean findPrimeNumber(long num) {
@@ -106,6 +153,10 @@ public class AlgorithmUtility {
 
 	// Vending Machine
 
+	/**
+	 * @param curr
+	 * @param money
+	 */
 	public void minChange(int[] curr, int money) {
 
 		int cash = money;
@@ -195,9 +246,9 @@ public class AlgorithmUtility {
 	}
 	
 	//to binary
-	public static void toBinary(int num)
+	public static int[] toBinary(int num)
 	{
-		int[] binary=new int[100];
+		int[] binary=new int[32];
 		int i=0;
 		while(num>0)
 		{
@@ -205,10 +256,7 @@ public class AlgorithmUtility {
 			 num=num/2;
 			 i++;
 		}
-		for(int j=i;j>=0;j--)
-		{
-			System.out.print(binary[j]);
-		}
+		return binary;
 	}
 	
 	//binary search
@@ -245,7 +293,8 @@ public class AlgorithmUtility {
 	       return middle;
 	      }
 	      else
-	         last = middle - 1;
+	         last = 
+	         middle - 1;
 	 
 	      middle = (first + last)/2;
 	   }
@@ -324,4 +373,203 @@ public class AlgorithmUtility {
 		str[j] = str[k];
 		str[k] = temp;
 }
+	
+	//find a number
+	public static void findNumber(int first,int last,int middle,int count,int num)
+	{
+		System.out.println();
+		System.out.println("is your number "+middle);
+		System.out.println("Enter your answer in 'yes' or 'high' or 'low'");
+		String temp=userString();
+		do
+		{
+			if(temp.equals("low"))
+			{
+				last=middle-1;
+				count++;
+				middle=(first+last)/2;
+				findNumber(first,last,middle,count,num);
+				
+			}
+			else if(temp.equals("high"))
+			{
+				first=middle+1;
+				count++;
+				middle=(first+last)/2;
+				findNumber(first,last,middle,count,num);
+			}
+			else 
+			{
+				System.out.println("your number is "+middle);
+				System.out.println("Total number of times it took to find your number is "+(count+1));
+				break;
+			}
+			break;
+		}while(first<last);
+		
+	}
+	
+	
+	//merge sort
+	public static void sort(String [] str,int first,int last)
+	{
+		if(first<last)
+		{
+			int middle=(first+last)/2;
+			sort(str,first,middle);
+			sort(str,middle+1,last);
+			mergeSort(str,first,middle,last);
+		}
+//		else
+//		{
+//			System.out.println("array elements are:");
+//			System.out.println(str[first]);
+//		}
+	}
+	public static void mergeSort(String [] str,int first,int middle,int last)
+	{
+		int n1=middle-first+1;
+		int n2=last-middle;
+		String [] leftArr=new String[n1];
+		String [] rightArr=new String[n2];
+		for(int i=0;i<n1;i++)
+		{
+			leftArr[i]=str[first+i];
+		}
+		for(int i=0;i<n2;i++)
+		{
+			rightArr[i]=str[middle+1+i];
+		}
+		
+		 int i = 0, j = 0; 
+	     int k = first; 
+	     while (i < n1 && j < n2) 
+	     { 
+	            if (leftArr[i].compareTo(rightArr[j])<=0) 
+	            { 
+	                str[k] = leftArr[i]; 
+	                i++; 
+	            } 
+	            else
+	            { 
+	                str[k] = rightArr[j]; 
+	                j++; 
+	            } 
+	            k++; 
+	        } 
+	  
+	        /* Copy remaining elements of L[] if any */
+	        while (i < n1) 
+	        { 
+	            str[k] = leftArr[i]; 
+	            i++; 
+	            k++; 
+	        } 
+	  
+	        /* Copy remaining elements of R[] if any */
+	        while (j < n2) 
+	        { 
+	            str[k] = rightArr[j]; 
+	            j++; 
+	            k++; 
+	        } 
+	}
+	public static void printArray(String str[]) 
+    { 
+        int n = str.length; 
+        System.out.println("Sorted elements are:");
+        for (int i=0; i<n; ++i) 
+            System.out.println(str[i] + " Position: "+i); 
+        System.out.println(); 
+    } 
+			
+	//binary
+	public static int[] decimalToBinary(int num)
+	{
+		int[] binary=new int[8];
+		int i=0;
+		while(num>0)
+		{
+			 binary[i]=num%2;
+			 num=num/2;
+			 i++;
+		}
+		return binary;
+	}
+	
+	public static int [] swapNibble(int first,int middle,int last,int [] binary)
+	{
+		int n1=middle-first+1;
+		int n2=last-middle;
+		int [] left_array=new int[n1];
+		int [] right_array=new int[n2];
+		int [] binary2=new int[8];
+		int k=0;
+		for(int i=middle+1;i<=last;i++)
+		{
+			left_array[k]=binary[i];
+			k++;
+		}
+//		for(int j=0;j<left_array.length;j++)
+//		{
+//			System.out.print(left_array[j]);
+//		}
+//		System.out.println();
+//		System.out.println();
+		int l=0;
+		for(int i=0;i<=middle;i++)
+		{
+			right_array[l]=binary[i];
+			l++;
+		}
+//		for(int i=0;i<right_array.length;i++)
+//		{
+//			System.out.print(right_array[i]);
+//		}
+		System.out.println();
+		int i=0,j=0;
+		int m=0;
+		while(j<n1)
+		{
+			binary2[m]=left_array[j];
+			j++;
+			m++;
+		}
+		while(i<n2)
+		{
+			binary2[m]=right_array[i];
+			i++;
+			m++;
+		}
+		return binary2;
+		
+	}
+	
+	
+	public static int decimal(int [] binary)
+	{
+		int num2=binary.length-1;
+		int sum=0;
+//		System.out.println(num2);
+		for(int i=0;i<binary.length;i++)
+		{
+			int res=(int)(Math.pow(2, num2));
+			sum+=(binary[i]*res);
+			num2--;
+		}
+		return sum;
+	}
+	
+	 public static boolean powerOf2(int number){
+		  if(number<=0){
+		   return false;
+		  }
+		  while(number > 1){
+		   if(number % 2 != 0){
+		    return false;
+		   }
+		   number = number / 2;
+		  }
+		  return true;
+		 }
 }

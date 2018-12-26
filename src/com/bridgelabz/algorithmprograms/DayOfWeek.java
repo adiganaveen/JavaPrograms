@@ -35,14 +35,14 @@ public class DayOfWeek
 //		int day=Integer.parseInt(j);
 //		int year=Integer.parseInt(k);
 		AlgorithmUtility algo=new AlgorithmUtility();
-		Scanner sc=new Scanner(System.in);
+//		Scanner sc=new Scanner(System.in);
 		//Reading inputs from the user
 		System.out.println("enter day");
-		int day=sc.nextInt();
+		int day=AlgorithmUtility.userInteger();
 		System.out.println("enter month");
-		int month=sc.nextInt();
+		int month=AlgorithmUtility.userInteger();
 		System.out.println("enter year");
-		int year=sc.nextInt();
+		int year=AlgorithmUtility.userInteger();
 		System.out.println();
 		//Method 1- using non-static function of AlgorithmUtility class of com.bridgelabz.util package		
 		algo.dayIs(month, day, year);

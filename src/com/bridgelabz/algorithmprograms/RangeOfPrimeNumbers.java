@@ -27,10 +27,10 @@ public class RangeOfPrimeNumbers
 	*/
 	public static void main(String[] args) {
 		AlgorithmUtility algo=new AlgorithmUtility();
-		Scanner sc=new Scanner(System.in);
+//		Scanner sc=new Scanner(System.in);
 		//Reading inputs from user
 		System.out.println("enter the range it where prime numbers has to be found");
-		int num=sc.nextInt();
+		int num=AlgorithmUtility.userInteger();
 		for(int i=2;i<=num;i++)
 		{
 

@@ -25,16 +25,12 @@ public class SqrtOfNumber {
 	*/
 	public static void main(String[] args) {
 	AlgorithmUtility algo=new AlgorithmUtility();
-	int i=0;
-	do {
-    Scanner sc=new Scanner(System.in);
+//    Scanner sc=new Scanner(System.in);
   //Reading input from the user
     System.out.println("enter the number number to find its square root");
-    double num=sc.nextDouble();
+    double num=AlgorithmUtility.userDouble();
   //Method 1- using non-static function of AlgorithmUtility class of com.bridgelabz.util package
     algo.sqrt(num);
     System.out.println();
-    i++;
-	}while(i<=5);
 	}
 }

@@ -25,13 +25,19 @@ public class ToBinary
 	*/
 	public static void main(String[] args) {
 		AlgorithmUtility algo=new AlgorithmUtility();
-		Scanner sc=new Scanner(System.in);
+//		Scanner sc=new Scanner(System.in);
 		//Reading the input from the user
 		System.out.println("enter the decimal number");
-		int num=sc.nextInt();
+		int num=AlgorithmUtility.userInteger();
 		//Method 1- using non-static function of AlgorithmUtility class of com.bridgelabz.util package
 				
-		algo.toBinary(num);
+		int [] binary=algo.toBinary(num);
+		int len=binary.length;
+		System.out.println(len);
+		for(int i=binary.length-1;i>=0;i--)
+		{
+			System.out.print(binary[i]);
+		}
 	}
 
 }

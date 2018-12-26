@@ -27,15 +27,15 @@ public class TemperatureConversion
 	*/
 	public static void main(String[] args) {
 		AlgorithmUtility algo=new AlgorithmUtility();
-        Scanner sc=new Scanner(System.in);
+//        Scanner sc=new Scanner(System.in);
       //Reading the input from the user
         System.out.println("enter the celsius to be converted to fahrenheit");
-        double celsius=sc.nextDouble();
+        double celsius=AlgorithmUtility.userDouble();
       //Method 1- using non-static function of AlgorithmUtility class of com.bridgelabz.util package
         algo.tempCToF(celsius);
       //Reading the input from the user
         System.out.println("enter the  to be converted to celsius");
-        double fahrenheit=sc.nextDouble();
+        double fahrenheit=AlgorithmUtility.userDouble();
       //Method 2- using non-static function of AlgorithmUtility class of com.bridgelabz.util package
         algo.tempFToC(fahrenheit);
 	}

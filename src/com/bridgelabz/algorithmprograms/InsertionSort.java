@@ -28,15 +28,15 @@ public class InsertionSort {
     public static void main(String[] args)
     {  
         AlgorithmUtility algo=new AlgorithmUtility();
-        Scanner sc=new Scanner(System.in);
+//        Scanner sc=new Scanner(System.in);
       //Reading inputs from the user
         System.out.println("enter the number of string to be entered");
-        int num=sc.nextInt();
+        int num=AlgorithmUtility.userInteger();
         String[] str=new String[num];
         for(int i=0;i<str.length;i++)
         {
         	System.out.println("enter "+(i+1)+" string");
-        	str[i]=sc.next();
+        	str[i]=AlgorithmUtility.userString();
         }
       //Method 1- using non-static function of AlgorithmUtility class of com.bridgelabz.util package
       		

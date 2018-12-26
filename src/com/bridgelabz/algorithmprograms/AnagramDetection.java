@@ -26,15 +26,15 @@ public class AnagramDetection
 	*/
 	public static void main(String[] args) {
 		AlgorithmUtility algo=new AlgorithmUtility();
-		Scanner sc=new Scanner(System.in);
 		//Reading input two input strings from user
 		System.out.println("Enter the first string");
-		String str1=sc.nextLine();
+		String str1=AlgorithmUtility.userString();
 		//Reading input two input strings from user
 		System.out.println("Enter the second string");
-		String str2=sc.nextLine();
+		String str2=AlgorithmUtility.userString();
 		//Method 1- using non-static function of AlgorithmUtility class of com.bridgelabz.util package
 		boolean b1=algo.anagramDetection(str1,str2);
+		System.out.println();
 		if(b1==true)
 		{
 			System.out.println("the given two strings "+str1+" and "+str2+" are anagram");
