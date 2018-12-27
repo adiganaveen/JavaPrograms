@@ -13,15 +13,18 @@
 package com.bridgelabz.algorithmprograms;
 
 import java.io.BufferedReader;
-import java.io.File;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.Arrays;
-import java.util.Scanner;
+
 
 import com.bridgelabz.util.AlgorithmUtility;
 
 public class BinarySearsch {
+	/*
+	* The main function is written to take input from the user and
+	* calls binarySeacrhFile function to search word from list
+	*/
 	public static void main(String[] args) throws FileNotFoundException {
 //		AlgorithmUtility algo = new AlgorithmUtility();
 //		Scanner sc = new Scanner(System.in);
@@ -38,6 +41,7 @@ public class BinarySearsch {
 			while ((line = fileReader.readLine()) != null) {
 				// Get all tokens available in line
 				String[] tokens = line.split(DELIMITER);
+				//Method 1- using static function of AlgorithmUtility class of com.bridgelabz.util package
 				AlgorithmUtility.sort(tokens);
 //				for(int i=0;i<tokens.length;i++) {
 //					System.out.println(tokens[i]);
@@ -48,6 +52,7 @@ public class BinarySearsch {
 				}
 				System.out.println("enter the key word which has to be searched ");
 				String key = AlgorithmUtility.userString();
+				//Method 2- using static function of AlgorithmUtility class of com.bridgelabz.util package
 				int i = AlgorithmUtility.binarySearch(tokens, key);
 				if (i >= 0) {
 					System.out.println(tokens[i] + " is present in " + (i + 1) + " position in the array");

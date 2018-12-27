@@ -12,26 +12,31 @@
 
 package com.bridgelabz.algorithmprograms;
 
-import java.util.Scanner;
+
 
 import com.bridgelabz.util.AlgorithmUtility;
 
 public class FindANumber {
+	/*
+	* The main function is written to take input from the user and and 
+	* find a number
+	*/
 
 	public static void main(String[] args) 
 	{
 		//Scanner scanner=new Scanner(System.in);
 		System.out.println("enter the number");
-		int num=AlgorithmUtility.userInteger();
+		int num=AlgorithmUtility.userInteger();//user input
 		int range=(int)(Math.pow(2, num));
 		System.out.println("Take number between '0' to "+(range-1));
 		System.out.println();
 		System.out.println("Is the number selected");
-		boolean i=AlgorithmUtility.userBoolean();
+		AlgorithmUtility.userBoolean();//user input
 		int first=0;
 		int last=range-1;
 		int middle=(first+last)/2;
 		int count=0;
+		//Method 1- using static function of AlgorithmUtility class of com.bridgelabz.util package
 		AlgorithmUtility.findNumber(first,last,middle,count,num);		
 
 	}

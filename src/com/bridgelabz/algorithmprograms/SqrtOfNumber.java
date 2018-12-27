@@ -14,7 +14,7 @@
 
 package com.bridgelabz.algorithmprograms;
 
-import java.util.Scanner;
+
 
 import com.bridgelabz.util.AlgorithmUtility;
 
@@ -24,13 +24,14 @@ public class SqrtOfNumber {
 	* call the squareRoot() function that finds square root of a number
 	*/
 	public static void main(String[] args) {
-	AlgorithmUtility algo=new AlgorithmUtility();
+//	AlgorithmUtility algo=new AlgorithmUtility();
 //    Scanner sc=new Scanner(System.in);
   //Reading input from the user
     System.out.println("enter the number number to find its square root");
     double num=AlgorithmUtility.userDouble();
-  //Method 1- using non-static function of AlgorithmUtility class of com.bridgelabz.util package
-    algo.sqrt(num);
+  //Method 1- using static function of AlgorithmUtility class of com.bridgelabz.util package
+    double t=AlgorithmUtility.sqrt(num);
+    System.out.println("square of " + num + " is : " + t);
     System.out.println();
 	}
 }

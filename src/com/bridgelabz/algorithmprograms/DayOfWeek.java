@@ -14,8 +14,7 @@
 
 package com.bridgelabz.algorithmprograms;
 
-import java.math.BigInteger;
-import java.util.Scanner;
+
 
 import com.bridgelabz.util.AlgorithmUtility;
 
@@ -34,18 +33,20 @@ public class DayOfWeek
 //		int month=Integer.parseInt(i);
 //		int day=Integer.parseInt(j);
 //		int year=Integer.parseInt(k);
-		AlgorithmUtility algo=new AlgorithmUtility();
+//		AlgorithmUtility algo=new AlgorithmUtility();
 //		Scanner sc=new Scanner(System.in);
 		//Reading inputs from the user
 		System.out.println("enter day");
-		int day=AlgorithmUtility.userInteger();
+		int day=AlgorithmUtility.userInteger();//user input
 		System.out.println("enter month");
-		int month=AlgorithmUtility.userInteger();
+		int month=AlgorithmUtility.userInteger();//user input
 		System.out.println("enter year");
-		int year=AlgorithmUtility.userInteger();
+		int year=AlgorithmUtility.userInteger();//user input
 		System.out.println();
-		//Method 1- using non-static function of AlgorithmUtility class of com.bridgelabz.util package		
-		algo.dayIs(month, day, year);
+		//Method 1- using static function of AlgorithmUtility class of com.bridgelabz.util package		
+		int day1=AlgorithmUtility.dayIs(month, day, year);
+		String[] str = { "sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday" };
+		System.out.println(str[day1]);
 		
 	}
 

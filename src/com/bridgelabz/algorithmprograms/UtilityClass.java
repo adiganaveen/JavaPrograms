@@ -14,9 +14,12 @@
 
 package com.bridgelabz.algorithmprograms;
 
+
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
 
 import com.bridgelabz.util.AlgorithmUtility;
 
@@ -24,11 +27,14 @@ public class UtilityClass
 {
 	public static void main(String[] args) 
 	{
+		int z=0;
+		List<Double> timeList1=new ArrayList<>();
+		List<Double> timeList2=new ArrayList<>();
+		Map<String ,Double> map1=new HashMap<String ,Double>();
+		Map<String ,Double> map2=new HashMap<String ,Double>();
 		
-		Map<String, Integer> map=new HashMap();
-//		map.put(key, value);
-//		Scanner scanner=new Scanner(System.in);
-		System.out.println("1.Binary Search\n 2.Insertion sort\n 3.Bubble sort");
+		do {
+		System.out.println(" 1.Binary Search\n 2.Insertion sort\n 3.Bubble sort\n To exit");
 		int choice1=AlgorithmUtility.userInteger();
 		switch(choice1)
 		{
@@ -51,18 +57,20 @@ public class UtilityClass
 //			    		}
 			    		System.out.println("Enter the key :");
 			    		int key1=AlgorithmUtility.userInteger();
-			    		long start_time1=System.nanoTime();
+			    		double start_time1=AlgorithmUtility.startTime();
 			    		int [] arr2=AlgorithmUtility.sort(arr);
 			    		int i = AlgorithmUtility.binarySearch(arr2, key1);
-			    		long stop_time1=System.nanoTime();
+			    		double stop_time1=AlgorithmUtility.stopTime();
 						if (i >= 0) {
 							System.out.println(arr2[i] + " is present in " + (i + 1) + " position in the array");
 						} else
 						{
 							System.out.println(key1 + " doesnot exists in the given csv file");
 						}
-						long elapsed_time1=stop_time1-start_time1;
+						double elapsed_time1=AlgorithmUtility.elapsedTime(start_time1, stop_time1);
 						System.out.println("elapsed time is :"+elapsed_time1);
+						map1.put("Integer Binary Search ",elapsed_time1);
+						timeList1.add(elapsed_time1);
 			    		break;
 			    		
 			    case 2: System.out.println("Enter the number of elements in an array");
@@ -189,10 +197,12 @@ public class UtilityClass
 				break;
 				}
 				break;
+		case 4:System.exit(0);
 		default : System.out.println("Please select correct choice ");
 		break;
 		}
-		
+		z++;
+	}while(z<=7);
 	}
 
 }

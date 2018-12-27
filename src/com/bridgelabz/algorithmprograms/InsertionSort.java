@@ -16,7 +16,6 @@
 package com.bridgelabz.algorithmprograms;
 
 
-import java.util.Scanner;
 
 import com.bridgelabz.util.AlgorithmUtility;
 
@@ -27,20 +26,20 @@ public class InsertionSort {
 	*/
     public static void main(String[] args)
     {  
-        AlgorithmUtility algo=new AlgorithmUtility();
+//        AlgorithmUtility algo=new AlgorithmUtility();
 //        Scanner sc=new Scanner(System.in);
       //Reading inputs from the user
         System.out.println("enter the number of string to be entered");
-        int num=AlgorithmUtility.userInteger();
+        int num=AlgorithmUtility.userInteger(); //user input
         String[] str=new String[num];
         for(int i=0;i<str.length;i++)
         {
         	System.out.println("enter "+(i+1)+" string");
-        	str[i]=AlgorithmUtility.userString();
+        	str[i]=AlgorithmUtility.userString(); //user input
         }
-      //Method 1- using non-static function of AlgorithmUtility class of com.bridgelabz.util package
+      //Method 1- using static function of AlgorithmUtility class of com.bridgelabz.util package
       		
-        String[] str2=algo.sortArray(str);
+        String[] str2=AlgorithmUtility.sortArray(str);
         int n=str.length;
         for(int i=0;i<n;i++)
         {

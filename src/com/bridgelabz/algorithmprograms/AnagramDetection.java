@@ -10,36 +10,29 @@
  *
  ******************************************************************************/
 
-
 package com.bridgelabz.algorithmprograms;
-
-import java.security.AlgorithmConstraints;
-import java.util.Scanner;
 
 import com.bridgelabz.util.AlgorithmUtility;
 
-public class AnagramDetection 
-{
+public class AnagramDetection {
 	/*
-	* The main function is written to take input from the user and and 
-	* call the isAnagram function that checks anagram of two strings
-	*/
+	 * The main function is written to take input from the user and and call the
+	 * isAnagram function that checks anagram of two strings
+	 */
 	public static void main(String[] args) {
-		AlgorithmUtility algo=new AlgorithmUtility();
-		//Reading input two input strings from user
+//		AlgorithmUtility algo=new AlgorithmUtility();
+		// Reading input two input strings from user
 		System.out.println("Enter the first string");
-		String str1=AlgorithmUtility.userString();
-		//Reading input two input strings from user
+		String str1 = AlgorithmUtility.userString();
+		// Reading input two input strings from user
 		System.out.println("Enter the second string");
-		String str2=AlgorithmUtility.userString();
-		//Method 1- using non-static function of AlgorithmUtility class of com.bridgelabz.util package
-		boolean b1=algo.anagramDetection(str1,str2);
+		String str2 = AlgorithmUtility.userString();
+		// Method 1- using static function of AlgorithmUtility class of com.bridgelabz.util package
+		boolean b1 = AlgorithmUtility.anagramDetection(str1, str2);
 		System.out.println();
-		if(b1==true)
-		{
-			System.out.println("the given two strings "+str1+" and "+str2+" are anagram");
-		}
-		else 
-			System.out.println("the given two strings "+str1+" and "+str2+" are not an anagram");
+		if (b1 == true) {
+			System.out.println("the given two strings " + str1 + " and " + str2 + " are anagram");
+		} else
+			System.out.println("the given two strings " + str1 + " and " + str2 + " are not an anagram");
 	}
 }

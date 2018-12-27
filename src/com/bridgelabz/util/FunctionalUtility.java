@@ -1,48 +1,52 @@
-//It is functional utility class
-/*Naveen Adiga
-  18/12/2018
- */
-
+/******************************************************************************
+ *  Compilation:  javac -d bin FunctionalUtility.java
+ *  Execution:    java -cp bin package com.bridgelabz.functionalprograms.FunctionalUtility
+ *  
+ *  Purpose: Functional utility
+ *
+ *  @author  Naveen Adiga
+ *  @version 1.0
+ *  @since   18-12-2018
+ *
+ ******************************************************************************/
 package com.bridgelabz.util;
 
 
-import java.io.IOException;
-import java.io.OutputStreamWriter;
+
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
+
 import java.util.Scanner;
 
 public class FunctionalUtility<E> {
 
 	// replace_string
-	public void replaceString(String str, String uname) {
-		if (uname.length() < 3) {
-			System.out.println("enter a name greater than 3 alphabets");
-		} else {
+	/**
+	 * @param str
+	 * @param uname
+	 */
+	public static String replaceString(String str, String uname) {
 			String str2 = str.replace("<<UserName>>", uname);
-			System.out.println(str2);
-		}
+			return str2;
 	}
 
 	/**
 	 * @param year
 	 */
-	public void leapYear(int year) {
-		if (Integer.toString(year).length() != 4) {
-			System.out.println("please enter the valid 4 digit year");
-		} else {
+	public static boolean leapYear(int year) {
 			if (year % 4 == 0 && year % 100 != 0 ||year % 400 == 0)  {
-				System.out.println(year + "is a leap year");
+				return true;
 			} else
-				System.out.println(year + "not a leap year");
-		}
+				return false;
 	}
 
 	// flip_coin_percentage_head_or_tail
-	public void flipCoin(int num) {
+	/**
+	 * @param num
+	 */
+	public static void flipCoin(int num) {
 		int headcount = 0, tailcount = 0;
 		int n = num;
 		while (n > 0) {
@@ -59,13 +63,21 @@ public class FunctionalUtility<E> {
 	}
 
 	// power of a value
-	public void pow(double a, double b) {
+	/**
+	 * @param a
+	 * @param b
+	 */
+	public static double pow(double a, double b) {
 		double c = Math.pow(a, b);
-		System.out.println("value of 2 power " + b + " is " + c);
+		return c;
 	}
 
 	// harmonicvalue
-	public double harmonicValue(int n) {
+	/**
+	 * @param n
+	 * @return
+	 */
+	public static double harmonicValue(int n) {
 		double sum = 0.0;
 		if (n < 1)
 			return 2;
@@ -82,7 +94,10 @@ public class FunctionalUtility<E> {
 	 */
 
 	// primefactors
-	public void primeFactors(int n) {
+	/**
+	 * @param n
+	 */
+	public static void primeFactors(int n) {
 		while (n % 2 == 0) {
 			System.out.print(2 + " ");
 			n /= 2;
@@ -98,7 +113,12 @@ public class FunctionalUtility<E> {
 	}
 
 	// gambling
-	public void gambleing(int stack, int goal, int chance) {
+	/**
+	 * @param stack
+	 * @param goal
+	 * @param chance
+	 */
+	public static void gambleing(int stack, int goal, int chance) {
 		int win = 0, loss = 0;
 		// int bets = 0;
 		//int trail = chance;
@@ -124,6 +144,10 @@ public class FunctionalUtility<E> {
 	}
 
 	// Coupon_number
+	/**
+	 * @param n
+	 * @return
+	 */
 	public static int collect(int n) {
 		int[] couponBox = new int[n];
 		int count = 0;
@@ -141,13 +165,17 @@ public class FunctionalUtility<E> {
 	}
 
 	// Sum of 3 integer equal to zero
-	public void sumOfInterger(int[] arr, int n) {
+	/**
+	 * @param arr
+	 * @param n
+	 */
+	public static void sumOfInterger(int[] arr, int n) {
 		boolean found = false;
+		System.out.println("The posibilities are :");
 		for (int i = 0; i < n - 2; i++) {
 			for (int j = i + 1; j < n - 1; j++) {
 				for (int k = j + 1; k < n; k++) {
 					if (arr[i] + arr[j] + arr[k] == 0) {
-						System.out.println("The posibilities are :");
 						System.out.print(arr[i] + "+" + arr[j] + "+" + arr[k] + "=0");
 						found = true;
 					}
@@ -163,7 +191,13 @@ public class FunctionalUtility<E> {
 	// 2d array
 
 	// insertion on integer array
-	public Integer[][] arrayInt(int row, int column) {
+	/**
+	 * @param row
+	 * @param column
+	 * @return
+	 */
+	public static Integer[][] arrayInt(int row, int column) {
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		Integer[][] integerArray = new Integer[row][column];
 		System.out.println("enter integer array elements");
@@ -204,7 +238,13 @@ public class FunctionalUtility<E> {
 	// }
 
 	// insertion of double array
+	/**
+	 * @param row
+	 * @param column
+	 * @return
+	 */
 	public Double[][] arrayDouble(int row, int column) {
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		Double[][] integerArray = new Double[row][column];
 		System.out.println("enter double array elements");
@@ -218,7 +258,13 @@ public class FunctionalUtility<E> {
 	}
 
 	// insertion of boolean array
+	/**
+	 * @param row
+	 * @param column
+	 * @return
+	 */
 	public Boolean[][] arrayBoolean(int row, int column) {
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in); 	
 		Boolean[][] integerArray = new Boolean[row][column];
 		System.out.println("enter boolean array elements");
@@ -232,6 +278,11 @@ public class FunctionalUtility<E> {
 		return integerArray;
 	}
 
+	/**
+	 * @param genericArray
+	 * @param row
+	 * @param column
+	 */
 	public void display(E[][] genericArray,int row ,int column) {
 		PrintWriter pw = new PrintWriter(System.out, true);
 		System.out.println("The matrix form is ");
@@ -244,13 +295,23 @@ public class FunctionalUtility<E> {
 	}
 
 	// distance
-	public double getDistance(int x, int y) {
+	/**
+	 * @param x
+	 * @param y
+	 * @return
+	 */
+	public static double getDistance(int x, int y) {
 		double result = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
 		return result;
 	}
 
 	// to find roots
-	public void rootsValue(int a, int b, int c) {
+	/**
+	 * @param a
+	 * @param b
+	 * @param c
+	 */
+	public static void rootsValue(int a, int b, int c) {
 		double delta = (b * b) - (4 * a * c);
 		double d = Math.sqrt(delta);
 		double root1 = (-b + d) / (2 * a);
@@ -261,11 +322,14 @@ public class FunctionalUtility<E> {
 	}
 
 	// simulate stop watch
-	private long startTime = 0;
-	long stopTime = 0;
-	long diffTime = 0;
+	static long startTime = 0;
+	static long stopTime = 0;
+	static long diffTime = 0;
 
-	public void start() {
+	/**
+	 * 
+	 */
+	public static void start(int start) {
 		Calendar cal = Calendar.getInstance();
 		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
 		System.out.println(sdf.format(cal.getTime()));
@@ -273,7 +337,10 @@ public class FunctionalUtility<E> {
 		System.out.println("The start time is " + startTime);
 	}
 
-	public void stop() {
+	/**
+	 * 
+	 */
+	public static void stop(int stop) {
 		Calendar cal = Calendar.getInstance();
 		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
 		System.out.println(sdf.format(cal.getTime()));
@@ -281,13 +348,14 @@ public class FunctionalUtility<E> {
 		System.out.println("The stop time is " + stopTime);
 	}
 
-	public void differentialTime() {
+	/**
+	 * 
+	 */
+	public static long differentialTime(int diffTime) {
 		long time = stopTime - startTime;
 		// diffTime=startTime-stopTime;
 		// return diffTime;
-		System.out.println("Time of stopwatch is : " + time + "millisec");
-		System.out.println("Time of stopwatch is : " + (time / 1000) + "sec");
-		System.out.println("Time in minutes is : " + (time / 60000) + "mins");
+		return time;
 	}
 
 	// wind chill
@@ -296,14 +364,19 @@ public class FunctionalUtility<E> {
 	 * @param v
 	 * @return
 	 */
-	public double calcWindChill(double t, double v) {
+	public static double calcWindChill(double t, double v) {
 		double w = 35.74 + 0.6215 * t + (0.4275 * t - 35.75) * Math.pow(v, 0.16);
 		return w;
 	}
 	
 	
 	//recursive combination
-	public void recursion(String str,int initial,int last)
+	/**
+	 * @param str
+	 * @param initial
+	 * @param last
+	 */
+	public static void recursion(String str,int initial,int last)
 	{
 		if(initial==last)
 		{
@@ -320,29 +393,10 @@ public class FunctionalUtility<E> {
 			}
 		}
 	}
-//	public void iteration(String str,int num)
-//	{
-//		String str2="";
-//		int fact=1;
-//		for(int i=1;i<=num;i++)
-//		{
-//			fact= fact*i;
-//		}
-//		while(fact>0)
-//		{
-//		for(int i=0;i<num;i++)
-//		{
-//			for(int j=i;j<num;j++)
-//			{
-//			str2=swap(str,i,j);
-//			System.out.println(str2);
-//			
-//			}
-//			
-//		}
-//		fact--;
-//		}
-//		}
+
+	/**
+	 * @param s
+	 */
 	public static void iteration(String s)
 	{
 		// create an empty ArrayList to store (partial) permutations
@@ -378,7 +432,13 @@ public class FunctionalUtility<E> {
 		System.out.println(arr);
 	}
 	
-	public String swap(String str,int i,int j)
+	/**
+	 * @param str
+	 * @param i
+	 * @param j
+	 * @return
+	 */
+	public static String swap(String str,int i,int j)
 	{
 		char temp;
 		char [] ch=str.toCharArray();
@@ -394,6 +454,9 @@ public class FunctionalUtility<E> {
 	static int[][] BOARD = new int[3][3];
 	static boolean isEmpty = true;
 
+	/**
+	 * 
+	 */
 	public static void initBoard() {
 		System.out.println("TIC TAC TOE GAME\nComputer is o\nPlayer  is x ");
 		for (int i = 0; i < BOARD.length; i++) {
@@ -413,14 +476,14 @@ public class FunctionalUtility<E> {
 			for (int j = 0; j < BOARD[i].length; j++) {
 				if (BOARD[i][j] == 0) {
 					count++;
-					System.out.print(" o |");
+					System.out.print(" o ||");
 				} else if (BOARD[i][j] == 1) {
 					count++;
-					System.out.print(" x |");
+					System.out.print(" x ||");
 				} else
-					System.out.print("   |");
+					System.out.print("   ||");
 			}
-			System.out.println("|");
+			System.out.println(" ");
 		}
 		if (count == 9) {
 			isEmpty = false;
@@ -439,6 +502,7 @@ public class FunctionalUtility<E> {
 			i = (int) (Math.random() * 10) % 3;
 			j = (int) (Math.random() * 10) % 3;
 		} else {
+			@SuppressWarnings("resource")
 			Scanner s = new Scanner(System.in);
 			System.out.println("enter value of x and y by space");
 			i = s.nextInt();
@@ -453,6 +517,7 @@ public class FunctionalUtility<E> {
 			}
 		} else
 			putVal();
+		
 
 	}
 

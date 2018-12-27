@@ -1,7 +1,14 @@
-//Harmonic Number
-/*Naveen Adiga
-  18/12/2018
- */
+/******************************************************************************
+ *  Compilation:  javac -d bin HarmonicNumber.java
+ *  Execution:    java -cp bin package com.bridgelabz.functionalprograms.HarmonicNumber
+ *  
+ *  Purpose: Prints the Nth harmonic number: 1/1 + 1/2 + ... + 1/N
+ *
+ *  @author  Naveen Adiga
+ *  @version 1.0
+ *  @since   18-12-2018
+ *
+ ******************************************************************************/
 
 
 package com.bridgelabz.functionalprograms;
@@ -12,19 +19,26 @@ import com.bridgelabz.util.FunctionalUtility;
 
 public class HarmonicNumber 
 {
+	/*
+	* The main function is written to take input from the user and
+	* call harmonicValue function that prints harmonic value
+	*/
 	public static void main(String[] args) 
 	{
-		FunctionalUtility func=new FunctionalUtility();
+//		FunctionalUtility func=new FunctionalUtility();
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter the harmonic value of n");
+		//Reading the input from the user
 		int n=sc.nextInt();
-		double value=func.harmonicValue(n);
+		//Method 1- using static function of FunctionalUtilty class of com.bridgelabz.util package
+		double value=FunctionalUtility.harmonicValue(n);
 		if(value==2)
 		{
 			System.out.println("invalid harmonic value");
 		}
 		else
 		System.out.println("harmonic value of "+n+" is "+value);
+		sc.close();
 		//func.harmonicValue(n);
 	}
 }

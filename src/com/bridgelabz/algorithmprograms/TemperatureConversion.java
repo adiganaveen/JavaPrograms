@@ -15,7 +15,7 @@
 
 package com.bridgelabz.algorithmprograms;
 
-import java.util.Scanner;
+
 
 import com.bridgelabz.util.AlgorithmUtility;
 
@@ -26,18 +26,20 @@ public class TemperatureConversion
 	* call the tempConversion function that converts temperature
 	*/
 	public static void main(String[] args) {
-		AlgorithmUtility algo=new AlgorithmUtility();
+//		AlgorithmUtility algo=new AlgorithmUtility();
 //        Scanner sc=new Scanner(System.in);
       //Reading the input from the user
         System.out.println("enter the celsius to be converted to fahrenheit");
         double celsius=AlgorithmUtility.userDouble();
-      //Method 1- using non-static function of AlgorithmUtility class of com.bridgelabz.util package
-        algo.tempCToF(celsius);
+      //Method 1- using static function of AlgorithmUtility class of com.bridgelabz.util package
+        double temp=AlgorithmUtility.tempCToF(celsius);
+        System.out.println("fahrenheit =" + temp);
       //Reading the input from the user
         System.out.println("enter the  to be converted to celsius");
         double fahrenheit=AlgorithmUtility.userDouble();
-      //Method 2- using non-static function of AlgorithmUtility class of com.bridgelabz.util package
-        algo.tempFToC(fahrenheit);
+      //Method 2- using static function of AlgorithmUtility class of com.bridgelabz.util package
+        double temp2=AlgorithmUtility.tempFToC(fahrenheit);
+        System.out.println("celsius =" + temp2);
 	}
 
 }

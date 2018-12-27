@@ -14,7 +14,7 @@
 
 package com.bridgelabz.algorithmprograms;
 
-import java.util.Scanner;
+//import java.util.Scanner;
 
 import com.bridgelabz.util.AlgorithmUtility;
 
@@ -26,15 +26,16 @@ public class VendingMachine
 	* to be returned to the vending machine
 	*/
 	public static void main(String[] args) {
-		AlgorithmUtility algo=new AlgorithmUtility();
+//		AlgorithmUtility algo=new AlgorithmUtility();
 //        Scanner sc=new Scanner(System.in);
         System.out.println("Enter amount to be getting from vending machine");
-        int money=AlgorithmUtility.userInteger();
+        int money=AlgorithmUtility.userInteger(); //user input
         int [] curr= {1,2,5,50,10,500,100,1000};
         System.out.println("Types and number of notes to be given is : ");
-      //Method 1- using non-static function of AlgorithmUtility class of com.bridgelabz.util package
+      //Method 1- using static function of AlgorithmUtility class of com.bridgelabz.util package
       		
-        algo.minChange(curr,money);
+        int temp=AlgorithmUtility.minChange(curr,money);
+        System.out.println("minimum number of notes to be given is " + temp); //displaying result 
         //System.out.println("total money given is "+money);
 	}
 
