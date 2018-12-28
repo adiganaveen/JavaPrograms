@@ -16,6 +16,10 @@ import java.util.Scanner;
 
 
 public class CrossGame {
+	/*
+	* The main function is written to take input from the user and
+	* call cross game function to check who wins.
+	*/
 	static int player = 0;
 	static int[][] BOARD = new int[3][3];
 	static boolean isEmpty = true;
@@ -56,11 +60,6 @@ public class CrossGame {
 		}
 		System.out.println("---------------");
 	}
-	/*
-	 * static void putVal(int i, int j, int player) { if if (player % 2 == 0) {
-	 * BOARD[i][j] = 0; } else BOARD[i][j] = 1; }
-	 */
-
 	public static void putVal() {
 		int i;
 		int j;

@@ -20,14 +20,10 @@ public class AnagramDetection {
 	 * isAnagram function that checks anagram of two strings
 	 */
 	public static void main(String[] args) {
-//		AlgorithmUtility algo=new AlgorithmUtility();
-		// Reading input two input strings from user
 		System.out.println("Enter the first string");
 		String str1 = AlgorithmUtility.userString();
-		// Reading input two input strings from user
 		System.out.println("Enter the second string");
 		String str2 = AlgorithmUtility.userString();
-		// Method 1- using static function of AlgorithmUtility class of com.bridgelabz.util package
 		boolean b1 = AlgorithmUtility.anagramDetection(str1, str2);
 		System.out.println();
 		if (b1 == true) {

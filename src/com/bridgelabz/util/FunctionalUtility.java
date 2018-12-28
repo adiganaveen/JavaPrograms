@@ -252,32 +252,7 @@ public class FunctionalUtility<E> {
 		return integerArray;
 	}
 
-	// printing the array using printwriter
-	// public void display(int[][] arr1, double[][] arr2, boolean[][] arr3, int
-	// row, int column) {
-	// PrintWriter pw = new PrintWriter(System.out, true);
-	// pw.println("Array of integer");
-	// for (int i = 0; i < row; i++) {
-	// for (int j = 0; j < column; j++) {
-	// pw.print(arr1[i][j] + " ");
-	// }
-	// pw.println();
-	// }
-	// pw.println("Array of double");
-	// for (int i = 0; i < row; i++) {
-	// for (int j = 0; j < column; j++) {
-	// pw.print(arr2[i][j] + " ");
-	// }
-	// pw.println();
-	// }
-	// pw.println("Array of boolean");
-	// for (int i = 0; i < row; i++) {
-	// for (int j = 0; j < column; j++) {
-	// pw.print(arr3[i][j] + " ");
-	// }
-	// pw.println();
-	// }
-	// }
+	
 
 	// insertion of double array
 	/**

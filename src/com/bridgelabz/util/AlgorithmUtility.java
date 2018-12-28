@@ -28,74 +28,59 @@ import java.util.Set;
 public class AlgorithmUtility<E> {
 
 	/**
-	 * static object is created for Scanner class to avoid
-	 * multiple object creations of the same class.
+	 * static object is created for Scanner class to avoid multiple object creations
+	 * of the same class.
 	 */
 
 	static Scanner scanner = new Scanner(System.in);
 
 	/**
 	 * static function to read integers input from the user
+	 * 
 	 * @return integer values that are read
 	 */
 
 	public static int userInteger() {
-//		try {
-			return scanner.nextInt();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//
-//		}
-//		return 0;
+
+		return scanner.nextInt();
 
 	}
 
 	/**
 	 * static function to read double input from the user
+	 * 
 	 * @return double values that are read
 	 */
 	public static double userDouble() {
-//		try {
-			return scanner.nextDouble();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//
-//		}
-//
-//		return 0.0;
+
+		return scanner.nextDouble();
+
 	}
+
 	/**
 	 * static function to read boolean input from the user
+	 * 
 	 * @return boolean values that are read
 	 */
 	public static boolean userBoolean() {
-//		try {
-			return scanner.nextBoolean();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//
-//		}
-//
-//		return false;
+
+		return scanner.nextBoolean();
+
 	}
+
 	/**
 	 * static function to read string input from the user
+	 * 
 	 * @return strings that are read
 	 */
 	public static String userString() {
-//		try {
-			return scanner.next();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//
-//		}
-//		return null;
+		return scanner.next();
 
 	}
 
 	// anagram detection
 	/**
-	 *Static function to check if the two strings are anagram or not.
+	 * Static function to check if the two strings are anagram or not.
 	 * 
 	 * @param str1 the string to be checked for anagram
 	 * @param str2 the string to be checked for anagram
@@ -110,20 +95,6 @@ public class AlgorithmUtility<E> {
 		} else {
 			Arrays.sort(ch1);
 			Arrays.sort(ch2);
-			
-//			for(int i=0;i<ch1.length;i++)
-//			{
-//				System.out.print(ch1[i]);
-//			}
-//			System.out.println();
-//			for(int i=0;i<ch2.length;i++)
-//			{
-//				System.out.print(ch2[i]);
-//			}
-//			for (int i = 0; i < ch1.length; i++) {
-//				if (ch1[i] == ch2[i]) {
-//					return true;
-//				}
 			str1 = String.valueOf(ch1);
 			str2 = String.valueOf(ch2);
 			boolean b = str1.equals(str2);
@@ -137,7 +108,7 @@ public class AlgorithmUtility<E> {
 
 	// to find range of prime numbers
 	/**
-	 *static function to print the prime numbers for the given range
+	 * static function to print the prime numbers for the given range
 	 * 
 	 * @param num the integer that represents the range
 	 * @return integers that are prime numbers between the range
@@ -168,7 +139,7 @@ public class AlgorithmUtility<E> {
 	/**
 	 * static function to sort the given array of strings using insertion sort
 	 * 
-	 * @param array the array of strings that is to be sorted 
+	 * @param array the array of strings that is to be sorted
 	 * @return array the array of strings that are sorted
 	 */
 	public static String[] sortArray(String str[]) {
@@ -189,7 +160,7 @@ public class AlgorithmUtility<E> {
 
 	/**
 	 * 
-	 * @param curr the array of possible notes in integers
+	 * @param curr  the array of possible notes in integers
 	 * @param money the amount that you need change for
 	 * @return integer the minimum changes needed for the amount entered
 	 */
@@ -214,12 +185,12 @@ public class AlgorithmUtility<E> {
 
 	// Celsius to Fahrenheit:
 	/**
-	 * static function that converts given temperature from celcius to fahrenheit 
+	 * static function that converts given temperature from celcius to fahrenheit
 	 * 
 	 * @param celsius the choice to which temperature the user wants to convert to
 	 * @return temperature that is converted
 	 */
-	public static  double tempCToF(double celsius) {
+	public static double tempCToF(double celsius) {
 		double temp = (celsius * 9 / 5) + 32;
 		return temp;
 	}
@@ -227,7 +198,7 @@ public class AlgorithmUtility<E> {
 	// Fahrenheit to Celsius
 
 	/**
-	 * static function that converts given temperature from fahrenheit to celsius 
+	 * static function that converts given temperature from fahrenheit to celsius
 	 * 
 	 * @param celsius the choice to which temperature the user wants to convert to
 	 * @return temperature that is converted
@@ -241,10 +212,10 @@ public class AlgorithmUtility<E> {
 	/**
 	 * static function that calculates the monthly payment
 	 * 
-	 * @param principle the principle amount taken loan 
-	 * @param year the years to pay off
-	 * @param rate the interest rate 
-	 * @return monthly payment 
+	 * @param principle the principle amount taken loan
+	 * @param year      the years to pay off
+	 * @param rate      the interest rate
+	 * @return monthly payment
 	 */
 	public static double payment(double p, double r, double y) {
 		double n = 12 * y;
@@ -258,7 +229,7 @@ public class AlgorithmUtility<E> {
 	 * static function to sort the array using bubble sort algorithm
 	 * 
 	 * @param array the array of integers that is to be sorted
-	 * @param len the number of integers in the array
+	 * @param len   the number of integers in the array
 	 * @return integer array the array that is sorted
 	 */
 	public static int[] bubbleSort(int[] arr, int len) {
@@ -307,12 +278,12 @@ public class AlgorithmUtility<E> {
 	// day of week
 
 	/**
-	 * static function that finds the day of the week provided date 
+	 * static function that finds the day of the week provided date
 	 * 
 	 * @param month the numeric representation the of month
-	 * @param date the numeric representation the of date
-	 * @param year the numeric representation the of year
-	 * @return integer the numeric representation of the day 
+	 * @param date  the numeric representation the of date
+	 * @param year  the numeric representation the of year
+	 * @return integer the numeric representation of the day
 	 */
 	public static int dayIs(int month, int day, int year) {
 		int year1 = year - (14 - month) / 12;
@@ -324,7 +295,7 @@ public class AlgorithmUtility<E> {
 
 	// to binary
 	/**
-	 * static function that converts decimal to binary 
+	 * static function that converts decimal to binary
 	 * 
 	 * @param num the number that is to be converted to binary
 	 * @return array the array of integers that contains binary bits of the number
@@ -342,7 +313,6 @@ public class AlgorithmUtility<E> {
 
 	// binary search
 
-	
 	/**
 	 * static function that sorts the given array using bubble sort algorithm
 	 * 
@@ -365,12 +335,11 @@ public class AlgorithmUtility<E> {
 	}
 
 	/**
-	 * static function that search for the given key in a array using 
-	 * binary search algorithm
+	 * static function that search for the given key in a array using binary search
+	 * algorithm
 	 * 
-	 * @param array the array of strings from which key is to
-	 * 				be found
-	 * @param key the key to be searched in the array
+	 * @param array the array of strings from which key is to be found
+	 * @param key   the key to be searched in the array
 	 * @return index the index of the key, found in the array
 	 */
 	public static int binarySearch(String[] str, String key) {
@@ -415,12 +384,11 @@ public class AlgorithmUtility<E> {
 	}
 
 	/**
-	 * static function that search for the given key in a array using 
-	 * binary search algorithm
+	 * static function that search for the given key in a array using binary search
+	 * algorithm
 	 * 
-	 * @param array the array of integers from which key is to
-	 * 				be found
-	 * @param key the key to be searched in the array
+	 * @param array the array of integers from which key is to be found
+	 * @param key   the key to be searched in the array
 	 * @return index the index of the key, found in the array
 	 */
 	public static int binarySearch(int[] arr, int key) {
@@ -441,53 +409,51 @@ public class AlgorithmUtility<E> {
 		}
 		return -1;
 	}
-	
+
 	/**
 	 * to find start time
+	 * 
 	 * @return
 	 */
-	public static double startTime()
-	{
+	public static double startTime() {
 		return System.nanoTime();
 	}
+
 	/**
 	 * to find stop time
+	 * 
 	 * @return
 	 */
-	public static double stopTime()
-	{
+	public static double stopTime() {
 		return System.nanoTime();
 	}
+
 	/**
 	 * to find the elapsed time
+	 * 
 	 * @param s1
 	 * @param s2
 	 * @return
 	 */
-	public static double elapsedTime(double s1,double s2)
-	{
-		return s2-s1;
+	public static double elapsedTime(double s1, double s2) {
+		return s2 - s1;
 	}
-//	public static List<Double> listCall(List<Double> timeList)
-//	{
-//		Collections.sort(timeList);
-//		return timeList;
-//	}
+
 	/**
 	 * 
-	 * @param elapsed_time the map that contains [key, pair] values that
-	 * 		  represents algorithm and its elapsed time respectively.
+	 * @param elapsed_time the map that contains [key, pair] values that represents
+	 *                     algorithm and its elapsed time respectively.
 	 * @return map that contains the sorted map of [key,pair] values that are sorted
-	 * 			by values
+	 *         by values
 	 */
-	public static Map<String,Double> mapCall(Map<String,Double> map)
-	{
-		Map<String ,Double> sortMap=new LinkedHashMap<>();
+	public static Map<String, Double> mapCall(Map<String, Double> map) {
+		Map<String, Double> sortMap = new LinkedHashMap<>();
 		map.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
-		.forEachOrdered(x -> sortMap.put(x.getKey(), x.getValue()));
+				.forEachOrdered(x -> sortMap.put(x.getKey(), x.getValue()));
 		return sortMap;
-		
+
 	}
+
 	/**
 	 * static function that sorts the given array using insertion sort
 	 * 
@@ -508,12 +474,11 @@ public class AlgorithmUtility<E> {
 		return arr;
 	}
 
-	
 	/**
 	 * static function that sorts the given array using bubble sort algorithm
 	 * 
 	 * @param array the array of integers or strings to be sorted
-	 * @param len of the array
+	 * @param len   of the array
 	 * @return
 	 */
 	public static String[] bubbleSort(String[] str, int len) {
@@ -529,6 +494,7 @@ public class AlgorithmUtility<E> {
 
 	/**
 	 * swaping the elements of array of strings
+	 * 
 	 * @param j
 	 * @param k
 	 * @param str
@@ -542,14 +508,14 @@ public class AlgorithmUtility<E> {
 
 	// find a number
 	/**
-	 * static function that finds the number N that is guessed between the 
-	 * range of numbers such that the range is 2 to the power of N 
+	 * static function that finds the number N that is guessed between the range of
+	 * numbers such that the range is 2 to the power of N
 	 * 
-	 * @param first the lower bound among the range of the numbers 
-	 * @param last the upper bound among the range of the numbers
+	 * @param first  the lower bound among the range of the numbers
+	 * @param last   the upper bound among the range of the numbers
 	 * @param middle the upper bound among the range of the numbers
-	 * @param count the upper bound among the range of the numbers
-	 * @param num the upper bound among the range of the numbers
+	 * @param count  the upper bound among the range of the numbers
+	 * @param num    the upper bound among the range of the numbers
 	 */
 	public static void findNumber(int first, int last, int middle, int count, int num) {
 		System.out.println();
@@ -582,9 +548,9 @@ public class AlgorithmUtility<E> {
 	/**
 	 * static function that sorts the given array using merge sort algorithm
 	 * 
-	 * @param first the lower bound of the array 
+	 * @param first  the lower bound of the array
 	 * @param middle the higher bound of the array
-	 * @param last the higher bound of the array
+	 * @param last   the higher bound of the array
 	 * @return
 	 */
 	public static void sort(String[] str, int first, int last) {
@@ -594,21 +560,15 @@ public class AlgorithmUtility<E> {
 			sort(str, middle + 1, last);
 			mergeSort(str, first, middle, last);
 		}
-//		else
-//		{
-//			System.out.println("array elements are:");
-//			System.out.println(str[first]);
-//		}
 	}
 
 	/**
-	 * static function to merge the sorted arrays obtained from the 
-	 * merge function.
+	 * static function to merge the sorted arrays obtained from the merge function.
 	 * 
-	 * @param array the array of strings that are needed to be sorted
-	 * @param first the lower bound of the array 
+	 * @param array  the array of strings that are needed to be sorted
+	 * @param first  the lower bound of the array
 	 * @param middle the higher bound of the array
-	 * @param last the higher bound of the array
+	 * @param last   the higher bound of the array
 	 */
 	public static void mergeSort(String[] str, int first, int middle, int last) {
 		int n1 = middle - first + 1;
@@ -666,6 +626,7 @@ public class AlgorithmUtility<E> {
 	// binary
 	/**
 	 * static method to covert decimal number to binary
+	 * 
 	 * @param num
 	 * @return
 	 */
@@ -682,9 +643,10 @@ public class AlgorithmUtility<E> {
 
 	/**
 	 * static function that used to swap nibble of a byte
-	 * @param first elements of array
+	 * 
+	 * @param first  elements of array
 	 * @param middle elements of array
-	 * @param last elements of array
+	 * @param last   elements of array
 	 * @param binary array
 	 * @return integer integer that is swapped
 	 */
@@ -699,21 +661,13 @@ public class AlgorithmUtility<E> {
 			left_array[k] = binary[i];
 			k++;
 		}
-//		for(int j=0;j<left_array.length;j++)
-//		{
-//			System.out.print(left_array[j]);
-//		}
-//		System.out.println();
-//		System.out.println();
+
 		int l = 0;
 		for (int i = 0; i <= middle; i++) {
 			right_array[l] = binary[i];
 			l++;
 		}
-//		for(int i=0;i<right_array.length;i++)
-//		{
-//			System.out.print(right_array[i]);
-//		}
+
 		System.out.println();
 		int i = 0, j = 0;
 		int m = 0;
@@ -732,8 +686,9 @@ public class AlgorithmUtility<E> {
 	}
 
 	/**
-	 * static method is used to convert binary to decimal 
-	 * @param binary array 
+	 * static method is used to convert binary to decimal
+	 * 
+	 * @param binary array
 	 * @return decimal number
 	 */
 	public static int decimal(int[] binary) {
@@ -750,8 +705,9 @@ public class AlgorithmUtility<E> {
 
 	/**
 	 * static method is used to find factorial of 2
+	 * 
 	 * @param number find the factor of it
-	 * @return 
+	 * @return
 	 */
 	public static boolean powerOf2(int number) {
 		if (number <= 0) {
@@ -768,7 +724,7 @@ public class AlgorithmUtility<E> {
 	// Prime number which are anagram and palindrome
 
 	/**
-	 *static function to print the prime numbers for the given range
+	 * static function to print the prime numbers for the given range
 	 * 
 	 * @param num the integer that represents the range
 	 * @return list of integers that are prime numbers between the range
@@ -795,10 +751,9 @@ public class AlgorithmUtility<E> {
 	}
 
 	/**
-	 * static function that is used to add prime numbers that are
-	 * anagram 
+	 * static function that is used to add prime numbers that are anagram
 	 * 
-	 * @param new_lst the list of prime numbers 
+	 * @param new_lst the list of prime numbers
 	 * @return set of prime numbers that are anagram
 	 */
 	public static Set<Integer> primeAnagram(List<Integer> primeList) {
@@ -817,8 +772,8 @@ public class AlgorithmUtility<E> {
 	}
 
 	/**
-	 * static function that is used to add prime numbers that are 
-	 * anagram and palindrom
+	 * static function that is used to add prime numbers that are anagram and
+	 * palindrom
 	 * 
 	 * @param primeAnagramset the set of prime numbers that are anagram
 	 * @return set the set of prime numbers that are anagram and palindrom
@@ -840,6 +795,7 @@ public class AlgorithmUtility<E> {
 
 	/**
 	 * this static method is used to reverse integer
+	 * 
 	 * @param n integer number
 	 * @return reverse number
 	 */

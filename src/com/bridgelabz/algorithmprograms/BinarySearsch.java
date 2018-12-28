@@ -43,9 +43,6 @@ public class BinarySearsch {
 				String[] tokens = line.split(DELIMITER);
 				//Method 1- using static function of AlgorithmUtility class of com.bridgelabz.util package
 				AlgorithmUtility.sort(tokens);
-//				for(int i=0;i<tokens.length;i++) {
-//					System.out.println(tokens[i]);
-//				}
 				for (String token : tokens) {
 					// Print all tokens
 					System.out.println(token);
