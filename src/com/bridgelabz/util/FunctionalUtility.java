@@ -2,7 +2,8 @@
  *  Compilation:  javac -d bin FunctionalUtility.java
  *  Execution:    java -cp bin package com.bridgelabz.functionalprograms.FunctionalUtility
  *  
- *  Purpose: Functional utility
+ *  Purpose: Contains all the functions for the .java files in 
+ *  		 com.bridgelabz.functionalprogram package
  *
  *  @author  Naveen Adiga
  *  @version 1.0
@@ -25,8 +26,13 @@ public class FunctionalUtility<E> {
 
 	// replace_string
 	/**
-	 * @param str
-	 * @param uname
+	 * static function that is used to replace a string in a given template
+	 * 
+	 * @param str the string template whose substring is to be replaced
+	 * 			  with the another string
+	 * @param uname the string with which the string in the template
+	 * 		  is replaced
+	 * @return string the string template that is modified.
 	 */
 	public static String replaceString(String str, String uname) {
 		String message;
@@ -40,7 +46,10 @@ public class FunctionalUtility<E> {
 	}
 
 	/**
-	 * @param year
+	 *  static function to check if the given year is a leap year or not
+	 * 
+	 * @param year the year to be checked whether it is a leap year or not
+	 * @return true if leap year else false
 	 */
 	public static boolean leapYear(int year) {
 		if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
@@ -51,7 +60,10 @@ public class FunctionalUtility<E> {
 
 	// flip_coin_percentage_head_or_tail
 	/**
-	 * @param num
+	 * static function to find the head vs tail percentage after 
+	 * flipping the coin n times
+	 * 
+	 * @param n the number of times to flip a coin
 	 */
 	public static void flipCoin(int num) {
 		int headcount = 0, tailcount = 0;
@@ -71,8 +83,10 @@ public class FunctionalUtility<E> {
 
 	// power of a value
 	/**
-	 * @param a
-	 * @param b
+	 * static function to print all the values of the 2 power of N
+	 * 
+	 * @param a is the base value
+	 * @param b is the exponent value
 	 */
 	public static double pow(double a, double b) {
 		int i = 0;
@@ -88,8 +102,9 @@ public class FunctionalUtility<E> {
 
 	// harmonicvalue
 	/**
-	 * @param n
-	 * @return
+	 * static is used to find harmonic value of a number
+	 * @param n value to find harmonic
+	 * @return sum of it
 	 */
 	public static double harmonicValue(int n) {
 		double sum = 0.0;
@@ -109,7 +124,9 @@ public class FunctionalUtility<E> {
 
 	// primefactors
 	/**
-	 * @param n
+	 * static method to find the prime factors
+	 * 
+	 * @param n the number whose prime factors are to be found
 	 */
 	public static void primeFactors(int n) {
 		while (n % 2 == 0) {
@@ -128,9 +145,11 @@ public class FunctionalUtility<E> {
 
 	// gambling
 	/**
-	 * @param stack
-	 * @param goal
-	 * @param chance
+	 * static function to gamble 
+	 * 
+	 * @param stake the amount that is at stake
+	 * @param goal the amount to be obtained
+	 * @param chance the number of times gambled
 	 */
 	public static void gambleing(int stack, int goal, int chance) {
 		int win = 0, loss = 0;
@@ -159,8 +178,11 @@ public class FunctionalUtility<E> {
 
 	// Coupon_number
 	/**
-	 * @param n
-	 * @return
+	 * static function to generate distinct coupon numbers
+	 * 
+	 * @param num the number of coupon numbers to be generated
+	 * @return the count of random numbers of generated to obtain 
+	 * 			distinct coupon numbers
 	 */
 	public static int collect(int n) {
 		int[] couponBox = new int[n];
@@ -180,8 +202,10 @@ public class FunctionalUtility<E> {
 
 	// Sum of 3 integer equal to zero
 	/**
-	 * @param arr
-	 * @param n
+	 * static function to obtain triplet integers that gives 0 upon addition
+	 * 
+	 * @param arr integers in an array
+	 * @param length of the array
 	 */
 	public static void sumOfInterger(int[] arr, int n) {
 		boolean found = false;
@@ -209,9 +233,10 @@ public class FunctionalUtility<E> {
 
 	// insertion on integer array
 	/**
-	 * @param row
-	 * @param column
-	 * @return
+	 * static method is used to enter the values onto array
+	 * @param row value
+	 * @param column value
+	 * @return integer array
 	 */
 	public static Integer[][] arrayInt(int row, int column) {
 		@SuppressWarnings("resource")
@@ -256,9 +281,10 @@ public class FunctionalUtility<E> {
 
 	// insertion of double array
 	/**
-	 * @param row
-	 * @param column
-	 * @return
+	 * static method is used to enter the values onto array
+	 * @param row value
+	 * @param column value
+	 * @return double array
 	 */
 	public Double[][] arrayDouble(int row, int column) {
 		@SuppressWarnings("resource")
@@ -276,9 +302,10 @@ public class FunctionalUtility<E> {
 
 	// insertion of boolean array
 	/**
-	 * @param row
-	 * @param column
-	 * @return
+	 * static method is used to enter the values onto array
+	 * @param row value 
+	 * @param column value
+	 * @return boolean array 
 	 */
 	public Boolean[][] arrayBoolean(int row, int column) {
 		@SuppressWarnings("resource")
@@ -296,9 +323,10 @@ public class FunctionalUtility<E> {
 	}
 
 	/**
+	 * static generic method to display the generic array using printwritter
 	 * @param genericArray
-	 * @param row
-	 * @param column
+	 * @param row value
+	 * @param column value
 	 */
 	public void display(E[][] genericArray, int row, int column) {
 		PrintWriter pw = new PrintWriter(System.out, true);
@@ -313,9 +341,12 @@ public class FunctionalUtility<E> {
 
 	// distance
 	/**
-	 * @param x
-	 * @param y
-	 * @return
+	 * static function that calculates the distance between the
+	 * two points (x,y)
+	 * 
+	 * @param x the integer that represents a point
+	 * @param y the integer that represents a point 
+	 * @return distance the distance between the two points
 	 */
 	public static double getDistance(int x, int y) {
 		double result = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
@@ -324,9 +355,12 @@ public class FunctionalUtility<E> {
 
 	// to find roots
 	/**
-	 * @param a
-	 * @param b
-	 * @param c
+	 * static function that is used to find the roots of a 
+	 * given quadratic equation 
+	 * 
+	 * @param a the number of x*x
+	 * @param b the number of x
+	 * @param c the constant of the equation
 	 */
 	public static void rootsValue(int a, int b, int c) {
 		double delta = (b * b) - (4 * a * c);
@@ -343,12 +377,21 @@ public class FunctionalUtility<E> {
 	}
 
 	// simulate stop watch
+	/**
+	 * index stores the startTime
+	 */
 	static long startTime = 0;
+	/**
+	 * index stores stopTime
+	 */
 	static long stopTime = 0;
+	/**
+	 * index stores difference time
+	 */
 	static long diffTime = 0;
 
 	/**
-	 * 
+	 * static method is used to find start time
 	 */
 	public static void start(int start) {
 		Calendar cal = Calendar.getInstance();
@@ -359,7 +402,7 @@ public class FunctionalUtility<E> {
 	}
 
 	/**
-	 * 
+	 * static method is used to find stop time
 	 */
 	public static void stop(int stop) {
 		Calendar cal = Calendar.getInstance();
@@ -370,7 +413,7 @@ public class FunctionalUtility<E> {
 	}
 
 	/**
-	 * 
+	 * static method is used to find differential time
 	 */
 	public static long differentialTime(int diffTime) {
 		long time = stopTime - startTime;
@@ -381,9 +424,11 @@ public class FunctionalUtility<E> {
 
 	// wind chill
 	/**
-	 * @param t
-	 * @param v
-	 * @return
+	 * static function that calculates the efficient temperature 
+	 * 
+	 * @param temp the temperature
+	 * @param wind_speed the speed of the wind
+	 * @return efficient temperature calculated
 	 */
 	public static double calcWindChill(double t, double v) {
 		double w = 35.74 + 0.6215 * t + (0.4275 * t - 35.75) * Math.pow(v, 0.16);
@@ -392,9 +437,12 @@ public class FunctionalUtility<E> {
 
 	// recursive combination
 	/**
-	 * @param str
-	 * @param initial
-	 * @param last
+	 * static method is used to possible recursion we can do it for a string 
+	 * @param str string value
+	 * @param initial first element
+	 * @param last element 
+	 * @param array list
+	 * @return array list
 	 */
 	public static List<String> recursion(String str, int initial, int last,List<String> arr) {
 		
@@ -411,10 +459,11 @@ public class FunctionalUtility<E> {
 	}
 
 	/**
-	 * @param str
-	 * @param i
-	 * @param j
-	 * @return
+	 * static method is used to swap the string alphabets
+	 * @param str string value
+	 * @param i index of string
+	 * @param j index of string
+	 * @return String
 	 */
 	public static String swap(String str, int i, int j) {
 		char temp;
@@ -427,7 +476,9 @@ public class FunctionalUtility<E> {
 	}
 
 	/**
-	 * @param s
+	 * static method is used to possible iterations we can do it for a string 
+	 * @param s is the string value
+	 * @return arr array of string
 	 */
 	public static List<String> iteration(String str) {
 		List<String> arr = new ArrayList<>();
@@ -444,8 +495,9 @@ public class FunctionalUtility<E> {
 	}
 	
 	/**
-	 * @param arr
-	 * @return
+	 * static method is used to sort the array list
+	 * @param arr is arraylist
+	 * @return arraylist 
 	 */
 	public static List<String> listSort(List<String> arr)
 	{
@@ -454,106 +506,5 @@ public class FunctionalUtility<E> {
 	}
 
 	// tic tack toe
-	static int player = 0;
-	static int[][] BOARD = new int[3][3];
-	static boolean isEmpty = true;
-
-	/**
-	 * 
-	 */
-	public static void initBoard() {
-		System.out.println("TIC TAC TOE GAME\nComputer is o\nPlayer  is x ");
-		for (int i = 0; i < BOARD.length; i++) {
-			for (int j = 0; j < BOARD[i].length; j++) {
-				BOARD[i][j] = -10;
-			}
-		}
-		System.out.println("Board is this :");
-		dispBoard();
-	}
-
-	public static void dispBoard() {
-		int count = 0;
-		for (int i = 0; i < BOARD.length; i++) {
-			System.out.println("---------------");
-			System.out.print("||");
-			for (int j = 0; j < BOARD[i].length; j++) {
-				if (BOARD[i][j] == 0) {
-					count++;
-					System.out.print(" o ||");
-				} else if (BOARD[i][j] == 1) {
-					count++;
-					System.out.print(" x ||");
-				} else
-					System.out.print("   ||");
-			}
-			System.out.println(" ");
-		}
-		if (count == 9) {
-			isEmpty = false;
-		}
-		System.out.println("---------------");
-	}
-	/*
-	 * static void putVal(int i, int j, int player) { if if (player % 2 == 0) {
-	 * BOARD[i][j] = 0; } else BOARD[i][j] = 1; }
-	 */
-
-	public static void putVal() {
-		int i;
-		int j;
-		if (player % 2 == 1) {
-			i = (int) (Math.random() * 10) % 3;
-			j = (int) (Math.random() * 10) % 3;
-		} else {
-			@SuppressWarnings("resource")
-			Scanner s = new Scanner(System.in);
-			System.out.println("enter value of x and y by space");
-			i = s.nextInt();
-			j = s.nextInt();
-		}
-		if (BOARD[i][j] == -10) {
-			if (player % 2 == 0) {
-				BOARD[i][j] = 0;
-			} else {
-				BOARD[i][j] = 1;
-				System.out.println("Coumputer Choosing " + i + " " + j);
-			}
-		} else
-			putVal();
-
-	}
-
-	public static boolean win() {
-		return ((BOARD[0][0] + BOARD[0][1] + BOARD[0][2] == player * 3)
-				|| (BOARD[1][0] + BOARD[1][1] + BOARD[1][2] == player * 3)
-				|| (BOARD[2][0] + BOARD[2][1] + BOARD[2][2] == player * 3)
-				|| (BOARD[0][0] + BOARD[1][0] + BOARD[2][0] == player * 3)
-				|| (BOARD[0][1] + BOARD[1][1] + BOARD[2][1] == player * 3)
-				|| (BOARD[0][2] + BOARD[1][2] + BOARD[2][2] == player * 3)
-				|| (BOARD[0][0] + BOARD[1][1] + BOARD[2][2] == player * 3)
-				|| (BOARD[2][0] + BOARD[1][1] + BOARD[0][2] == player * 3));
-	}
-
-	public static void play() {
-		initBoard();
-		while (isEmpty) {
-			System.out.println("Players turn");
-			putVal();
-			dispBoard();
-			if (win()) {
-				System.out.println("Player won");
-				return;
-			}
-			player = 1;
-			System.out.println("Computers turn");
-			putVal();
-			dispBoard();
-			if (win()) {
-				System.out.println("Computer won");
-				return;
-			}
-			player = 0;
-		}
-	}
+	
 }
