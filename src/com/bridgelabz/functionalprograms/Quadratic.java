@@ -25,7 +25,6 @@ public class Quadratic
 	*/
 	public static void main(String[] args) 
 	{
-//		FunctionalUtility func=new FunctionalUtility();
 		Scanner sc=new Scanner(System.in);
 		System.out.println("give input a");
 		//Reading the inputs from the user

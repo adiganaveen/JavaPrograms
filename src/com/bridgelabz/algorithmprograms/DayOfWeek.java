@@ -27,23 +27,13 @@ public class DayOfWeek
 	*/
 	
 	public static void main(String[] args) {
-//		String i=args[0];
-//		String j=args[1];
-//		String k=args[2];
-//		int month=Integer.parseInt(i);
-//		int day=Integer.parseInt(j);
-//		int year=Integer.parseInt(k);
-//		AlgorithmUtility algo=new AlgorithmUtility();
-//		Scanner sc=new Scanner(System.in);
-		//Reading inputs from the user
 		System.out.println("enter day");
-		int day=AlgorithmUtility.userInteger();//user input
+		int day=AlgorithmUtility.userInteger();
 		System.out.println("enter month");
-		int month=AlgorithmUtility.userInteger();//user input
+		int month=AlgorithmUtility.userInteger();
 		System.out.println("enter year");
-		int year=AlgorithmUtility.userInteger();//user input
+		int year=AlgorithmUtility.userInteger();
 		System.out.println();
-		//Method 1- using static function of AlgorithmUtility class of com.bridgelabz.util package		
 		int day1=AlgorithmUtility.dayIs(month, day, year);
 		String[] str = { "sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday" };
 		System.out.println(str[day1]);

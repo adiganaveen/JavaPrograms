@@ -24,7 +24,6 @@ public class WindChill {
 	* call WindChill function that calculates the effective temperature
 	*/
 	public static void main(String[] args) {
-//		FunctionalUtility func = new FunctionalUtility();
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the temperature t in Fahrenheit");
 		//Reading the inputs from the user

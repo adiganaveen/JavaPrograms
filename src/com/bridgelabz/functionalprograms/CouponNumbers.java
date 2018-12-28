@@ -31,7 +31,6 @@ public class CouponNumbers
 	*/
 	public static void main(String[] args) 
 	{
-//		FunctionalUtility func=new FunctionalUtility();
 		Scanner sc=new Scanner(System.in);
 		System.out.println("enter total number of coupon ");
 		//Reading input number from the user

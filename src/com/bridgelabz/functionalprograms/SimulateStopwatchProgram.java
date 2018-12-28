@@ -23,7 +23,6 @@ public class SimulateStopwatchProgram {
 	* call stopWatch function that measures elapsed time
 	*/
 	public static void main(String[] args) {
-//		FunctionalUtility func = new FunctionalUtility();
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Press 1 to start\n");
 		//Method 1- using static function of FunctionalUtilty class of com.bridgelabz.util package

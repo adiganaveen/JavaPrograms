@@ -25,8 +25,6 @@ public class RangeOfPrimeNumbers
 	* call the primeNumber() function that finds prime numbers
 	*/
 	public static void main(String[] args) {
-//		AlgorithmUtility algo=new AlgorithmUtility();
-//		Scanner sc=new Scanner(System.in);
 		//Reading inputs from user
 		System.out.println("enter the range it where prime numbers has to be found");
 		int num=AlgorithmUtility.userInteger(); //user input

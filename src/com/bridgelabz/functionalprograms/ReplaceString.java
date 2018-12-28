@@ -22,7 +22,6 @@ public class ReplaceString
 	*/
 	public static void main(String[] args)
 	{
-//		FunctionalUtility func=new FunctionalUtility();
 		Scanner sc=new Scanner(System.in);
 		String str="Hello <<UserName>>, How are you?";
 		System.out.println("enter user name");

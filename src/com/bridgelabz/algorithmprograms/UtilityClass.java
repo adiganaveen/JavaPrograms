@@ -15,8 +15,6 @@
 package com.bridgelabz.algorithmprograms;
 
 
-
-//import java.util.ArrayList;
 import java.util.HashMap;
 //import java.util.List;
 import java.util.Map;
@@ -28,8 +26,6 @@ public class UtilityClass
 	public static void main(String[] args) 
 	{
 		int z=0;
-//		List<Double> timeList1=new ArrayList<>();
-//		List<Double> timeList2=new ArrayList<>();
 		Map<String ,Double> map1=new HashMap<String ,Double>();
 		Map<String ,Double> map2=new HashMap<String ,Double>();
 		
@@ -50,11 +46,6 @@ public class UtilityClass
 			    			System.out.println("enter "+i+" element of an array");
 			    			arr[i]=AlgorithmUtility.userInteger();
 			    		}
-			    		
-//			    		for(int i=0;i<arr2.length;i++)
-//			    		{
-//			    			System.out.println(arr2[i]);
-//			    		}
 			    		System.out.println("Enter the key :");
 			    		int key1=AlgorithmUtility.userInteger();
 			    		double start_time1=AlgorithmUtility.startTime();
@@ -70,7 +61,6 @@ public class UtilityClass
 						double elapsed_time1=AlgorithmUtility.elapsedTime(start_time1, stop_time1);
 						System.out.println("elapsed time is :"+elapsed_time1);
 						map1.put("Integer Binary Search ",elapsed_time1);
-//						timeList1.add(elapsed_time1);
 			    		break;
 			    		
 			    case 2: System.out.println("Enter the number of elements in an array");
@@ -99,7 +89,6 @@ public class UtilityClass
 						double elapsed_time2=AlgorithmUtility.elapsedTime(start_time2, stop_time2);
 						System.out.println("elapsed time is :"+elapsed_time2);
 						map1.put("String Binary Search ",elapsed_time2);
-//						timeList1.add(elapsed_time2);
 	    				break;
 			    default : System.out.println("Please select correct choice ");
 			    		  break;
@@ -128,7 +117,6 @@ public class UtilityClass
 				        double elapsed_time1=AlgorithmUtility.elapsedTime(start_time1, stop_time1);
 						System.out.println("elapsed time is :"+elapsed_time1);
 						map1.put("Integer Insertion sort ",elapsed_time1);
-//						timeList1.add(elapsed_time1);
 	    				break;
 	    		
 	    		case 2: System.out.println("Enter the number of elements in an array");
@@ -150,7 +138,6 @@ public class UtilityClass
 				        double elapsed_time2=AlgorithmUtility.elapsedTime(start_time2, stop_time2);
 						System.out.println("elapsed time is :"+elapsed_time2);
 						map1.put("String Insertion sort ",elapsed_time2);
-//						timeList1.add(elapsed_time2);
 						break;
 	    		default : System.out.println("Please select correct choice ");
 	    		break;
@@ -179,7 +166,6 @@ public class UtilityClass
 	    			    double elapsed_time1=AlgorithmUtility.elapsedTime(start_time1, stop_time1);
 						System.out.println("elapsed time is :"+elapsed_time1);
 						map1.put("Integer Bubble sort ",elapsed_time1);
-//						timeList1.add(elapsed_time1);
 	    				break;
 	    		
 				case 2: System.out.println("Enter the number of elements in an array");
@@ -201,7 +187,6 @@ public class UtilityClass
     			        double elapsed_time2=AlgorithmUtility.elapsedTime(start_time2, stop_time2);
 						System.out.println("elapsed time is :"+elapsed_time2);
 						map1.put("String Bubble sort ",elapsed_time2);
-//						timeList1.add(elapsed_time2);
 						break;
 				default : System.out.println("Please select correct choice ");
 				break;
@@ -212,8 +197,6 @@ public class UtilityClass
 		break;
 		}
 		z++;
-//		timeList2=AlgorithmUtility.listCall(timeList1);
-//		System.out.println(timeList2);
 		map2=AlgorithmUtility.mapCall(map1);
 		System.out.println(map2);
 	}while(z<=20);

@@ -28,7 +28,6 @@ public class Gambler
 	*/
 	public static void main(String[] args)
 	{
-//		FunctionalUtility func=new FunctionalUtility();
 		Scanner sc=new Scanner(System.in);
 		System.out.println("enter the stack");
 		int stack=sc.nextInt(); //user input

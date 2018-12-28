@@ -28,7 +28,6 @@ public class SumOfThreeIntegerAddsToZero
 
 	public static void main(String[] args) 
 	{
-//		FunctionalUtility func=new FunctionalUtility();
 		Scanner sc=new Scanner(System.in);
 		System.out.println("enter total number of elements in an array");
 		int num=sc.nextInt();//user input

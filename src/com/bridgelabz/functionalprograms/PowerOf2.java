@@ -26,15 +26,10 @@ public class PowerOf2
 	*/
 	public static void main(String[] args) 
 	{
-//		FunctionalUtility func=new FunctionalUtility();
 		String i=args[0];
 		double res=0;
 		//Reading the input from the user
-
 		int exp=Integer.parseInt(i);
-//		Scanner sc=new Scanner(System.in);
-//		System.out.println("Enter the exponent value of 2");
-//		double exp=sc.nextInt();
 		double base=2;
 		if(exp<0 || exp>30)
 		{

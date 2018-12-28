@@ -22,7 +22,6 @@ public class FlipCoinPercentage {
 	* after flipping a coin n number of times
 	*/
 	public static void main(String[] args) {
-//		FunctionalUtility func = new FunctionalUtility();
 		int i=0;
 		Scanner sc=new Scanner(System.in);
 		do {

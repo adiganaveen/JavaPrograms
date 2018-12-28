@@ -25,7 +25,6 @@ public class LeapYear
 	*/
 	public static void main(String[] args) 
 	{
-//		FunctionalUtility func=new FunctionalUtility();
 		Scanner sc=new Scanner(System.in);
 		int i=0;
 		do {

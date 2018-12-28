@@ -27,7 +27,6 @@ public class PermutationString {
 	* by two methods
 	*/
 	public static void main(String[] args) {
-//		FunctionalUtility func = new FunctionalUtility();
 		Scanner sc = new Scanner(System.in);
 		System.out.println("enter a string");
 		String str = sc.next(); //user input

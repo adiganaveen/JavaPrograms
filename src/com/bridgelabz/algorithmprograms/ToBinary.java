@@ -24,8 +24,6 @@ public class ToBinary
 	* call the toBinary function that converts decimal to binary
 	*/
 	public static void main(String[] args) {
-//		AlgorithmUtility algo=new AlgorithmUtility();
-//		Scanner sc=new Scanner(System.in);
 		//Reading the input from the user
 		System.out.println("enter the decimal number");
 		int num=AlgorithmUtility.userInteger();

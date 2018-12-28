@@ -24,7 +24,6 @@ public class Factors
 	*/
 	public static void main(String[] args) 
 	{
-//		FunctionalUtility func=new FunctionalUtility();
 		Scanner sc=new Scanner(System.in);
 		System.out.println("enter the number");
 		int n=sc.nextInt(); //user input

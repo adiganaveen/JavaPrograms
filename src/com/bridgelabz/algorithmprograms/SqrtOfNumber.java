@@ -24,8 +24,6 @@ public class SqrtOfNumber {
 	* call the squareRoot() function that finds square root of a number
 	*/
 	public static void main(String[] args) {
-//	AlgorithmUtility algo=new AlgorithmUtility();
-//    Scanner sc=new Scanner(System.in);
   //Reading input from the user
     System.out.println("enter the number number to find its square root");
     double num=AlgorithmUtility.userDouble();

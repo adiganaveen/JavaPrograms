@@ -26,8 +26,6 @@ public class TemperatureConversion
 	* call the tempConversion function that converts temperature
 	*/
 	public static void main(String[] args) {
-//		AlgorithmUtility algo=new AlgorithmUtility();
-//        Scanner sc=new Scanner(System.in);
       //Reading the input from the user
         System.out.println("enter the celsius to be converted to fahrenheit");
         double celsius=AlgorithmUtility.userDouble();

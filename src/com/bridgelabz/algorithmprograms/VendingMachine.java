@@ -26,8 +26,6 @@ public class VendingMachine
 	* to be returned to the vending machine
 	*/
 	public static void main(String[] args) {
-//		AlgorithmUtility algo=new AlgorithmUtility();
-//        Scanner sc=new Scanner(System.in);
         System.out.println("Enter amount to be getting from vending machine");
         int money=AlgorithmUtility.userInteger(); //user input
         int [] curr= {1,2,5,50,10,500,100,1000};
@@ -36,7 +34,6 @@ public class VendingMachine
       		
         int temp=AlgorithmUtility.minChange(curr,money);
         System.out.println("minimum number of notes to be given is " + temp); //displaying result 
-        //System.out.println("total money given is "+money);
 	}
 
 }

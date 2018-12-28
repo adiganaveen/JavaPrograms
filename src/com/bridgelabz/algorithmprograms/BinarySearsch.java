@@ -26,22 +26,13 @@ public class BinarySearsch {
 	* calls binarySeacrhFile function to search word from list
 	*/
 	public static void main(String[] args) throws FileNotFoundException {
-//		AlgorithmUtility algo = new AlgorithmUtility();
-//		Scanner sc = new Scanner(System.in);
-		// Get scanner instance
 		String csvFile = "/home/admin1/Desktop/file.csv";
 		BufferedReader fileReader = new BufferedReader(new FileReader(csvFile));
-
-		// Delimiter used in CSV file
 		final String DELIMITER = ",";
 		try {
 			String line = "";
-			// fileReader = new BufferedReader(new FileReader(csvFile));
-			// Read the file line by line
 			while ((line = fileReader.readLine()) != null) {
-				// Get all tokens available in line
 				String[] tokens = line.split(DELIMITER);
-				//Method 1- using static function of AlgorithmUtility class of com.bridgelabz.util package
 				AlgorithmUtility.sort(tokens);
 				for (String token : tokens) {
 					// Print all tokens
@@ -49,7 +40,6 @@ public class BinarySearsch {
 				}
 				System.out.println("enter the key word which has to be searched ");
 				String key = AlgorithmUtility.userString();
-				//Method 2- using static function of AlgorithmUtility class of com.bridgelabz.util package
 				int i = AlgorithmUtility.binarySearch(tokens, key);
 				if (i >= 0) {
 					System.out.println(tokens[i] + " is present in " + (i + 1) + " position in the array");

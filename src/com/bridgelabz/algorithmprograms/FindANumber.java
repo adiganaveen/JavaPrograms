@@ -24,14 +24,13 @@ public class FindANumber {
 
 	public static void main(String[] args) 
 	{
-		//Scanner scanner=new Scanner(System.in);
 		System.out.println("enter the number");
-		int num=AlgorithmUtility.userInteger();//user input
+		int num=AlgorithmUtility.userInteger();
 		int range=(int)(Math.pow(2, num-1));
 		System.out.println("Take number between 0 to "+(range-1));
 		System.out.println();
 		System.out.println("Is the number selected");
-		AlgorithmUtility.userBoolean();//user input
+		AlgorithmUtility.userBoolean();
 		int first=0;
 		int last=range-1;
 		int middle=(first+last)/2;

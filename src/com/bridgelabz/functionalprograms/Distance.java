@@ -25,7 +25,6 @@ public class Distance
 	*/
 	public static void main(String[] args) 
 	{
-//		FunctionalUtility func=new FunctionalUtility();
 		Scanner sc=new Scanner(System.in);
 		//Reading inputs from the user
 		System.out.println("enter the range x");

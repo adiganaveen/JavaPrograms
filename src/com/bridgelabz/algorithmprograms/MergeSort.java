@@ -30,7 +30,6 @@ public class MergeSort {
 			//Reading input number of data to be entered into the array
 			str[i]=AlgorithmUtility.userString();
 		}
-		//int first=0,last=arr.length-1;
 		//Method 1- using static function of AlgorithmUtility class of com.bridgelabz.util package
 		AlgorithmUtility.sort(str,0,str.length-1);
 		//Method 2- using static function of AlgorithmUtility class of com.bridgelabz.util package

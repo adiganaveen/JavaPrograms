@@ -26,8 +26,6 @@ public class InsertionSort {
 	*/
     public static void main(String[] args)
     {  
-//        AlgorithmUtility algo=new AlgorithmUtility();
-//        Scanner sc=new Scanner(System.in);
       //Reading inputs from the user
         System.out.println("enter the number of string to be entered");
         int num=AlgorithmUtility.userInteger(); //user input

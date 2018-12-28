@@ -25,7 +25,6 @@ public class HarmonicNumber
 	*/
 	public static void main(String[] args) 
 	{
-//		FunctionalUtility func=new FunctionalUtility();
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter the harmonic value of n");
 		//Reading the input from the user
@@ -39,6 +38,5 @@ public class HarmonicNumber
 		else
 		System.out.println("harmonic value of "+n+" is "+value);
 		sc.close();
-		//func.harmonicValue(n);
 	}
 }
