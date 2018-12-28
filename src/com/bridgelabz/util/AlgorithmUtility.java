@@ -15,9 +15,12 @@ package com.bridgelabz.util;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -89,6 +92,7 @@ public class AlgorithmUtility<E> {
 		} else {
 			Arrays.sort(ch1);
 			Arrays.sort(ch2);
+			
 //			for(int i=0;i<ch1.length;i++)
 //			{
 //				System.out.print(ch1[i]);
@@ -385,17 +389,45 @@ public class AlgorithmUtility<E> {
 		return -1;
 	}
 	
+	/**
+	 * @return
+	 */
 	public static double startTime()
 	{
 		return System.nanoTime();
 	}
+	/**
+	 * @return
+	 */
 	public static double stopTime()
 	{
 		return System.nanoTime();
 	}
+	/**
+	 * @param s1
+	 * @param s2
+	 * @return
+	 */
 	public static double elapsedTime(double s1,double s2)
 	{
 		return s2-s1;
+	}
+//	public static List<Double> listCall(List<Double> timeList)
+//	{
+//		Collections.sort(timeList);
+//		return timeList;
+//	}
+	/**
+	 * @param map
+	 * @return
+	 */
+	public static Map<String,Double> mapCall(Map<String,Double> map)
+	{
+		Map<String ,Double> sortMap=new LinkedHashMap<>();
+		map.entrySet().stream().sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+		.forEachOrdered(x -> sortMap.put(x.getKey(), x.getValue()));
+		return sortMap;
+		
 	}
 	/**
 	 * @param arr

@@ -11,14 +11,15 @@
  ******************************************************************************/
 package com.bridgelabz.util;
 
-
-
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class FunctionalUtility<E> {
 
@@ -28,18 +29,24 @@ public class FunctionalUtility<E> {
 	 * @param uname
 	 */
 	public static String replaceString(String str, String uname) {
-			String str2 = str.replace("<<UserName>>", uname);
-			return str2;
+		String message;
+		final String REGEX_NAME = "<<UserName>>";
+		Pattern p = Pattern.compile(REGEX_NAME);
+		Matcher m = p.matcher(str);
+		message = m.replaceAll(uname);
+		return message;
+//			String str2 = str.replace("<<UserName>>", uname);
+//			return str2;
 	}
 
 	/**
 	 * @param year
 	 */
 	public static boolean leapYear(int year) {
-			if (year % 4 == 0 && year % 100 != 0 ||year % 400 == 0)  {
-				return true;
-			} else
-				return false;
+		if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+			return true;
+		} else
+			return false;
 	}
 
 	// flip_coin_percentage_head_or_tail
@@ -68,6 +75,13 @@ public class FunctionalUtility<E> {
 	 * @param b
 	 */
 	public static double pow(double a, double b) {
+		int i = 0;
+		int power = 1;
+		while (i <= b) {
+			System.out.println("2^" + i + " = " + power);
+			power = power * 2;
+			i++;
+		}
 		double c = Math.pow(a, b);
 		return c;
 	}
@@ -121,7 +135,7 @@ public class FunctionalUtility<E> {
 	public static void gambleing(int stack, int goal, int chance) {
 		int win = 0, loss = 0;
 		// int bets = 0;
-		//int trail = chance;
+		// int trail = chance;
 		for (int i = 0; i < chance; i++) {
 			int cash = stack;
 			while (cash > 0 && cash < goal) {
@@ -171,18 +185,21 @@ public class FunctionalUtility<E> {
 	 */
 	public static void sumOfInterger(int[] arr, int n) {
 		boolean found = false;
+		int count = 0;
 		System.out.println("The posibilities are :");
 		for (int i = 0; i < n - 2; i++) {
 			for (int j = i + 1; j < n - 1; j++) {
 				for (int k = j + 1; k < n; k++) {
 					if (arr[i] + arr[j] + arr[k] == 0) {
 						System.out.print(arr[i] + "+" + arr[j] + "+" + arr[k] + "=0");
+						count++;
 						found = true;
 					}
-					System.out.println();
 				}
 			}
+			System.out.println();
 		}
+		System.out.println("total number of possibilities are :" + count);
 		if (found == false) {
 			System.out.println("sum of three intergers does not add up to zero");
 		}
@@ -265,7 +282,7 @@ public class FunctionalUtility<E> {
 	 */
 	public Boolean[][] arrayBoolean(int row, int column) {
 		@SuppressWarnings("resource")
-		Scanner sc = new Scanner(System.in); 	
+		Scanner sc = new Scanner(System.in);
 		Boolean[][] integerArray = new Boolean[row][column];
 		System.out.println("enter boolean array elements");
 		System.out.println("select the number 1 or 0");
@@ -283,10 +300,10 @@ public class FunctionalUtility<E> {
 	 * @param row
 	 * @param column
 	 */
-	public void display(E[][] genericArray,int row ,int column) {
+	public void display(E[][] genericArray, int row, int column) {
 		PrintWriter pw = new PrintWriter(System.out, true);
 		System.out.println("The matrix form is ");
-		for (int i = 0; i <row; i++) {
+		for (int i = 0; i < row; i++) {
 			for (int j = 0; j < column; j++) {
 				pw.print("\t" + genericArray[i][j] + " ");
 			}
@@ -313,11 +330,15 @@ public class FunctionalUtility<E> {
 	 */
 	public static void rootsValue(int a, int b, int c) {
 		double delta = (b * b) - (4 * a * c);
-		double d = Math.sqrt(delta);
-		double root1 = (-b + d) / (2 * a);
-		double root2 = (-b - d) / (2 * a);
-		System.out.println("Root 1 of x is " + root1);
-		System.out.println("Root 2 of x is " + root2);
+		if (delta >= 0) {
+			double d = Math.sqrt(delta);
+			double root1 = (-b + d) / (2 * a);
+			double root2 = (-b - d) / (2 * a);
+			System.out.println("Root 1 of x is " + root1);
+			System.out.println("Root 2 of x is " + root2);
+		} else {
+			System.out.println("It is imaginary number ");
+		}
 
 	}
 
@@ -368,88 +389,71 @@ public class FunctionalUtility<E> {
 		double w = 35.74 + 0.6215 * t + (0.4275 * t - 35.75) * Math.pow(v, 0.16);
 		return w;
 	}
-	
-	
-	//recursive combination
+
+	// recursive combination
 	/**
 	 * @param str
 	 * @param initial
 	 * @param last
 	 */
-	public static void recursion(String str,int initial,int last)
-	{
-		if(initial==last)
-		{
-			System.out.println(str);
-		}
-		else
-		{
-			for(int i=initial;i<last;i++)
-			{
-				str = swap(str,initial,i); 
-                recursion(str, (initial+1), last);
-                str = swap(str,initial,i); 
-        
+	public static List<String> recursion(String str, int initial, int last,List<String> arr) {
+		
+		if (initial == last) {
+			arr.add(str);
+		} else {
+			for (int i = initial; i < last; i++) {
+				str = swap(str, initial, i);
+				recursion(str, (initial + 1), last,arr);
+//				str = swap(str, initial, i);
 			}
 		}
+		return arr;
 	}
 
-	/**
-	 * @param s
-	 */
-	public static void iteration(String s)
-	{
-		// create an empty ArrayList to store (partial) permutations
-		ArrayList<String> arr = new ArrayList<>();
-
-		// initialize the list with the first character of the string
-		arr.add(String.valueOf(s.charAt(0)));
-
-		// do for every character of the specified string
-		for (int i = 1; i < s.length(); i++)
-		{
-			// consider previously constructed partial permutation one by one
-
-			// (iterate backwards to avoid ConcurrentModificationException)
-			for (int j = arr.size() - 1; j >= 0 ; j--)
-			{
-				// remove current partial permutation from the ArrayList
-				String str = arr.remove(j);
-
-				// Insert next character of the specified string in all
-				// possible positions of current partial permutation. Then
-				// insert each of these newly constructed string in the list
-
-				for (int k = 0; k <= str.length(); k++)
-				{
-					// Advice: use StringBuilder for concatenation
-					arr.add(str.substring(0, k) + s.charAt(i) +
-								str.substring(k));
-				}
-			}
-		}
-
-		System.out.println(arr);
-	}
-	
 	/**
 	 * @param str
 	 * @param i
 	 * @param j
 	 * @return
 	 */
-	public static String swap(String str,int i,int j)
-	{
+	public static String swap(String str, int i, int j) {
 		char temp;
-		char [] ch=str.toCharArray();
-		temp=ch[i];
-		ch[i]=ch[j];
-		ch[j]=temp;
+		char[] ch = str.toCharArray();
+		temp = ch[i];
+		ch[i] = ch[j];
+		ch[j] = temp;
 		return String.valueOf(ch);
-		
+
 	}
 
-	//tic tack toe
+	/**
+	 * @param s
+	 */
+	public static List<String> iteration(String str) {
+		List<String> arr = new ArrayList<>();
+		arr.add(String.valueOf(str.charAt(0)));
+		for (int i = 1; i < str.length(); i++) {
+			for (int j = arr.size() - 1; j >= 0; j--) {
+				String s = arr.remove(j);
+				for (int k = 0; k <= s.length(); k++) {
+					arr.add(s.substring(0, k) + str.charAt(i) + s.substring(k));
+				}
+			}
+		}
+		return arr;
+	}
+	
+	/**
+	 * @param arr
+	 * @return
+	 */
+	public static List<String> listSort(List<String> arr)
+	{
+		Collections.sort(arr);
+		return arr;
+	}
+
+	// tic tack toe
 	static int player = 0;
 	static int[][] BOARD = new int[3][3];
 	static boolean isEmpty = true;
@@ -517,7 +521,6 @@ public class FunctionalUtility<E> {
 			}
 		} else
 			putVal();
-		
 
 	}
 

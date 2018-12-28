@@ -31,8 +31,8 @@ public class ReplaceString
 		System.out.println("enter a name greater than 3 alphabets");
 		}
 		//Method 1- using static function of FunctionalUtilty class of com.bridgelabz.util package
-		String str2=FunctionalUtility.replaceString(str,uname);
-		System.out.println(str2);
+		String message=FunctionalUtility.replaceString(str,uname);
+		System.out.println(message);
 		sc.close();
 	}
 

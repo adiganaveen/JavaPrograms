@@ -24,15 +24,26 @@ public class FlipCoinPercentage {
 	public static void main(String[] args) {
 //		FunctionalUtility func = new FunctionalUtility();
 		int i=0;
-		Scanner sc=null;
+		Scanner sc=new Scanner(System.in);
 		do {
-		 sc= new Scanner(System.in);
-		System.out.println("Enter number of times to flip a coin");
-		int times = sc.nextInt(); //user input
-		//Method 1- using static function of FunctionalUtilty class of com.bridgelabz.util package
-		FunctionalUtility.flipCoin(times);
+			System.out.println("Select your choice :");
+			System.out.println("1. Flip a coin \n2. exit");
+			int choice=sc.nextInt();
+			switch(choice)
+			{
+			case 1 :
+					System.out.println("Enter number of times to flip a coin");
+					int times = sc.nextInt(); //user input
+					//Method 1- using static function of FunctionalUtilty class of com.bridgelabz.util package
+					FunctionalUtility.flipCoin(times);
+					break;
+			case 2:System.exit(0);
+					break;
+			default :System.out.println("please select correct choice ");
+					break;
+			}
 		i++;
-		}while(i<6);
+		}while(i<30);
 		sc.close();
 	}
 
