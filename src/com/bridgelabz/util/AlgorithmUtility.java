@@ -15,7 +15,6 @@ package com.bridgelabz.util;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -89,12 +88,12 @@ public class AlgorithmUtility<E> {
 	public static boolean anagramDetection(String str1, String str2) {
 		char[] ch1 = str1.toLowerCase().toCharArray();
 		char[] ch2 = str2.toLowerCase().toCharArray();
-//		int f = ch1.length - 1;
 		if (ch1.length != ch2.length) {
 			return false;
 		} else {
-			Arrays.sort(ch1);
-			Arrays.sort(ch2);
+			ch1=sortChar(ch1);
+			System.out.println();
+			ch2=sortChar(ch2);
 			str1 = String.valueOf(ch1);
 			str2 = String.valueOf(ch2);
 			boolean b = str1.equals(str2);
@@ -105,7 +104,28 @@ public class AlgorithmUtility<E> {
 		}
 		return false;
 	}
-
+    /**
+     * static method is used to sort array of characters
+     * @param ch is the character array
+     * @return sorted character array
+     */
+    public static char[] sortChar(char [] ch)
+    {
+    	char [] b=new char[ch.length];
+    	for(int i=0;i<ch.length;i++)
+    	{ 
+    		int count=0;
+    		for(int j=0;j<ch.length;j++)
+    		{
+    			if(ch[i]<ch[j])
+    			{
+    				count++;
+    			}
+    		}
+    		b[count]=ch[i];
+    	}
+    	return b;
+    }
 	// to find range of prime numbers
 	/**
 	 * static function to print the prime numbers for the given range
@@ -168,7 +188,6 @@ public class AlgorithmUtility<E> {
 
 		int cash = money;
 		int temp = 0;
-		Arrays.sort(curr);
 		for (int i = curr.length - 1; i >= 0; i--) {
 			int count = 0;
 			if (curr[i] <= cash) {
