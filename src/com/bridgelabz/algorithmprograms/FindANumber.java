@@ -24,8 +24,8 @@ public class FindANumber {
 
 	public static void main(String[] args) 
 	{
-		System.out.println("enter the number");
-		int num=AlgorithmUtility.userInteger();
+		String i=args[0];
+		int num=Integer.parseInt(i);
 		int range=(int)(Math.pow(2, num-1));
 		System.out.println("Take number between 0 to "+(range-1));
 		System.out.println();

@@ -25,12 +25,12 @@ public class MonthlyPayment {
 	*/
 	public static void main(String[] args) {
       //Reading inputs from user
-        System.out.println("enter PRINCIPAL loan amount");
-        double p=AlgorithmUtility.userDouble(); //user input
-        System.out.println("enter per cent of interest");
-        double r=AlgorithmUtility.userDouble(); //user input
-        System.out.println("enter number of years");
-        double y=AlgorithmUtility.userDouble(); //user input
+		String i=args[0];
+		String j=args[1];
+		String k=args[2];
+		double p=Double.parseDouble(i);
+		double r=Double.parseDouble(j);
+		double y=Double.parseDouble(k);
       //Method 1- using static function of AlgorithmUtility class of com.bridgelabz.util package	
 		double payment=AlgorithmUtility.payment(p, r, y);
 		System.out.println("total payment is " + payment);//displaying output

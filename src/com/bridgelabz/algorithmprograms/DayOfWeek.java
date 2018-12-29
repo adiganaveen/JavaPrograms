@@ -27,13 +27,12 @@ public class DayOfWeek
 	*/
 	
 	public static void main(String[] args) {
-		System.out.println("enter day");
-		int day=AlgorithmUtility.userInteger();
-		System.out.println("enter month");
-		int month=AlgorithmUtility.userInteger();
-		System.out.println("enter year");
-		int year=AlgorithmUtility.userInteger();
-		System.out.println();
+		String i=args[0];
+		String j=args[1];
+		String k=args[2];
+		int day=Integer.parseInt(i);
+		int month=Integer.parseInt(j);
+		int year=Integer.parseInt(k);
 		int day1=AlgorithmUtility.dayIs(month, day, year);
 		String[] str = { "sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday" };
 		System.out.println(str[day1]);

@@ -27,11 +27,10 @@ public class Distance
 	{
 		Scanner sc=new Scanner(System.in);
 		//Reading inputs from the user
-		System.out.println("enter the range x");
-		int x=sc.nextInt();
-		System.out.println("enter the range y");
-		//Reading inputs from the user
-		int y=sc.nextInt();
+		String i=args[0];
+		String j=args[1];
+		int x=Integer.parseInt(i);
+		int y=Integer.parseInt(j);
 		//Method 1- using static function of FunctionalUtilty class of com.bridgelabz.util package
 		double result=FunctionalUtility.getDistance(x,y);
 		System.out.println("the Euclidean distance from the point ("+x+","+ y+") to the origin (0, 0) is "+result); //display result

@@ -221,8 +221,8 @@ public class FunctionalUtility<E> {
 						found = true;
 					}
 				}
-			}
-			System.out.println();
+				System.out.println();
+			}	
 		}
 		System.out.println("total number of possibilities are :" + count);
 		if (found == false) {
