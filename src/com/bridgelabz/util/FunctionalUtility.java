@@ -514,7 +514,7 @@ public class FunctionalUtility<E> {
 		System.out.println("CROSS GAME\nComputer is o     &     Player  is x ");
 		for (int i = 0; i < BOARD.length; i++) {
 			for (int j = 0; j < BOARD[i].length; j++) {
-				BOARD[i][j] = -10;
+				BOARD[i][j] = -6;
 			}
 		}
 		System.out.println("Demo board is this :");
@@ -585,7 +585,7 @@ public class FunctionalUtility<E> {
 				System.out.println("choose according to board matrix ");
 			}
 		}
-		if (BOARD[i][j] == -10) {
+		if (BOARD[i][j] == -6) {
 			if (player % 2 == 0) {
 				BOARD[i][j] = 0;
 			} else {

@@ -27,17 +27,31 @@ public class TemperatureConversion
 	*/
 	public static void main(String[] args) {
       //Reading the input from the user
-        System.out.println("enter the celsius to be converted to fahrenheit");
-        double celsius=AlgorithmUtility.userDouble();
-      //Method 1- using static function of AlgorithmUtility class of com.bridgelabz.util package
-        double temp=AlgorithmUtility.tempCToF(celsius);
-        System.out.println("fahrenheit =" + temp);
-      //Reading the input from the user
-        System.out.println("enter the  to be converted to celsius");
-        double fahrenheit=AlgorithmUtility.userDouble();
-      //Method 2- using static function of AlgorithmUtility class of com.bridgelabz.util package
-        double temp2=AlgorithmUtility.tempFToC(fahrenheit);
-        System.out.println("celsius =" + temp2);
+       int n=0;
+        do {
+        	System.out.println("1.to convert celcius to fahrenheit\n2.to convert fahrenheit to celcius\n3.exit");
+        	int choice=AlgorithmUtility.userInteger();
+        	switch(choice)
+        	{
+        	case 1: System.out.println("enter the celsius to be converted to fahrenheit");
+            		double celsius=AlgorithmUtility.userDouble();
+            		double temp=AlgorithmUtility.tempCToF(celsius);
+            		System.out.println("fahrenheit =" + temp);
+            		break;
+        	case 2: System.out.println("enter the fahrenheit to be converted to celsius");
+            		double fahrenheit=AlgorithmUtility.userDouble();
+            		double temp2=AlgorithmUtility.tempFToC(fahrenheit);
+            		System.out.println("celsius =" + temp2);
+            		break;
+        	case 3:System.exit(0);
+        			break;
+        	default:System.out.println("select from choice");
+        			break;
+        	}
+        	n++;
+        }while(n<=30);
+       
+       
 	}
 
 }

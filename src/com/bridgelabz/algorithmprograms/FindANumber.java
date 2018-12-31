@@ -26,6 +26,7 @@ public class FindANumber {
 	{
 		String i=args[0];
 		int num=Integer.parseInt(i);
+
 		int range=(int)(Math.pow(2, num-1));
 		System.out.println("Take number between 0 to "+(range-1));
 		System.out.println();

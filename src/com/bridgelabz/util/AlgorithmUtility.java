@@ -91,9 +91,8 @@ public class AlgorithmUtility<E> {
 		if (ch1.length != ch2.length) {
 			return false;
 		} else {
-			ch1=sortChar(ch1);
-			System.out.println();
-			ch2=sortChar(ch2);
+			ch1 = sortChar(ch1);
+			ch2 = sortChar(ch2);
 			str1 = String.valueOf(ch1);
 			str2 = String.valueOf(ch2);
 			boolean b = str1.equals(str2);
@@ -104,28 +103,27 @@ public class AlgorithmUtility<E> {
 		}
 		return false;
 	}
-    /**
-     * static method is used to sort array of characters
-     * @param ch is the character array
-     * @return sorted character array
-     */
-    public static char[] sortChar(char [] ch)
-    {
-    	char [] b=new char[ch.length];
-    	for(int i=0;i<ch.length;i++)
-    	{ 
-    		int count=0;
-    		for(int j=0;j<ch.length;j++)
-    		{
-    			if(ch[i]<ch[j])
-    			{
-    				count++;
-    			}
-    		}
-    		b[count]=ch[i];
-    	}
-    	return b;
-    }
+
+	/**
+	 * static method is used to sort array of characters
+	 * 
+	 * @param ch is the character array
+	 * @return sorted character array
+	 */
+	public static char[] sortChar(char[] ch) {
+		char[] b = new char[ch.length];
+		for (int i = 0; i < ch.length; i++) {
+			int count = 0;
+			for (int j = 0; j < ch.length; j++) {
+				if (ch[i] < ch[j]) {
+					count++;
+				}
+			}
+			b[count] = ch[i];
+		}
+		return b;
+	}
+
 	// to find range of prime numbers
 	/**
 	 * static function to print the prime numbers for the given range
@@ -169,7 +167,7 @@ public class AlgorithmUtility<E> {
 			int j = i - 1;
 			while (j >= 0 && ((str[j].compareTo(key) > 0))) {
 				str[j + 1] = str[j];
-				j = j - 1;
+				j--;
 			}
 			str[j + 1] = key;
 		}
@@ -184,21 +182,39 @@ public class AlgorithmUtility<E> {
 	 * @param money the amount that you need change for
 	 * @return integer the minimum changes needed for the amount entered
 	 */
-	public static int minChange(int[] curr, int money) {
-
-		int cash = money;
-		int temp = 0;
-		for (int i = curr.length - 1; i >= 0; i--) {
-			int count = 0;
-			if (curr[i] <= cash) {
-				count = cash / curr[i];
-				cash = cash % curr[i];
-				temp += count;
+//	public static int minChange(int[] curr, int money) {
+//
+//		int cash = money;
+//		int temp = 0;
+//		for (int i = curr.length - 1; i >= 0; i--) {
+//			int count = 0;
+//			if (curr[i] <= cash) {
+//				count = cash / curr[i];
+//				cash = cash % curr[i];
+//				temp += count;
+//			}
+//			if (count > 0)
+//				System.out.println(count + " x " + curr[i] + "rs");
+//		}
+//		return temp;
+//	}
+	static int i = 0;
+	static int value;
+	public static int minChange(int money, int[] notes) {
+		int rem;
+		if (money == 0) {
+			return value;
+		} else {
+			if (money >= notes[i]) {
+				int calNotes = money / notes[i];
+				rem = money % notes[i];
+				money = rem;
+				System.out.println(notes[i] + "rs Notes are  " + calNotes);
+				value += calNotes;
 			}
-			if (count > 0)
-				System.out.println(count + " x " + curr[i] + "rs");
+			i++;
+			return minChange(money, notes);
 		}
-		return temp;
 
 	}
 
@@ -797,19 +813,28 @@ public class AlgorithmUtility<E> {
 	 * @param primeAnagramset the set of prime numbers that are anagram
 	 * @return set the set of prime numbers that are anagram and palindrom
 	 */
-	public static Set<Integer> primePalindrome(Set<Integer> primeAnagramSet) {
-		Iterator<Integer> iter = primeAnagramSet.iterator();
-		Set<Integer> resultSet = new HashSet<>();
-		while (iter.hasNext()) {
-			Integer a1 = (Integer) iter.next();
-			Integer lk = reverse(a1);
-			if (primeAnagramSet.contains(lk))
-
-			{
-				resultSet.add(lk);
+	public static Set<Integer> primePalindrome(List<Integer> arr) {
+		Set<Integer> pal_set=new HashSet<>();
+		Iterator<Integer> itr=arr.iterator();
+		while(itr.hasNext()){
+			Integer num=itr.next();
+			if(isPalindrom(String.valueOf(num))){
+				pal_set.add(num);
 			}
 		}
-		return resultSet;
+		return pal_set;
+	}
+	public static boolean isPalindrom(String str){
+		String new_str="";
+		char[] array=str.toCharArray();
+		for(int i=0;i<array.length;i++)
+		{
+			new_str=array[i]+new_str;
+		}
+		if(str.equals(new_str))
+			return true;
+		else
+			return false;
 	}
 
 	/**

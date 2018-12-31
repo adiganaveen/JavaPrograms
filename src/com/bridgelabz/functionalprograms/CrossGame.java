@@ -51,6 +51,7 @@ public class CrossGame {
 			else
 			{
 				System.out.println("its a draw");
+				break;
 			}
 			player = 0;
 		}

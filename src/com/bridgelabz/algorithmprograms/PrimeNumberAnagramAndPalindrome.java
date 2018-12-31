@@ -28,15 +28,15 @@ public class PrimeNumberAnagramAndPalindrome {
 		//Method 1- using non-static function of AlgorithmUtility class of com.bridgelabz.util package
 		arr=AlgorithmUtility.findPrime(num);
 		
-		Set<Integer> primeAnagramSet=new HashSet<>();//creating set
+//		Set<Integer> primeAnagramSet=new HashSet<>();//creating set
 	    System.out.println("The prime numbers which are anagrams are");
 	    //Method 2- using non-static function of AlgorithmUtility class of com.bridgelabz.util package
-	    primeAnagramSet=AlgorithmUtility.primeAnagram(arr);
+	    AlgorithmUtility.primeAnagram(arr);
 
 	    Set<Integer> primePalindromeSet=new HashSet<>();//creating set
-        System.out.println("The prime numbers which are anagram and palindrome are");
+        System.out.println("The prime numbers which are palindrome are");
         //Method 3- using non-static function of AlgorithmUtility class of com.bridgelabz.util package
-        primePalindromeSet=AlgorithmUtility.primePalindrome(primeAnagramSet);
+        primePalindromeSet=AlgorithmUtility.primePalindrome(arr);
         System.out.println(primePalindromeSet); //displaying output
 
 	}

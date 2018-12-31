@@ -24,11 +24,11 @@ public class SimulateStopwatchProgram {
 	*/
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Press 1 to start\n");
+		System.out.println("Press any value to start\n");
 		//Method 1- using static function of FunctionalUtilty class of com.bridgelabz.util package
 		int start = sc.nextInt();
 		FunctionalUtility.start(start);
-		System.out.println("Press 2 to stop\n");
+		System.out.println("Press any value to stop\n");
 		//Method 2- using static function of FunctionalUtilty class of com.bridgelabz.util package
 		int stop = sc.nextInt();
 		FunctionalUtility.stop(stop);

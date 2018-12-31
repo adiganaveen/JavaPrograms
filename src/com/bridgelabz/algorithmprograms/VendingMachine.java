@@ -28,11 +28,11 @@ public class VendingMachine
 	public static void main(String[] args) {
         System.out.println("Enter amount to be getting from vending machine");
         int money=AlgorithmUtility.userInteger(); //user input
-        int [] curr= {1,2,5,10,50,100,500,1000};
+        int [] curr= {1000,500,100,50,10,5,2,1};
         System.out.println("Types and number of notes to be given is : ");
       //Method 1- using static function of AlgorithmUtility class of com.bridgelabz.util package
       		
-        int temp=AlgorithmUtility.minChange(curr,money);
+        int temp=AlgorithmUtility.minChange(money,curr);
         System.out.println("minimum number of notes to be given is " + temp); //displaying result 
 	}
 
