@@ -1,51 +1,36 @@
 package com.bridgelabz.datastructuresprograms;
 
 import com.bridgelabz.util.DataStructureUtility;
+import com.bridgelabz.util.Stack;
 
-public class BalancedParenthesis
-{
-	public static void main(String[] args) throws Exception 
-	{
-		System.out.println("Enter max size: ");
-		int n=DataStructureUtility.userInteger();
-
-		Stack stack = new Stack(n);
-		System.out.println();
-		System.out.println("Parenthesis Matching");
-		System.out.println();
-		System.out.println("Enter expression: ");
-		String str = DataStructureUtility.userString();      
-		int len = str.length();
-		System.out.println("Matches and Mismatches: ");
-
-		for (int i = 0; i < len; i++)
-		{    
-		char ch = str.charAt(i);
-
-			if (ch == '(')
-			{
-			stack.push(i);
-			}
-				else if (ch == ')')
-				{
-					try
-					{
-					long p = (stack.pop() + 1);
-					System.out.println("'(' at index "+p+" matched with ')' at index "+(i+1));
-					System.out.println("Its is a balanced parenthesis");
-					}
-					catch(Exception e)
-					{
-					System.out.println("')' at index "+(i+1)+" is unmatched");
-					System.out.println("Its is not a balanced parenthesis");
-					}
-					
-				}            
-			}
-		while (!stack.isEmpty() )
+public class BalancedParenthesis {
+	public static void main(String[] args) throws Exception {
+		Stack stack = new Stack();
+		int n=0;
+		do
 		{
-		System.out.println("'(' at index "+(stack.pop() +1)+" is unmatched");
-		System.out.println("Its is not a balanced parenthesis");
-		}                          
-    }
+			System.out.println("1.Enter the expression\n2.To exit program");
+			int choice=DataStructureUtility.userInteger();
+			switch(choice)
+			{
+			case 1:System.out.println("Enter expression: ");
+					String str = DataStructureUtility.userString();
+					int len = str.length();
+					char[] ch = str.toCharArray();
+					if (stack.isBalanced(ch)) {
+						System.out.println(str+" is a balanced expression");
+					}
+					else
+					{
+						System.out.println(str +" is not a balanced expression");
+					}
+					break;
+			case 2:System.out.println("Thankyou");
+					System.exit(0);
+					break;
+			default:System.out.println("Please select correct choice");
+			}
+		n++;
+		}while(n<30);
+	}
 }

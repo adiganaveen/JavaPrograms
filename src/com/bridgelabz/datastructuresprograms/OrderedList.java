@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.Writer;
 
 import com.bridgelabz.util.DataStructureUtility;
+import com.bridgelabz.util.LinkedList;
 
 public class OrderedList  {
 	public static void main(String[] args) throws IOException 
@@ -18,7 +19,7 @@ public class OrderedList  {
 		FileWriter w=new FileWriter("/home/admin1/Desktop/file4.txt",true);
 		BufferedWriter writer = new BufferedWriter(w);
 		final String DELIMITER=" ";
-		Node nd=null;
+//		Node nd=null;
 		int n=0;
 		LinkedList<Integer> li=new LinkedList<>();
 		LinkedList<Integer> li2=new LinkedList<>();
