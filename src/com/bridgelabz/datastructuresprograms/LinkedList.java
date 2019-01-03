@@ -91,10 +91,9 @@ public class LinkedList<T> {
 				break;
 			}
 			if (key.compareToIgnoreCase(String.valueOf(nd2.getValue())) == 0) {
-//				nd2.setValue(null);
-				int index=li.index(key);
-//				System.out.println(index);
-				li.remove(index);
+//				int index=li.index(key);
+//				li.remove(index);
+				nd2.setValue(null);
 				return true;
 			} 
 			nd2 = nd2.getNextRef();
@@ -134,7 +133,7 @@ public class LinkedList<T> {
 	        Node<T> next = temp.getNextRef().getNextRef(); 
 	  
 	        next=temp.getNextRef();
-}
+	}
 	public int [] convInteger(LinkedList<Integer> li,int len)
 	{
 		Node nd2 = li.first;
@@ -146,8 +145,8 @@ public class LinkedList<T> {
 			}
 			if(nd2.getValue()!=null)
 			{
-				arr[i]=(int) nd2.getValue();
-				i++;
+				arr[i++]=(int) nd2.getValue();
+//				i++;
 			}
 			nd2 = nd2.getNextRef();
 		}
@@ -169,14 +168,12 @@ public class LinkedList<T> {
 	}
 	
 	public boolean findIntegerValue(int length, int key, LinkedList<Integer> li2) {
-//		LinkedList<Integer> li2=new LinkedList<>();
 		Node<T> nd2 = first;
 		while (true) {
 			if (nd2 == null) {
 				break;
 			}
 			if (String.valueOf(key).compareToIgnoreCase(String.valueOf(nd2.getValue())) == 0) 
-//			if(key==Integer.valueOf(String.valueOf(nd2.getValue())))
 			{
 				nd2.setValue(null);
 				return true;
@@ -208,8 +205,8 @@ public class LinkedList<T> {
 			}
 			if(nd2.getValue()!=null)
 			{
-				str[i]=(String) nd2.getValue();
-				i++;
+				str[i++]=(String) nd2.getValue();
+//				i++;
 			}
 			nd2 = nd2.getNextRef();
 		}
@@ -226,16 +223,15 @@ public class LinkedList<T> {
 			}
 			if(nd2.getValue()!=null)
 			{
-				str[i]=(Integer) nd2.getValue();
-				i++;
+				str[i++]=(Integer) nd2.getValue();
+//				i++;
 			}
 			nd2 = nd2.getNextRef();
 		}
 		return str;
 	}
 }
-class Node<T> implements Comparable<T> {
-
+class Node<T>  {
 	private T value;
 	private Node<T> nextRef;
 
@@ -255,13 +251,4 @@ class Node<T> implements Comparable<T> {
 	public void setNextRef(Node<T> ref) {
 		this.nextRef = ref;
 	}
-	 @Override
-	    public int compareTo(T arg) {
-	        if(arg == this.value){
-	            return 0;
-	        } else {
-	            return 1;
-	        }
-	    }
-
 }
