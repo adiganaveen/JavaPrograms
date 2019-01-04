@@ -768,7 +768,6 @@ public class AlgorithmUtility<E> {
 		int flag = 1;
 		int i;
 		List<Integer> arr = new ArrayList<>();
-//		int count = 0;
 		for (i = 2; i <= num; i++) {
 			for (int j = 2; j < i; j++) {
 				if (i % j == 0) {

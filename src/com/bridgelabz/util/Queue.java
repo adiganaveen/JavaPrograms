@@ -29,7 +29,10 @@ public class Queue {
 //			System.out.println("Element " + item+ " is pushed to Queue !");
 		}
 	}
-
+   public int size()
+   {
+	   return currentSize;
+   }
 	/**
 	 * this method removes an element from the top of the queue
 	 */
@@ -39,10 +42,10 @@ public class Queue {
 		} else {
 			front++;
 			if(front == capacity-1){
-//				System.out.println("Pop operation done ! removed: "+queueArr[front-1]);
+				System.out.print(queueArr[front-1]+" ");
 				front = 0;
 			} else {
-//				System.out.println("Pop operation done ! removed: "+queueArr[front-1]);
+				System.out.print(queueArr[front-1]+" ");
 			}
 			currentSize--;
 		}

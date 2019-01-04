@@ -1,75 +1,28 @@
 package com.bridgelabz.datastructuresprograms;
 
+import com.bridgelabz.util.DataStructureUtility;
+
 class BinarySearchTree { 
-    Node root; 
-
-    BinarySearchTree() {  
-        root = null;  
-    } 
-
-    void insert(int key) { 
-       root = insertRec(root, key); 
-    } 
-      
- 
-    Node insertRec(Node root, int key) { 
-  
-        if (root == null) { 
-            root = new Node(key); 
-            return root; 
-        } 
-  
-        /* Otherwise, recur down the tree */
-        if (key < root.key) 
-        {
-            root.left = insertRec(root.left, key); 
-        System.out.println("root left :"+root);
-        }
-        else if (key > root.key) 
-        {
-            root.right = insertRec(root.right, key); 
-            System.out.println("root right :"+root);
-        }
-  
-        /* return the (unchanged) node pointer */
-        return root; 
-    } 
-  
-
-    void inorder()  { 
-       inorderRec(root); 
-    } 
-  
-  
-    void inorderRec(Node root) { 
-        if (root != null) { 
-            inorderRec(root.left); 
-            System.out.println(root.key); 
-            inorderRec(root.right); 
-        } 
-    } 
-  
     // Driver Program to test above functions 
     public static void main(String[] args) { 
-        BinarySearchTree tree = new BinarySearchTree(); 
-
-        tree.insert(50); 
-        tree.insert(30); 
-        tree.insert(20); 
-        tree.insert(40); 
-        tree.insert(90); 
-        tree.insert(60); 
-        tree.insert(80); 
-        tree.insert(12);
-        tree.inorder(); 
+        double count1;
+        System.out.println("Enter the number of elements");
+        int num=DataStructureUtility.userInteger();
+        int[] intArr=new int[num];
+        for(int i=0;i<intArr.length;i++)
+        {
+        	System.out.println("Enter the "+i+" th number:");
+        	intArr[i]=DataStructureUtility.userInteger();
+        }
+        double [] count=new double[intArr.length];
+        for(int i=0;i<intArr.length;i++)
+        {
+        	
+        	count[i] = DataStructureUtility.countBinary(intArr[i]);
+        }
+         for(int i=0;i<count.length;i++)
+         {
+        	 System.out.println("Count of BST possibilities for "+  intArr[i] +" nodes is "+count[i]);
+         }
     } 
-} 
-class Node { 
-    int key; 
-    Node left, right; 
-
-    public Node(int item) { 
-        key = item; 
-        left = right = null; 
-    } 
-} 
+}  
