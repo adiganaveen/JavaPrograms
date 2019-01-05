@@ -1,9 +1,12 @@
 package com.bridgelabz.util;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -162,6 +165,31 @@ public class DataStructureUtility {
 		}
 		return primeAnagram;
 	}
+	public static Stack primeAnagram2(List<Integer> primeList) {
+//		Set<Integer> primeAnagram = new HashSet<>();
+		Stack stack=new Stack();
+		for (int i = 0; i < primeList.size(); i++) {
+			for (int j = i+1; j < primeList.size(); j++) {
+				if (AlgorithmUtility.anagramDetection(String.valueOf(primeList.get(i)), String.valueOf(primeList.get(j)))) {
+					stack.push(primeList.get(i));
+					stack.push(primeList.get(j));
+				}
+			}
+		}
+		return stack;
+	}
+	public static Queue primeAnagram3(List<Integer> primeList) {
+		Queue queue=new Queue(1000);
+		for (int i = 0; i < primeList.size(); i++) {
+			for (int j = i+1; j < primeList.size(); j++) {
+				if (AlgorithmUtility.anagramDetection(String.valueOf(primeList.get(i)), String.valueOf(primeList.get(j)))) {
+					queue.enqueue(primeList.get(i));
+					queue.enqueue(primeList.get(j));
+				}
+			}
+		}
+		return queue;
+	}
 	public static void printPrimeAndAnagram(List<List<Integer>> list1)
 	{
 		List<Integer> demo = new ArrayList<Integer>();
@@ -198,6 +226,77 @@ public class DataStructureUtility {
 		return arr;
 	}
 	
-	//Anagram Queue
+	public boolean isBalanced(char exp[]) {
+
+		Stack st = new Stack();
+		for (int i = 0; i < exp.length; i++) {
+			if (exp[i] == '(')
+				st.push(exp[i]);
+
+			if (exp[i] == ')') {
+				if (st.isEmpty()) {
+					return false;
+				}
+
+				else if (!Pair((char) st.pop(), exp[i])) {
+					return false;
+				}
+			}
+
+		}
+
+		if (st.isEmpty())
+			return true;
+		else
+			return false;
+	}
+
+	public static boolean Pair(char character1, char character2) {
+		if (character1 == '(' && character2 == ')')
+			return true;
+		else
+			return false;
+	}	
 	
+	public static void OrderedSearch(LinkedList<Integer> li2,int key)
+	{
+		int len=li2.size();
+		  System.out.println(len);
+		  boolean b=li2.findIntegerValue(len,key,li2);
+		  if(b)
+		  {
+			  System.out.println("name found");
+			  System.out.println("number is removed from the file ");
+			  System.out.println("new file list is :");
+			  li2.printNew();
+		  }
+		  else
+		  {
+			  System.out.println("name not found");
+			  System.out.println("seached word added to file ");
+			  li2.printNew();
+		  }
+	}
+	public static void orderedWrite(LinkedList<Integer> li2,LinkedList<Integer> li) throws IOException
+	{
+		FileWriter w=new FileWriter("/home/admin1/Desktop/file4.txt",true);
+		BufferedWriter writer = new BufferedWriter(w);
+		FileOutputStream writer2 = new FileOutputStream("/home/admin1/Desktop/file4.txt");
+        writer2.write(("").getBytes());
+        writer2.close();
+  		int len2=li2.size();
+  		li2.printNew();
+  		int [] newStr=li.convertInt(li2, len2);
+  		String[] newStringArray = new String[newStr.length];
+  		for(int i=0; i<newStr.length; i++) {
+  			newStringArray[i] = String.valueOf(newStr[i]);
+  		}
+  		for(int i=0;i<newStringArray.length;i++)
+  		{
+  			writer.write(newStringArray[i]);
+  			writer.write(" ");
+  		}
+  		writer.flush();
+  		writer.close();
+	}
 }

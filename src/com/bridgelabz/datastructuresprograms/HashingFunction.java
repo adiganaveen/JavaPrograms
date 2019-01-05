@@ -1,5 +1,147 @@
+/******************************************************************************
+ *  Compilation:  javac -d bin HashingFunction.java
+ *  Execution:    java -cp bin com.bridgelabz.algorithmprogram.HashingFunction n
+ *  
+ *  Purpose: Hashing Function to search a Number in a slot
+ *
+ *  @author  Naveen Adiga
+ *  @version 1.0
+ *  @since   2-12-2018
+ *
+ ******************************************************************************/
+
+
 package com.bridgelabz.datastructuresprograms;
 
-public class HashingFunction {
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
+import com.bridgelabz.util.AlgorithmUtility;
+import com.bridgelabz.util.DataStructureUtility;
+import com.bridgelabz.util.LinkedList;
+
+public class HashingFunction {
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		LinkedList<Integer> linkedList1=new LinkedList<>();
+		LinkedList<Integer> linkedList2 = null;
+		LinkedList<Integer> linkedList3=new LinkedList<>();
+		int n=0;
+		Map<Integer, LinkedList<Integer>> map=new HashMap<Integer, LinkedList<Integer>>();
+		for(int i=0;i<10;i++){
+			linkedList2 = new LinkedList<>();
+			map.put(i, linkedList2);
+		}
+		System.out.println(map);
+		FileReader fr=new FileReader("/home/admin1/Desktop/HashingFile");
+		BufferedReader br=new BufferedReader(fr);
+		FileWriter w=new FileWriter("/home/admin1/Desktop/HashingFile",true);
+		BufferedWriter writer = new BufferedWriter(w);
+		int rem;
+		String read;
+		String delimitor=" ";
+		while((read=br.readLine())!=null){
+			String tokens[]=read.split(delimitor);
+			for(String token:tokens){
+				linkedList1.add(Integer.parseInt(token));
+			}
+		}
+		System.out.println("The numbers in the file are:");
+		linkedList1.printNew();
+		System.out.println();
+		int len=linkedList1.size();
+		int [] arr=linkedList1.convInteger(linkedList1,len);
+// 		int [] arr2=linkedList1.sortArray(arr);
+// 		System.out.println("after sorting:");
+// 		for(int i:arr2)
+// 		  {
+// 			linkedList3.add(i);
+// 		  }
+// 		linkedList3.printNew();
+ 		System.out.println();
+		System.out.println("Diving each number by 11 and storing set");
+		for(int i=0;i<arr.length;i++){
+			rem=arr[i]%11;
+			if(map.isEmpty()){
+				linkedList2.add(arr[i]);
+				map.put(rem, linkedList2);
+			}
+			else{
+				linkedList2.printNew();
+				map.put(rem, linkedList2);
+				linkedList2=map.get(rem);
+				if(linkedList2.size()==0){
+					linkedList2.add(arr[i]);
+				}
+				else{
+					if(!linkedList2.search(arr[i])){
+						linkedList2.add(arr[i]);
+						map.put(rem, linkedList2);
+					}
+				}
+				
+			}
+		}
+		System.out.println(map.entrySet());
+//		map2=AlgorithmUtility.mapCall(map);
+//		System.out.println(map2);
+		
+		 do {
+			  System.out.println();
+			  System.out.println("1.Enter the integer value to be to be searched\n2.Exit the program and display the file ");
+			  int choice=DataStructureUtility.userInteger();
+			  switch(choice)
+			  {
+			  case 1: System.out.println("enter the word to be searched from sorted list:");
+			  		  int key=DataStructureUtility.userInteger();
+			  		  int length=linkedList1.size();
+//			  		  System.out.println(length);
+			  		  boolean b=linkedList1.findIntegerValue(length,key,linkedList1);
+			  		  if(b)
+			  		  {
+			  			  System.out.println("name found");
+			  			  System.out.println("number is removed from the file ");
+			  			  System.out.println("new file list is :");
+			  			linkedList1.printNew();
+			  		  }
+			  		  else
+			  		  {
+			  			  System.out.println("name not found");
+			  			  System.out.println("seached number added to file ");
+			  			linkedList1.printNew();
+			  		  }
+			  		  break;
+			  		  
+			  case 2:  
+				  	    FileOutputStream writer2 = new FileOutputStream("/home/admin1/Desktop/HashingFile");
+				        writer2.write(("").getBytes());
+				        writer2.close();
+				  		int len2=linkedList1.size();
+				  		linkedList1.printNew();
+				  		int [] newStr=linkedList1.convertInt(linkedList2, len2);
+				  		String[] newStringArray = new String[newStr.length];
+				  		for(int i=0; i<newStr.length; i++) {
+				  			newStringArray[i] = String.valueOf(newStr[i]);
+				  		}
+				  		for(int i=0;i<newStringArray.length;i++)
+				  		{
+				  			writer.write(newStringArray[i]);
+				  			writer.write(" ");
+				  		}
+				  		writer.flush();
+				  		writer.close();
+				  		System.exit(0);
+				  		break;
+			  default :System.out.println("please select correct choice");
+			  			break;
+			  }
+			  
+		  n++;
+		  }while(n<30);
+	}
 }

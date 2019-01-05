@@ -61,7 +61,7 @@ public class LinkedList<T> {
 			}
 			if(tmp.getValue()!=null)
 			{
-			System.out.println(tmp.getValue());
+			System.out.print(tmp.getValue()+" ");
 			}
 			tmp = tmp.getNextRef();
 		}
@@ -192,6 +192,16 @@ public class LinkedList<T> {
 		return false;
 	
 	}
+	public boolean search(T key){
+		   Node<T> temp=first;
+		   while(temp.getNextRef()!=null){
+			   if( String.valueOf(key).compareToIgnoreCase(String.valueOf(temp.getValue())) == 0){
+				   return true;
+			   }
+			   temp=temp.getNextRef();
+		   }
+		   return false;
+		}
 
 	public String [] convString(LinkedList<T> li,int len)
 	{

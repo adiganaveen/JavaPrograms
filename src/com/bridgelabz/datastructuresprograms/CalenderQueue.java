@@ -1,20 +1,11 @@
-/******************************************************************************
- *  Compilation:  javac -d bin Calender.java
- *  Execution:    java -cp bin com.bridgelabz.algorithmprogram.Calender n
- *  
- *  Purpose: prints the Calendar of the month
- *
- *  @author  Naveen Adiga
- *  @version 1.0
- *  @since   2-12-2018
- *
- ******************************************************************************/
-
 package com.bridgelabz.datastructuresprograms;
 
-import com.bridgelabz.util.DataStructureUtility;
+import java.util.LinkedList;
 
-public class Calender {
+import com.bridgelabz.util.DataStructureUtility;
+import com.bridgelabz.util.Queue;
+
+public class CalenderQueue {
 	public static void main(String[] args) {
 		int month = Integer.parseInt(args[0]);
 		int year = Integer.parseInt(args[1]);
@@ -27,13 +18,26 @@ public class Calender {
 		System.out.println("\t\t " + months[month] + " " + year);
 		System.out.println("Sun\tMon\tTue\tWed\tThu\tFri\tSat");
 		int d = DataStructureUtility.day(month, 1, year);
+		Queue queue1=new Queue(1000);
+		
+		for (int i = 1; i <= days[month]; i++) {
+			Queue queue2=new Queue(1000);
+			queue2.enqueue(i);
+			if (((i + d) % 7 == 0) ) {
+				queue1.enqueue(queue2);
+				continue;
+			}
+		}
 		for (int i = 0; i < d; i++)
 			System.out.print("\t");
 		for (int i = 1; i <= days[month]; i++) {
-			System.out.print(i + "\t");
-			if (((i + d) % 7 == 0) ) {
-				System.out.println();
+			while(!queue1.isEmpty())
+			{
+				queue1.remove();
 			}
+		if (((i + d) % 7 == 0) ) {
+			System.out.println();
+		}
 		}
 	}
 }

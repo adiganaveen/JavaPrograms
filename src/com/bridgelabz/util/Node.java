@@ -1,11 +1,11 @@
 package com.bridgelabz.util;
 
-class Node<T>  {
+class Node<T> {
 	private T value;
 	private Node<T> nextRef;
 
 	public T getValue() {
-		
+
 		return value;
 	}
 

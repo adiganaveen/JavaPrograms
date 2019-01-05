@@ -42,35 +42,5 @@ public class Stack {
 		return (top == -1) ? true : false;
 	}
 
-	public boolean isBalanced(char exp[]) {
-
-		Stack st = new Stack();
-		for (int i = 0; i < exp.length; i++) {
-			if (exp[i] == '(')
-				st.push(exp[i]);
-
-			if (exp[i] == ')') {
-				if (st.isEmpty()) {
-					return false;
-				}
-
-				else if (!st.Pair((char) st.pop(), exp[i])) {
-					return false;
-				}
-			}
-
-		}
-
-		if (st.isEmpty())
-			return true;
-		else
-			return false;
-	}
-
-	public boolean Pair(char character1, char character2) {
-		if (character1 == '(' && character2 == ')')
-			return true;
-		else
-			return false;
-	}
+	
 }

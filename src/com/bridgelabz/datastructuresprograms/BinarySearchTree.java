@@ -1,3 +1,15 @@
+/******************************************************************************
+ *  Compilation:  javac -d bin BinarySearchTree.java
+ *  Execution:    java -cp bin com.bridgelabz.algorithmprogram.BinarySearchTree n
+ *  
+ *  Purpose: Number of Binary Search Tree
+ *
+ *  @author  Naveen Adiga
+ *  @version 1.0
+ *  @since   2-12-2018
+ *
+ ******************************************************************************/
+
 package com.bridgelabz.datastructuresprograms;
 
 import com.bridgelabz.util.DataStructureUtility;
