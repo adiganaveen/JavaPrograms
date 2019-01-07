@@ -8,10 +8,10 @@ public class LinkedList<T> {
 	public boolean isEmpty(){
 		return first==null;
 	}
-	public void add(T element) {
+	public void add(T t) {
 
 		Node<T> nd = new Node<T>();
-		nd.setValue(element);
+		nd.setValue(t);
 		if (first == null) {
 			first = nd;
 			last = nd;
@@ -65,6 +65,22 @@ public class LinkedList<T> {
 			}
 			tmp = tmp.getNextRef();
 		}
+	}
+	public LinkedList<Integer> getValue() {
+
+		Node<T> tmp = first;
+		LinkedList<Integer> node=new LinkedList<Integer>();
+		while (true) {
+			if (tmp == null) {
+				break;
+			}
+			if(tmp.getValue()!=null)
+			{
+			  node.add((Integer) tmp.getValue());
+			}
+			tmp = tmp.getNextRef();
+		}
+		return node;
 	}
 	public int size() {
 
@@ -135,7 +151,7 @@ public class LinkedList<T> {
 	}
 	public int [] convInteger(LinkedList<Integer> li,int len)
 	{
-		Node nd2 = li.first;
+		Node<Integer> nd2 = li.first;
 		int [] arr=new int[len];
 		int i=0;
 		while (true) {
@@ -205,7 +221,7 @@ public class LinkedList<T> {
 
 	public String [] convString(LinkedList<T> li,int len)
 	{
-		Node nd2 = li.first;
+		Node<T> nd2 = li.first;
 		String [] str=new String[len];
 		int i=0;
 		while (true) {
@@ -223,7 +239,7 @@ public class LinkedList<T> {
 	}
 	public int [] convertInt(LinkedList<Integer> li,int len)
 	{
-		Node nd2 = li.first;
+		Node<Integer> nd2 = li.first;
 		int [] str=new int[len];
 		int i=0;
 		while (true) {

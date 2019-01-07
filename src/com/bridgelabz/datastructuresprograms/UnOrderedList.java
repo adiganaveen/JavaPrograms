@@ -1,3 +1,18 @@
+/******************************************************************************
+ *  Compilation:  javac -d bin UnOrderedList.java
+ *  Execution:    java -cp bin com.bridgelabz.algorithmprogram.UnOrderedList n
+ *  
+ *  Purpose: Reads the text from a file, split it into words and arrange it as Linked List.
+ *  		 Takes a user input to search a Word in the List. If the Word is not found then 
+ *  		 add it to the list, and if it found then remove the word from the List.
+ *  		 In the end save the list into a file
+ *
+ *  @author  Naveen Adiga
+ *  @version 1.0
+ *  @since   2-12-2018
+ *
+ ******************************************************************************/
+
 package com.bridgelabz.datastructuresprograms;
 
 import java.io.BufferedReader;
@@ -7,21 +22,23 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import javax.xml.soap.Node;
-
 import com.bridgelabz.util.DataStructureUtility;
 import com.bridgelabz.util.LinkedList;
 
 public class UnOrderedList  {
+	/*
+	* The main function is read a file and add to customized linked 
+	* list to find the searched word
+	*/
 	public static void main(String[] args) throws IOException 
 	{
 		String str="/home/admin1/Desktop/file2.txt";
 		FileReader f=new FileReader(str);
+		@SuppressWarnings("resource")
 		BufferedReader read=new BufferedReader(f);
 		FileWriter w=new FileWriter("/home/admin1/Desktop/file2.txt",true);
 		BufferedWriter writer = new BufferedWriter(w);
 		final String DELIMITER=" ";
-		Node nd=null;
 		int n=0;
 		LinkedList<String> li=new LinkedList<>();
 		try 

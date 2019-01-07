@@ -5,12 +5,12 @@
  *  Purpose: Create the Week Object having a list of WeekDay objects each 
  *  			storing the day (i.e S,M,T,W,Th,..) and the Date (1,2,3..) . 
  *  			The WeekDay objects are stored in a Queue implemented using 
- *  			Linked List. Further maintain also a Week Object in a Queue to
+ *  			Linked List. Further maintain also a Week Object in two stacks to
  *  			finally display the Calendar
  *
  *  @author  Naveen Adiga
  *  @version 1.0
- *  @since   5-12-2018
+ *  @since   4-12-2018
  *
  ******************************************************************************/
 
@@ -18,12 +18,12 @@ package com.bridgelabz.datastructuresprograms;
 
 import com.bridgelabz.util.DataStructureUtility;
 import com.bridgelabz.util.QueueLinkedList;
+import com.bridgelabz.util.StackLinkedList;
 
-
-public class CalenderQueue {
+public class CalenderStack {
 	/*
 	* The main function is to take the input from the user 
-	* and printing the calendar by using queue 
+	* and printing the calendar by using queue and stacks 
 	*/
 	public static void main(String[] args) {
 		int month = Integer.parseInt(args[0]);
@@ -37,28 +37,33 @@ public class CalenderQueue {
 		System.out.println("\t\t " + months[month] + " " + year);
 		System.out.println("Sun\tMon\tTue\tWed\tThu\tFri\tSat");
 		int d = DataStructureUtility.day(month, 1, year);
-		QueueLinkedList<QueueLinkedList<Integer>> mainQueue=new QueueLinkedList<QueueLinkedList<Integer>>();
-		QueueLinkedList<Integer> queue2=new QueueLinkedList<Integer>();
-		
-		
+		StackLinkedList<QueueLinkedList<Integer>> mainStack=new StackLinkedList<>();
+		QueueLinkedList<Integer> queue=new QueueLinkedList<>();
 		for (int i = 1; i <= days[month]; i++) {
-			queue2.enqueue(i);
+			queue.enqueue(i);
 			if (((i + d) % 7 == 0 || i==days[month]) ) {
-				mainQueue.enqueue(queue2);
-				queue2=new QueueLinkedList<Integer>();
+				mainStack.push(queue);
+				queue=new QueueLinkedList<Integer>();
 				continue;
 			}
 		}	
 		for (int i = 0; i < d; i++)
 		System.out.print("\t");
-		for(int i=0;i<=mainQueue.getSize();i++)
-		{
-			QueueLinkedList<Integer> week=mainQueue.dequeue();
-			for(int j=0;j<week.getSize();j++)
-			{
-				System.out.print(week.dequeue()+"\t");
+		int size = mainStack.getSize();
+		StackLinkedList<QueueLinkedList<Integer>> stackNew = new StackLinkedList<>();
+		
+		for(int i=0; i < size; i++){
+			stackNew.push(mainStack.pop());
+		}
+
+		for (int i = 0; i < size; i++) {
+			QueueLinkedList<Integer> week = stackNew.pop();
+			for (int j = 0; j < week.getSize(); j++) {
+				System.out.print(week.dequeue() + "\t");
 			}
 			System.out.println();
 		}
+
 	}
+
 }

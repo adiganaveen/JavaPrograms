@@ -15,9 +15,13 @@ package com.bridgelabz.datastructuresprograms;
 import com.bridgelabz.util.DataStructureUtility;
 
 class BinarySearchTree { 
-    // Driver Program to test above functions 
+
+	/*
+	* The main function is written to take input from the user
+	* and to find how many binary search trees can be formed
+	* from the entered number of nodes
+	*/
     public static void main(String[] args) { 
-        double count1;
         System.out.println("Enter the number of elements");
         int num=DataStructureUtility.userInteger();
         int[] intArr=new int[num];
@@ -29,7 +33,7 @@ class BinarySearchTree {
         double [] count=new double[intArr.length];
         for(int i=0;i<intArr.length;i++)
         {
-        	
+        	//Method 1- using function of Utility class of com.bridgelabz.util package
         	count[i] = DataStructureUtility.countBinary(intArr[i]);
         }
          for(int i=0;i<count.length;i++)

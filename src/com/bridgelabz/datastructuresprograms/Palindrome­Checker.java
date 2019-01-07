@@ -1,9 +1,28 @@
+/******************************************************************************
+ *  Compilation:  javac -d bin Palindrome­Checker.java
+ *  Execution:    java -cp bin com.bridgelabz.algorithmprogram.Palindrome­Checker n
+ *  
+ *  Purpose: A palindrome is a string that reads the same forward and backward.
+ *  		 	To construct an algorithm to input a string of characters and 
+ *  			check whether it is a palindrome.
+ *
+ *  @author  Naveen Adiga
+ *  @version 1.0
+ *  @since   2-12-2018
+ *
+ ******************************************************************************/
+
 package com.bridgelabz.datastructuresprograms;
 
 import com.bridgelabz.util.DataStructureUtility;
 import com.bridgelabz.util.Deque;
 
 public class Palindrome­Checker {
+	/*
+	* The main function is to read the input from the user
+	* and checking whether the entered string is palindrome 
+	* or not
+	*/
 	public static void main(String[] args) {
 		Deque deque = new Deque(100);
 		System.out.println("Enter string to check to check it is palindrome or not");

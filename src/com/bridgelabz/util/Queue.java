@@ -1,22 +1,26 @@
+
+
 package com.bridgelabz.util;
 
-public class Queue {
+public class Queue<T> {
+	
 	private int capacity;
-	int queueArr[];
+	T queueArr[];
 	int front = 0;
 	int rear = -1;
 	int currentSize = 0;
 	
+	@SuppressWarnings("unchecked")
 	public Queue(int queueSize){
 		this.capacity = queueSize;
-		queueArr = new int[this.capacity];
+		queueArr = (T[]) new Object[this.capacity];
 	}
 
 	/**
 	 * this method adds element at the end of the queue.
 	 * @param item
 	 */
-	public void enqueue(int item) {
+	public void enqueue(T item) {
 		if (isQueueFull()) {
 			System.out.println("Overflow ! Unable to add element: "+item);
 		} else {

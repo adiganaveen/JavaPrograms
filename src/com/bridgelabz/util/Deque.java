@@ -2,13 +2,32 @@ package com.bridgelabz.util;
 
 
 public class Deque<E> {
+	/**
+	 * to get value of a node data
+	 */
 	public E data;
+	/**
+	 * it would be having next node reference
+	 */
 	Deque<E>next;
+	/**
+	 * it would be having earlier node reference
+	 */
 	Deque<E>pre;
+	/**
+	 * it will be the first node
+	 */
 	Deque<E> front;
+	/**
+	 * it will be the last node
+	 */
 	Deque<E> rear;
 	int size=0;
 
+	/**
+	 * constructor is used to store value onto data
+	 * @param val
+	 */
 	public Deque(E val)
 	{
 		this.data=val;
@@ -16,6 +35,10 @@ public class Deque<E> {
 		this.pre=null;
     }
 	
+	/**
+	 * to add it on to front of deque
+	 * @param c is generic
+	 */
 	public void addFront(E c)
 	{
 		if(front==null) 
@@ -35,6 +58,10 @@ public class Deque<E> {
 	}
 	
 
+	/**
+	 * to add it on to rear of deque
+	 * @param c is generic
+	 */
 	public void addRear(E c)
 	{
 		if(front==null)
@@ -54,6 +81,10 @@ public class Deque<E> {
 	}
 	
 
+	/**
+	 * to remove it on to front of deque
+	 * @return is generic
+	 */
 	public E removeFront()
 	{
 		E val=null;
@@ -71,6 +102,10 @@ public class Deque<E> {
 	}
 	
 
+	/**
+	 *  to remove it on to rear of deque
+	 * @return is generic
+	 */
 	public E removeRear()
 	{
 		E val=null;
@@ -89,6 +124,10 @@ public class Deque<E> {
 	}
 	
 
+	/**
+	 * to deque is empty or not
+	 * @return boolean type
+	 */
 	public boolean isEmpty()
 	{
 		if(front==null)
@@ -97,6 +136,10 @@ public class Deque<E> {
 			return false;
 	}
  
+	/**
+	 * to check size of deque
+	 * @return integer type
+	 */
 	public int size()
 	{
 		return size;

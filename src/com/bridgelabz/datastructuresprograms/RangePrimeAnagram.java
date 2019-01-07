@@ -1,3 +1,16 @@
+/******************************************************************************
+ *  Compilation:  javac -d bin RangePrimeAnagram.java
+ *  Execution:    java -cp bin com.bridgelabz.algorithmprogram.RangePrimeAnagram n
+ *  
+ *  Purpose: 2D Array the numbers that are Anagram and numbers that are not 
+ *  			Anagram
+ *
+ *  @author  Naveen Adiga
+ *  @version 1.0
+ *  @since   4-12-2018
+ *
+ ******************************************************************************/
+
 package com.bridgelabz.datastructuresprograms;
 
 import java.util.ArrayList;
@@ -7,6 +20,11 @@ import java.util.Set;
 import com.bridgelabz.util.DataStructureUtility;
 
 public class RangePrimeAnagram {
+	
+	/*
+	* The main function is to print the 2 dimension representation
+	* of the prime numbers from 0-1000 that anagram and not anagram
+	*/
 	public static void main(String[] args) {
 		List<List<Integer>> list1 = new ArrayList<List<Integer>>();
 		List<Integer> list2 = new ArrayList<Integer>();

@@ -15,22 +15,22 @@
 package com.bridgelabz.datastructuresprograms;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.Writer;
-
-import javax.xml.crypto.Data;
 
 import com.bridgelabz.util.DataStructureUtility;
 import com.bridgelabz.util.LinkedList;
 
 public class OrderedList {
+	/*
+	* The main function is to read from a file and sort the elements
+	* in ascending order to find the searched data and write the 
+	* result into a file
+	*/
 	public static void main(String[] args) throws IOException {
 		String str = "/home/admin1/Desktop/file3.txt";
 		FileReader f = new FileReader(str);
+		@SuppressWarnings("resource")
 		BufferedReader read = new BufferedReader(f);
 		final String DELIMITER = " ";
 		int n = 0;

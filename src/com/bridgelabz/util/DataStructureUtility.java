@@ -68,6 +68,11 @@ public class DataStructureUtility {
 
 	static BufferedReader br;
 
+	/**
+	 * to read a file
+	 * @param fileName string value
+	 * @return a string value
+	 */
 	public String getFileText(String fileName) {
 		try {
 			br = new BufferedReader(new FileReader(fileName));
@@ -90,6 +95,12 @@ public class DataStructureUtility {
 		}
 	}
 
+	/**
+	 * to write on to file
+	 * @param data string value
+	 * @param fileName string value
+	 * @throws Exception 
+	 */
 	public void writeToFile(String data, String fileName) throws Exception {
 		File file = new File(fileName);
 		if (!file.exists()) {
@@ -102,10 +113,16 @@ public class DataStructureUtility {
 		writer.close();
 	}
 
+	/**
+	 * to find out binomial co-efficient of number
+	 * @param n double type number
+	 * @param k double type number
+	 * @return double type result
+	 */
 	public static double binomialCoeff(double n, double k) {
 		int res = 1;
-//	    if (k > n - k) 
-//	        k = n - k;  
+	    if (k > n - k) 
+	        k = n - k;  
 		for (int i = 0; i < k; ++i) {
 			res *= (n - i);
 			res /= (i + 1);
@@ -113,12 +130,24 @@ public class DataStructureUtility {
 		return res;
 	}
 
+	/**
+	 * to find number of total number of BST that can be performed
+	 * @param n double type
+	 * @return double type result 
+	 */
 	public static double countBinary(double n) {
 		double c = binomialCoeff(2 * n, n);
 		double count = c / (n + 1);
 		return count;
 	}
 	//calender
+	/**
+	 * to find day of that date
+	 * @param month of integer type
+	 * @param i of integer type
+	 * @param year of integer type
+	 * @return of integer type
+	 */
 	public static int day(int month, int i, int year)
 	{ 
 	int y = year - (14 - month) / 12;
@@ -128,6 +157,11 @@ public class DataStructureUtility {
 	return d;
 	}
 	
+	/**
+	 * to find leap year or not
+	 * @param year of integer type
+	 * @return of boolean type
+	 */
 	public static boolean isLeapYear(int year)
 	{
 	        if  (((year % 4 == 0) && (year % 100 != 0))||year % 400 == 0) return true;
@@ -135,6 +169,12 @@ public class DataStructureUtility {
 	}
 	
 	//to check prime
+	/**
+	 * to find prime numbers of range
+	 * @param low is the lower range if integer type
+	 * @param high is the higher range if integer type
+	 * @return list of integer
+	 */
 	public static List<Integer> findPrime(int low,int high) {
 		int flag = 1;
 		int i;
@@ -153,6 +193,11 @@ public class DataStructureUtility {
 		}
 		return arr;
 	}
+	/**
+	 * to find prime number which are anagram
+	 * @param primeList is list of integers
+	 * @return set of integers
+	 */
 	public static Set<Integer> primeAnagram(List<Integer> primeList) {
 		Set<Integer> primeAnagram = new HashSet<>();
 		for (int i = 0; i < primeList.size(); i++) {
@@ -165,9 +210,14 @@ public class DataStructureUtility {
 		}
 		return primeAnagram;
 	}
-	public static Stack primeAnagram2(List<Integer> primeList) {
+	/**
+	 * to find prime numbers which are anagram and store in stack
+	 * @param primeList is list of integers
+	 * @return stack of integers
+	 */
+	public static Stack<Integer> primeAnagram2(List<Integer> primeList) {
 //		Set<Integer> primeAnagram = new HashSet<>();
-		Stack stack=new Stack();
+		Stack<Integer> stack=new Stack<Integer>();
 		for (int i = 0; i < primeList.size(); i++) {
 			for (int j = i+1; j < primeList.size(); j++) {
 				if (AlgorithmUtility.anagramDetection(String.valueOf(primeList.get(i)), String.valueOf(primeList.get(j)))) {
@@ -178,8 +228,13 @@ public class DataStructureUtility {
 		}
 		return stack;
 	}
-	public static Queue primeAnagram3(List<Integer> primeList) {
-		Queue queue=new Queue(1000);
+	/**
+	 * to find prime numbers which are anagram and store in queue
+	 * @param primeList is list of integers
+	 * @return queue of integers
+	 */
+	public static Queue<Integer> primeAnagram3(List<Integer> primeList) {
+		Queue<Integer> queue=new Queue<Integer>(1000);
 		for (int i = 0; i < primeList.size(); i++) {
 			for (int j = i+1; j < primeList.size(); j++) {
 				if (AlgorithmUtility.anagramDetection(String.valueOf(primeList.get(i)), String.valueOf(primeList.get(j)))) {
@@ -190,6 +245,10 @@ public class DataStructureUtility {
 		}
 		return queue;
 	}
+	/**
+	 * to print list of integers
+	 * @param list1
+	 */
 	public static void printPrimeAndAnagram(List<List<Integer>> list1)
 	{
 		List<Integer> demo = new ArrayList<Integer>();
@@ -212,6 +271,11 @@ public class DataStructureUtility {
 		}
 	}
 	//Anagram Stack
+	/**
+	 * to sort array of integer
+	 * @param arr array of integer
+	 * @return integer array
+	 */
 	public static int[] sortArray(int [] arr) {
 		int length = arr.length;
 		for (int i = 1; i < length; i++) {
@@ -226,9 +290,14 @@ public class DataStructureUtility {
 		return arr;
 	}
 	
+	/**
+	 * to check for balanced parenthesis
+	 * @param exp character
+	 * @return boolean value
+	 */
 	public boolean isBalanced(char exp[]) {
 
-		Stack st = new Stack();
+		Stack<Character> st = new Stack<Character>();
 		for (int i = 0; i < exp.length; i++) {
 			if (exp[i] == '(')
 				st.push(exp[i]);
@@ -251,6 +320,12 @@ public class DataStructureUtility {
 			return false;
 	}
 
+	/**
+	 * check for pair of brackets
+	 * @param character1
+	 * @param character2
+	 * @return boolean type
+	 */
 	public static boolean Pair(char character1, char character2) {
 		if (character1 == '(' && character2 == ')')
 			return true;
@@ -258,6 +333,11 @@ public class DataStructureUtility {
 			return false;
 	}	
 	
+	/**
+	 * to check for ordered search
+	 * @param li2 linked list of integer
+	 * @param key to get value
+	 */
 	public static void OrderedSearch(LinkedList<Integer> li2,int key)
 	{
 		int len=li2.size();
@@ -277,6 +357,12 @@ public class DataStructureUtility {
 			  li2.printNew();
 		  }
 	}
+	/**
+	 * to write it on to file
+	 * @param li2 linked list of integer
+	 * @param li linked list of integer
+	 * @throws IOException it thows exception
+	 */
 	public static void orderedWrite(LinkedList<Integer> li2,LinkedList<Integer> li) throws IOException
 	{
 		FileWriter w=new FileWriter("/home/admin1/Desktop/file4.txt",true);
@@ -299,4 +385,5 @@ public class DataStructureUtility {
   		writer.flush();
   		writer.close();
 	}
+	
 }

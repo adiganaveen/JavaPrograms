@@ -13,11 +13,14 @@
 package com.bridgelabz.datastructuresprograms;
 
 import com.bridgelabz.util.DataStructureUtility;
-import com.bridgelabz.util.Stack;
 
 public class BalancedParenthesis {
-	public static void main(String[] args) throws Exception {
-		Stack stack = new Stack();
+	/*
+	* The main function is written to take input from the user and and 
+	* call the isBalanced function that checks if the parantheses of 
+	* the entered arithmetic expression
+	*/
+	public static <T> void main(String[] args) throws Exception {
 		DataStructureUtility d=new DataStructureUtility();
 		int n=0;
 		do
@@ -28,8 +31,8 @@ public class BalancedParenthesis {
 			{
 			case 1:System.out.println("Enter expression: ");
 					String str = DataStructureUtility.userString();
-					int len = str.length();
 					char[] ch = str.toCharArray();
+					//Method 1- using static function of Utility class of com.bridgelabz.util package
 					if (d.isBalanced(ch)) {
 						System.out.println(str+" is a balanced expression");
 					}
