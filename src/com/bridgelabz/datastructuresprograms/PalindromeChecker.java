@@ -1,6 +1,6 @@
 /******************************************************************************
- *  Compilation:  javac -d bin Palindrome­Checker.java
- *  Execution:    java -cp bin com.bridgelabz.algorithmprogram.Palindrome­Checker n
+ *  Compilation:  javac -d bin PalindromeChecker.java
+ *  Execution:    java -cp bin com.bridgelabz.algorithmprogram.PalindromeChecker n
  *  
  *  Purpose: A palindrome is a string that reads the same forward and backward.
  *  		 	To construct an algorithm to input a string of characters and 
@@ -17,7 +17,7 @@ package com.bridgelabz.datastructuresprograms;
 import com.bridgelabz.util.DataStructureUtility;
 import com.bridgelabz.util.Deque;
 
-public class Palindrome­Checker {
+public class PalindromeChecker {
 	/*
 	* The main function is to read the input from the user
 	* and checking whether the entered string is palindrome 
