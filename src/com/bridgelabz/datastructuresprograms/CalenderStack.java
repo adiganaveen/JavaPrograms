@@ -1,6 +1,6 @@
 /******************************************************************************
- *  Compilation:  javac -d bin UnOrderedList.java
- *  Execution:    java -cp bin com.bridgelabz.algorithmprogram.UnOrderedList n
+ *  Compilation:  javac -d bin CalenderStack.java
+ *  Execution:    java -cp bin com.bridgelabz.algorithmprogram.CalenderStack n
  *  
  *  Purpose: Create the Week Object having a list of WeekDay objects each 
  *  			storing the day (i.e S,M,T,W,Th,..) and the Date (1,2,3..) . 

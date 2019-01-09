@@ -40,16 +40,14 @@ public class HashingFunction {
 		LinkedList<Integer> linkedList3 = new LinkedList<>();
 		int n = 0;
 		Map<Integer, LinkedList<Integer>> map = new LinkedHashMap<Integer, LinkedList<Integer>>();
-		// Map<Integer, LinkedList<Integer>> map2=new LinkedHashMap<Integer,
-		// LinkedList<Integer>>();
 		for (int i = 0; i <= 10; i++) {
 			linkedList2 = new LinkedList<>();
 			map.put(i, linkedList2);
 		}
-		FileReader fr = new FileReader("N:\\capgemini training\\Programs\\file.txt");
+		FileReader fr = new FileReader("/home/admin1/Documents/adiga_docs/Programs/Files/HashingFile");
 		@SuppressWarnings("resource")
 		BufferedReader br = new BufferedReader(fr);
-		FileWriter w = new FileWriter("N:\\capgemini training\\Programs\\file.txt", true);
+		FileWriter w = new FileWriter("/home/admin1/Documents/adiga_docs/Programs/Files/HashingFile", true);
 		BufferedWriter writer = new BufferedWriter(w);
 		int rem;
 		String read;
@@ -123,7 +121,7 @@ public class HashingFunction {
 				break;
 
 			case 2:
-				FileOutputStream writer2 = new FileOutputStream("N:\\capgemini training\\Programs\\file.txt");
+				FileOutputStream writer2 = new FileOutputStream("/home/admin1/Documents/adiga_docs/Programs/Files/HashingFile");
 				writer2.write(("").getBytes());
 				writer2.close();
 				int len2 = linkedList3.size();
