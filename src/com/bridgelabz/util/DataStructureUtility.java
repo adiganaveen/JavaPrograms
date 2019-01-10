@@ -297,7 +297,7 @@ public class DataStructureUtility {
 	 */
 	public boolean isBalanced(char exp[]) {
 
-		Stack<Character> st = new Stack<Character>();
+		StackLinkedList<Character> st = new StackLinkedList<Character>();
 		for (int i = 0; i < exp.length; i++) {
 			if (exp[i] == '(')
 				st.push(exp[i]);
@@ -307,7 +307,7 @@ public class DataStructureUtility {
 					return false;
 				}
 
-				else if (!Pair((char) st.pop(), exp[i])) {
+				else if (!Pair(st.pop(), exp[i])) {
 					return false;
 				}
 			}

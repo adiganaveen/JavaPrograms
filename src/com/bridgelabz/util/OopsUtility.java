@@ -68,7 +68,7 @@ public class OopsUtility {
 		return scanner.next();
 
 	}
-
+	 
 	public static String replaceString(String first,String fullName,String phoneNum,String date,String line) {
 		final  String REGEX_NAME1 = "<<name>>";
 		final  String REGEX_NAME2 = "<<full name>>";
@@ -119,7 +119,7 @@ public class OopsUtility {
 	{
 		InventoryList inventoryList = new InventoryList();
 		inventoryList.setInventoryName(inventoryName);
-		inventoryList.setListOfInventories(liInventories);
+		inventoryList.setListOfInventories(listOfInventories);
 		return inventoryList;
 	}
 	static List<Inventory> liInventories = new ArrayList<Inventory>();
@@ -131,5 +131,47 @@ public class OopsUtility {
 		inventory.setPrice(price);
 		liInventories.add(inventory);
 		return liInventories;
+	}
+	
+	public static void display(List<InventoryList> list2)
+	{
+		for (int i = 0; i < list2.size(); i++) {
+			InventoryList it = list2.get(i);
+			System.out.println("Inventory name :" + it.getInventoryName());
+			for (int j = 0; j < it.getListOfInventories().size(); j++) {
+				System.out.println("name :" + it.getListOfInventories().get(j).getName());
+				System.out.println("price :" + it.getListOfInventories().get(j).getPrice());
+				System.out.println("weight :" + it.getListOfInventories().get(j).getWeight());
+				System.out.println();
+			}
+			System.out.println("---------------------------------------------");
+	}
+		
+	}
+	public static Inventory insertInventoryDetail()
+	{
+		Inventory inventory = new Inventory();
+		System.out.println("Enter name of inventory");
+		inventory.setName(OopsUtility.userString());
+		System.out.println("Enter weight of inventory in kilograms");
+		inventory.setWeight(OopsUtility.userFloat());
+		System.out.println("Enter price of inventory in rupees");
+		inventory.setPrice(OopsUtility.userDouble());
+		return inventory;
+	}
+	
+	public static void price(List<InventoryList> list2)
+	{
+		
+		for (int i = 0; i < list2.size(); i++) {
+			InventoryList it = list2.get(i);
+			System.out.println("Inventory name :" + it.getInventoryName());
+			for (int j = 0; j < it.getListOfInventories().size(); j++) {
+				System.out.println("name :" + it.getListOfInventories().get(j).getName());
+				double sum=it.getListOfInventories().get(j).getPrice()*it.getListOfInventories().get(j).getWeight();
+				System.out.println("total price to be given is :"+sum);
+			}
+			System.out.println("---------------------------------------------");
+	}
 	}
 }
