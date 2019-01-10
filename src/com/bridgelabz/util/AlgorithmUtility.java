@@ -156,14 +156,15 @@ public class AlgorithmUtility<E> {
 	// insertion sort
 	/**
 	 * static function to sort the given array of strings using insertion sort
+	 * @param <T>
 	 * 
 	 * @param array the array of strings that is to be sorted
 	 * @return array the array of strings that are sorted
 	 */
-	public static String[] sortArray(String str[]) {
+	public static <T extends Comparable<T>> T[] sortArray1(T str[]) {
 		int length = str.length;
 		for (int i = 1; i < length; i++) {
-			String key = str[i];
+			T key = str[i];
 			int j = i - 1;
 			while (j >= 0 && ((str[j].compareTo(key) > 0))) {
 				str[j + 1] = str[j];
@@ -350,16 +351,17 @@ public class AlgorithmUtility<E> {
 
 	/**
 	 * static function that sorts the given array using bubble sort algorithm
+	 * @param <T>
 	 * 
 	 * @param array the array of strings to be sorted
 	 * @return sorted array
 	 */
-	public static String[] sort(String[] str) {
+	public static <T extends Comparable<T>> T[] sort(T[] str) {
 		int len = str.length;
 		for (int i = 0; i < len; i++) {
 			for (int j = i + 1; j < len; j++) {
 				if (str[i].compareTo(str[j]) > 0) {
-					String temp;
+					T temp;
 					temp = str[i];
 					str[i] = str[j];
 					str[j] = temp;
@@ -372,12 +374,14 @@ public class AlgorithmUtility<E> {
 	/**
 	 * static function that search for the given key in a array using binary search
 	 * algorithm
+	 * @param <T>
 	 * 
 	 * @param array the array of strings from which key is to be found
 	 * @param key   the key to be searched in the array
+	 * @return 
 	 * @return index the index of the key, found in the array
 	 */
-	public static int binarySearch(String[] str, String key) {
+	public static <T extends Comparable<T>>  int binarySearch(T[] str, T key) {
 		// int n=str.length;
 		int first = 0;
 		int last = str.length - 1;

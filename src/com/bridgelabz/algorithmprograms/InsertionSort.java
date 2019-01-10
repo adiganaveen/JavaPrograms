@@ -37,7 +37,7 @@ public class InsertionSort {
         }
       //Method 1- using static function of AlgorithmUtility class of com.bridgelabz.util package
       		
-        String[] str2=AlgorithmUtility.sortArray(str);
+        String[] str2=AlgorithmUtility.sortArray1(str);
         int n=str.length;
         for(int i=0;i<n;i++)
         {

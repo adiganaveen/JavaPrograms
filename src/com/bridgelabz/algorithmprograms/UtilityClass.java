@@ -100,14 +100,14 @@ public class UtilityClass
 	    		{
 	    		case 1 : System.out.println("Enter the number of elements in an array");
 	    				int num1=AlgorithmUtility.userInteger();
-	    				int [] arr=new int[num1];
+	    				Integer [] arr=new Integer[num1];
 	    				for(int i=0;i<arr.length;i++)
 	    				{
 	    					System.out.println("enter "+i+" element of an array");
 	    					arr[i]=AlgorithmUtility.userInteger();
 	    				}
 	    				double start_time1=AlgorithmUtility.startTime();
-	    				int[] arr2=AlgorithmUtility.sortArray(arr);
+	    				Integer[] arr2=AlgorithmUtility.sortArray1(arr);
 	    				double stop_time1=AlgorithmUtility.stopTime();
 				        int n=arr2.length;
 				        for(int i=0;i<n;i++)
@@ -128,7 +128,7 @@ public class UtilityClass
 							str1[i]=AlgorithmUtility.userString();
 						}
 						double start_time2=AlgorithmUtility.startTime();
-						String[] str2=AlgorithmUtility.sortArray(str1);
+						String[] str2=AlgorithmUtility.sortArray1(str1);
 						double stop_time2=AlgorithmUtility.stopTime();
 				        int m=str2.length;
 				        for(int i=0;i<m;i++)

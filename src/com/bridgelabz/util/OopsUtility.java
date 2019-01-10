@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -27,6 +29,11 @@ public class OopsUtility {
 	public static int userInteger() {
 
 		return scanner.nextInt();
+
+	}
+	public static float userFloat() {
+
+		return scanner.nextFloat();
 
 	}
 
@@ -107,5 +114,22 @@ public class OopsUtility {
 		BufferedWriter bw = new BufferedWriter(fw);
 		bw.write(json);
 		bw.flush();
+	}
+	public static InventoryList insertInventoryList(String inventoryName,List<Inventory> listOfInventories)
+	{
+		InventoryList inventoryList = new InventoryList();
+		inventoryList.setInventoryName(inventoryName);
+		inventoryList.setListOfInventories(liInventories);
+		return inventoryList;
+	}
+	static List<Inventory> liInventories = new ArrayList<Inventory>();
+	public static List<Inventory> insertInventory(String name,float weight,double price)
+	{
+		Inventory inventory = new Inventory();
+		inventory.setName(name);
+		inventory.setWeight(weight);
+		inventory.setPrice(price);
+		liInventories.add(inventory);
+		return liInventories;
 	}
 }
