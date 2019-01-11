@@ -36,6 +36,11 @@ public class OopsUtility {
 		return scanner.nextFloat();
 
 	}
+	public static long userLong() {
+
+		return scanner.nextLong();
+
+	}
 
 	/**
 	 * static function to read double input from the user
