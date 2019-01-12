@@ -2,17 +2,17 @@ package com.bridgelabz.oopsprograms;
 
 import java.io.IOException;
 
-import com.bridgelabz.util.AddressBookApplication;
+import com.bridgelabz.util.AddressBookManager;
 import com.bridgelabz.util.OopsUtility;
 
-public class AddressBookManager {
+public class AddressBookApplication {
 	public static void main(String[] args) throws IOException {
 		
-		AddressBookApplication addressBookApplication=new AddressBookApplication();
+		AddressBookManager addressBookApplication=new AddressBookManager();
 		int n=0;
 		System.out.println("***********Address Page***********");
 		do {
-			System.out.println("1.Create Book 2.Open Book 3.Save Book 4.Close Book");
+			System.out.println("1.Create Book 2.Open Book 3.Save Book 4.Close Book 5.exit");
 			int choice=OopsUtility.userInteger();
 			switch(choice)
 			{
@@ -23,6 +23,8 @@ public class AddressBookManager {
 			case 3:
 				break;
 			case 4:
+				break;
+			case 5:System.exit(0);
 				break;
 			default:System.out.println("Please select correct choice");
 			}

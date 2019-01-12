@@ -8,7 +8,7 @@ import java.util.List;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
 
-public class AddressBookApplication {
+public class AddressBookManager {
 	AddressBook addressBook = null;
 	static List<AddressBook> liOfAddressBook = new ArrayList<AddressBook>();
 	ObjectMapper objectMapper=new ObjectMapper();
