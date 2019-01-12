@@ -75,10 +75,10 @@ public class OopsUtility {
 	}
 	 
 	public static String replaceString(String first,String fullName,String phoneNum,String date,String line) {
-		final  String REGEX_NAME1 = "<<name>>";
-		final  String REGEX_NAME2 = "<<full name>>";
-		final  String REGEX_NAME3 = "xxxxxxxxxx";
-		final  String REGEX_NAME4 = "<<XX/XX/XXXX>>";
+		final  String REGEX_NAME1 = "<{2}+\\w+>{2}";
+		final  String REGEX_NAME2 = "<{2}full name>{2}";
+		final  String REGEX_NAME3 = "x{10}";
+		final  String REGEX_NAME4 = "<<\\d{2}+/+\\d{2}+/\\d{4}+>>";
 		Pattern p1 = Pattern.compile(REGEX_NAME1);
 		Matcher m1 = p1.matcher(line);
 		line = m1.replaceAll(first);
@@ -113,13 +113,13 @@ public class OopsUtility {
 		}
 		return line;
 	}
-	public static void write(String json) throws IOException
-	{
-		FileWriter fw = new FileWriter("/home/admin1/Documents/adiga_docs/Programs/Files/json1.json");
-		BufferedWriter bw = new BufferedWriter(fw);
-		bw.write(json);
-		bw.flush();
-	}
+//	public static void write(String json) throws IOException
+//	{
+//		FileWriter fw = new FileWriter("/home/admin1/Documents/adiga_docs/Programs/Files/json1.json");
+//		BufferedWriter bw = new BufferedWriter(fw);
+//		bw.write(json);
+//		bw.flush();
+//	}
 	public static InventoryList insertInventoryList(String inventoryName,List<Inventory> listOfInventories)
 	{
 		InventoryList inventoryList = new InventoryList();
@@ -178,5 +178,12 @@ public class OopsUtility {
 			}
 			System.out.println("---------------------------------------------");
 	}
+	}
+	public static void writeFile(String json,String fileName) throws IOException
+	{
+		FileWriter fw = new FileWriter(fileName);
+		BufferedWriter bw = new BufferedWriter(fw);
+		bw.write(json);
+		bw.flush();
 	}
 }

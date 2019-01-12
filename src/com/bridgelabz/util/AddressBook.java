@@ -1,7 +1,6 @@
 package com.bridgelabz.util;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -30,6 +29,14 @@ public class AddressBook {
 		liOfPerson.add(person);
 	}
 
+	public static List<Person> getLiOfPerson() {
+		return liOfPerson;
+	}
+
+	public static void setLiOfPerson(List<Person> liOfPerson) {
+		AddressBook.liOfPerson = liOfPerson;
+	}
+
 	public void editPerson() {
 		System.out.println("Enter the first name of the person which has to be edited");
 		String fName = OopsUtility.userString();
@@ -38,56 +45,62 @@ public class AddressBook {
 		int flag = 0;
 		for (Person per : liOfPerson) {
 			if (fName.equals(per.getfName()) && lName.equals(per.getlName())) {
-				System.out.println("Whate do you want to edit");
-				int op1 = 1;
-				while (op1 == 1) {
-					System.out.println("1.Phone Number\n2.Address");
+				boolean run=true;
+				while (run==true) {
+					System.out.println("Whate do you want to edit");
+					System.out.println("1.Phone Number 2.Address 3.Go Back");
 					int choice1 = OopsUtility.userInteger();
 					switch (choice1) {
 					case 1:
 						System.out.println("Enter the phone number which has to be edited");
 						per.setPhNumber(OopsUtility.userLong());
 						System.out.println("Phone number updated");
+						run=true;
 						break;
 					case 2:
 						System.out.println("Editing address now");
 						Address add = per.getAddress();
-						int op2 = 1;
-						while (op2 == 1) {
-							System.out.println("1.Street\n2.City\n3.State\n4.Zip Code");
+						boolean run2=true;
+						while (run2==true) {
+							System.out.println("1.Street\n2.City\n3.State\n4.Zip Code\n5.To go back");
 							int choice2 = OopsUtility.userInteger();
 							switch (choice2) {
 							case 1:
 								System.out.println("Enter street which has to be edited");
 								add.setStreet(OopsUtility.userString());
+								run2=true;
 								break;
 							case 2:
 								System.out.println("Enter city which has to be edited");
 								add.setCity(OopsUtility.userString());
+								run2=true;
 								break;
 							case 3:
 								System.out.println("Enter state which has to be edited");
 								add.setState(OopsUtility.userString());
+								run2=true;
 								break;
 							case 4:
 								System.out.println("Enter Zip code which has to be edited");
 								add.setZipCode(OopsUtility.userLong());
+								run2=true;
 								break;
+							case 5:run2=false;
 							default:
 								System.out.println("Please select correct choice");
 								break;
 							}
-							System.out.println("\nAddress Continue or not\n1.to continue 0.exit");
-							op2 = OopsUtility.userInteger();
 						}
 						per.setAddress(add);
+						run=true;
+						break;
+					case 3:run=false; 
 						break;
 					default:
 						System.out.println("Please select correct choice");
+						run=true;
 						break;
 					}
-					System.out.println("\nEdit continue or not\n1.to continue 0.exit");
-					op1 = OopsUtility.userInteger();
 				}
 			}
 			flag = 1;
@@ -142,6 +155,7 @@ public class AddressBook {
 
 	public void sortByLastName() {
 		Collections.sort(liOfPerson, (person1, person2) -> person1.getlName().compareTo(person2.getlName()));
+		System.out.println("Sorted by last Name");
 	}
 
 	public void sortByZipCode() {
@@ -149,6 +163,7 @@ public class AddressBook {
 				(person1, person2) -> person1.getAddress().getZipCode() > person2.getAddress().getZipCode() ? 1
 						: person1.getAddress().getZipCode() < person2.getAddress().getZipCode() ? -1
 								: person1.getAddress().getZipCode() == person2.getAddress().getZipCode() ? 0 : -10);
+		System.out.println("Sorted via Zip code");
 
 	}
 }

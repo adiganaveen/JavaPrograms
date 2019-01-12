@@ -14,7 +14,7 @@ import com.bridgelabz.util.OopsUtility;
 public class InventoryJson {
 	public static void main(String[] args) throws IOException {
 
-		String str = "/home/admin1/Documents/adiga_docs/Programs/Files/json1.json";
+		final String str = "/home/admin1/Documents/adiga_docs/Programs/Files/json1.json";
 		ObjectMapper objectMapper = new ObjectMapper();
 		List<InventoryList> list2 = new ArrayList<InventoryList>();
 		InventoryList inventoryList = new InventoryList();
@@ -63,7 +63,7 @@ public class InventoryJson {
 				
 				System.out.println("Entered elements has been added to list");
 				String json = objectMapper.writeValueAsString(list2);
-				OopsUtility.write(json);
+				OopsUtility.writeFile(json,str);
 				System.out.println("Inventory list has been written on to file");
 				break;
 			case 3:
