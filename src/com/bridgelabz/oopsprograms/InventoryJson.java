@@ -37,12 +37,18 @@ public class InventoryJson {
 				break;
 			case 2:
 				file = OopsUtility.readFile(str);
-				list2 = objectMapper.readValue(file, new TypeReference<List<InventoryList>>() {});
+				try {
+					list2 = objectMapper.readValue(file, new TypeReference<List<InventoryList>>() {
+					});
+				} catch (Exception e) {
+					System.out.println("file is empty!! first add inputs on to file or select second choice");
+				}
 				String [] arr= {"","rice","wheat","pulses"};
-				System.out.println("Select the inventory name \n 1.rice 2.wheat 3.pulses");
-				int option=OopsUtility.userInteger();
 				int op = 1, flag = 0;
 				while (op == 1) {
+				System.out.println("Select the inventory name \n 1.rice 2.wheat 3.pulses");
+				int option=OopsUtility.userInteger();
+				
 					for (InventoryList invenList : list2) {
 						if (arr[option].equals(invenList.getInventoryName())) {
 							liInventories = invenList.getListOfInventories();
