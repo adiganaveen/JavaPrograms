@@ -21,21 +21,21 @@ public class DeckQueue {
 
 		System.out.println("Total numver of deck of cards are " + deckofcards.size());
 		for (int i = 0; i < 4; i++) {
-//			String[] demo = new String[9];
+			String[] demo = new String[9];
 			List<String> deck2 = new ArrayList<String>();
 			for (int j = 0; j < 9; j++) {
-//				demo[j] = String.valueOf(deckofcards.get(i + j * 4)) ;
-				deck2.add(String.valueOf(deckofcards.get(i + j * 4)));
+				demo[j] = String.valueOf(deckofcards.get(i + j * 4)) ;
+//				deck2.add(String.valueOf(deckofcards.get(i + j * 4)));
 			}
-//			String[] str2 = AlgorithmUtility.sortArray1(demo);
-//			for (int k = 0; k < str2.length; k++) {
-//				queueLinkedList.enqueue(str2[k]);
+			String[] str2 = AlgorithmUtility.sortArray1(demo);
+			for (int k = 0; k < str2.length; k++) {
+				queueLinkedList.enqueue(str2[k]);
+			}
+//			Collections.sort(deck2);
+//			for(int k=0;k<deck2.size();k++)
+//			{
+//				queueLinkedList.enqueue(deck2.get(k));
 //			}
-			Collections.sort(deck2);
-			for(int k=0;k<deck2.size();k++)
-			{
-				queueLinkedList.enqueue(deck2.get(k));
-			}
 			
 			mainQueue.enqueue(queueLinkedList);
 			queueLinkedList = new QueueLinkedList<String>();
