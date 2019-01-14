@@ -45,8 +45,8 @@ public class AddressBook {
 		int flag = 0;
 		for (Person per : liOfPerson) {
 			if (fName.equals(per.getfName()) && lName.equals(per.getlName())) {
-				boolean run=true;
-				while (run==true) {
+				boolean run = true;
+				while (run == true) {
 					System.out.println("Whate do you want to edit");
 					System.out.println("1.Phone Number 2.Address 3.Go Back");
 					int choice1 = OopsUtility.userInteger();
@@ -55,50 +55,52 @@ public class AddressBook {
 						System.out.println("Enter the phone number which has to be edited");
 						per.setPhNumber(OopsUtility.userLong());
 						System.out.println("Phone number updated");
-						run=true;
+						run = true;
 						break;
 					case 2:
 						System.out.println("Editing address now");
 						Address add = per.getAddress();
-						boolean run2=true;
-						while (run2==true) {
+						boolean run2 = true;
+						while (run2 == true) {
 							System.out.println("1.Street\n2.City\n3.State\n4.Zip Code\n5.To go back");
 							int choice2 = OopsUtility.userInteger();
 							switch (choice2) {
 							case 1:
 								System.out.println("Enter street which has to be edited");
 								add.setStreet(OopsUtility.userString());
-								run2=true;
+								run2 = true;
 								break;
 							case 2:
 								System.out.println("Enter city which has to be edited");
 								add.setCity(OopsUtility.userString());
-								run2=true;
+								run2 = true;
 								break;
 							case 3:
 								System.out.println("Enter state which has to be edited");
 								add.setState(OopsUtility.userString());
-								run2=true;
+								run2 = true;
 								break;
 							case 4:
 								System.out.println("Enter Zip code which has to be edited");
 								add.setZipCode(OopsUtility.userLong());
-								run2=true;
+								run2 = true;
 								break;
-							case 5:run2=false;
+							case 5:
+								run2 = false;
 							default:
 								System.out.println("Please select correct choice");
 								break;
 							}
 						}
 						per.setAddress(add);
-						run=true;
+						run = true;
 						break;
-					case 3:run=false; 
+					case 3:
+						run = false;
 						break;
 					default:
 						System.out.println("Please select correct choice");
-						run=true;
+						run = true;
 						break;
 					}
 				}

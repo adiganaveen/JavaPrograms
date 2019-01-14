@@ -1,42 +1,37 @@
 package com.bridgelabz.oopsprograms;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-
 import com.bridgelabz.util.AlgorithmUtility;
 import com.bridgelabz.util.QueueLinkedList;
 
-public class DeckQueue {
+public class DeckQueue2 {
 	public static void main(String[] args) {
-		
-		DeckOfCards deck=new DeckOfCards();
-		List<Object> deckofcards = new ArrayList<Object>();
+		String[] Suits = { "Clubs", "Diamonds", "Hearts", "Spades" };
+		String[] Ranks = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace" };
+		int n = Suits.length * Ranks.length;
+		String[] deck = new String[n];
+		for (int i = 0; i < Ranks.length; i++) {
+			for (int j = 0; j < Suits.length; j++) {
+				deck[Suits.length * i + j] = Ranks[i] + "_" + Suits[j];
+			}
+		}
+		for (int i = 0; i < n; i++) {
+			int r = i + (int) (Math.random() * (n - i));
+			String temp = deck[r];
+			deck[r] = deck[i];
+			deck[i] = temp;
+		}
 		QueueLinkedList<QueueLinkedList<String>> mainQueue = new QueueLinkedList<QueueLinkedList<String>>();
 		QueueLinkedList<String> queueLinkedList = new QueueLinkedList<String>();
-		deckofcards = deck.getDeckofcards();
-		
-
-		System.out.println("Total numver of deck of cards are " + deckofcards.size());
+		System.out.println("Total numver of deck of cards are " + deck.length);
 		for (int i = 0; i < 4; i++) {
 			String[] demo = new String[9];
-//			List<String> deck2 = new ArrayList<String>();
 			for (int j = 0; j < 9; j++) {
-				demo[j] = String.valueOf(deckofcards.get(i + j * 4)) ;
-//				deck2.add(String.valueOf(deckofcards.get(i + j * 4)));
+				demo[j] = deck[i + j * 4];
 			}
 			String[] str2 = AlgorithmUtility.sortArray1(demo);
 			for (int k = 0; k < str2.length; k++) {
 				queueLinkedList.enqueue(str2[k]);
 			}
-//			Collections.sort(deck2);
-//			for(int k=0;k<deck2.size();k++)
-//			{
-//				queueLinkedList.enqueue(deck2.get(k));
-//			}
-			
 			mainQueue.enqueue(queueLinkedList);
 			queueLinkedList = new QueueLinkedList<String>();
 			continue;
@@ -51,6 +46,5 @@ public class DeckQueue {
 			}
 			System.out.println();
 		}
-
 	}
 }

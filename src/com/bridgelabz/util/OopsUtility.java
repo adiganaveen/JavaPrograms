@@ -12,6 +12,12 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.JsonParseException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.map.type.CollectionType;
+
 public class OopsUtility {
 	/**
 	 * static object is created for Scanner class to avoid multiple object creations
@@ -19,6 +25,7 @@ public class OopsUtility {
 	 */
 
 	static Scanner scanner = new Scanner(System.in);
+	static ObjectMapper objectMapper=new ObjectMapper();
 
 	/**
 	 * static function to read integers input from the user
@@ -186,4 +193,13 @@ public class OopsUtility {
 		bw.write(json);
 		bw.flush();
 	}
+	
+	public static <T> List<T> userReadValue(String str, Class<?> cls) throws JsonParseException, JsonMappingException, IOException{
+		CollectionType colletion = objectMapper.getTypeFactory().constructCollectionType(ArrayList.class, cls);
+		return objectMapper.readValue(str, colletion);
+	}
+	
+	public static <T> String userWriteValueAsString(List<T> list) throws JsonGenerationException, JsonMappingException, IOException{
+		return objectMapper.writeValueAsString(list);
+}
 }
