@@ -119,13 +119,7 @@ public class AddressBookManager {
 	}
 
 	public void saveBook() {
-//		System.out.println("List of files");
-//		for (File file : arrayOfFiles) {
-//			if(file.getName().endsWith(".json"))
-//				System.out.println(file.getName());
-//		}
 		int flag = 0;
-//		System.out.println("Choose the address book to be saved");
 		String ch_book = getBookName();
 		for (File file : arrayOfFiles) {
 			String filename = file.getName();
