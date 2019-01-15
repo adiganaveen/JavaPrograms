@@ -1,5 +1,6 @@
 package com.bridgelabz.util;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import org.codehaus.jackson.JsonGenerationException;
@@ -24,7 +25,7 @@ public class StockPersonOperation {
 				stockPerPerson = new StockPerPerson();
 				stockPerPerson.setStockName(stock.getStockName());
 				boolean yes = true;
-				while (yes = true) {
+				while (yes == true) {
 					System.out.println("Select number of shares");
 					int share = OopsUtility.userInteger();
 					if (stock.getNumberOfShare() >= share) {
@@ -53,5 +54,49 @@ public class StockPersonOperation {
 			System.out.println("Stock name not found");
 		}
 		return null;
+	}
+
+	public void sellStock() throws JsonGenerationException, JsonMappingException, IOException {
+		displayPerPersonStock();
+		System.out.println("Enter the name to the stack to be sold");
+		String sellStockName = OopsUtility.userString();
+		int flag = 0;
+		if (!StockPersonManagement.liOfStockPerPerson.isEmpty()) {
+			for (StockPerPerson stockPerPerson : StockPersonManagement.liOfStockPerPerson) {
+				if (sellStockName.equals(stockPerPerson.getStockName())) {
+					for (Stock stock : StockPortfolio.liOfStock) {
+						if (stock.getStockName().equals(stockPerPerson.getStockName())) {
+							stock.setNumberOfShare(stock.getNumberOfShare() + stockPerPerson.getNumberOfStock());
+						}
+						String json = OopsUtility.userWriteValueAsString(StockPortfolio.liOfStock);
+						OopsUtility.writeFile(json, StockPortfolio.str);
+					}
+					StockPersonManagement.liOfStockPerPerson.remove(stockPerPerson);
+					System.out.println("Stock has been removed from account ");
+					break;
+				}
+				flag = 1;
+			}
+		} else {
+			System.out.println("There are no stocks in account...!");
+		}
+		if (flag == 0) {
+			System.out.println("Entered stock doesnot exist in account!!!");
+		}
+	}
+
+	public void displayPerPersonStock() throws FileNotFoundException {
+		String string = OopsUtility.readFile(StockPersonManagement.getAccountName());
+		try {
+			StockPersonManagement.liOfStockPerPerson = OopsUtility.userReadValue(string, Stock.class);
+		} catch (Exception e) {
+			System.out.println("File is empty!!! Nothing in data to display");
+		}
+		for (StockPerPerson stockPerPerson : StockPersonManagement.liOfStockPerPerson) {
+			System.out.println("Stock     	 : " + stockPerPerson.getStockName());
+			System.out.println("Number of shares : " + stockPerPerson.getNumberOfStock());
+			System.out.println("Stock price      : " + stockPerPerson.getPrice());
+			System.out.println("----------------------------------------------------");
+		}
 	}
 }

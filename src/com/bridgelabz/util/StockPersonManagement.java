@@ -14,7 +14,7 @@ import com.bridgelabz.oopsprograms.StockCompanyApplication;
 public class StockPersonManagement {
 	StockPersonOperation stockPersonOperation = null;
 	StockPerPerson stockPerPerson = null;
-	List<StockPerPerson> liOfStockPerPerson = new ArrayList<StockPerPerson>();
+	static List<StockPerPerson> liOfStockPerPerson = new ArrayList<StockPerPerson>();
 	File[] arrayOfFiles = new File(System.getProperty("user.dir")).listFiles();
 	static final String str = "/home/admin1/Documents/adiga_docs/New_Programs/JavaPrograms/";
 	static String accountName = null;
@@ -28,7 +28,8 @@ public class StockPersonManagement {
 	}
 
 	public void createPersonalAccount() throws IOException {
-		System.out.println("Enter name of person account which has to be created (eg:file.json)");
+		System.out.println(
+				"Enter name of person account which has to be created with extension for security purpose (eg:file.json)");
 		String book = OopsUtility.userString();
 		File file = new File(str + book);
 		boolean rs = file.createNewFile();
@@ -40,7 +41,7 @@ public class StockPersonManagement {
 	}
 
 	public void openPersonnelAccount() throws JsonParseException, JsonMappingException, IOException {
-		System.out.println("enter your account name with extension (.json)");
+		System.out.println("enter your account name with extension for security purpose (.json)");
 		String account = OopsUtility.userString();
 		setAccountName(account);
 		int flag = 0;
@@ -78,6 +79,7 @@ public class StockPersonManagement {
 				run = true;
 				break;
 			case 2:
+				stockPersonOperation.sellStock();
 				run = true;
 				break;
 			case 3:
@@ -103,6 +105,7 @@ public class StockPersonManagement {
 				run = true;
 				break;
 			case 4:
+				stockPersonOperation.displayPerPersonStock();
 				run = true;
 				break;
 			case 5:
