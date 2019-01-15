@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -237,5 +239,14 @@ public class OopsUtility {
 			}
 			System.out.println();
 		}
+	}
+	
+	//stock application
+	public static String getDate()
+	{
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");  
+		LocalDateTime now = LocalDateTime.now();  
+		String date=dtf.format(now);
+		return date;
 	}
 }

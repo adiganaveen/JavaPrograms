@@ -202,11 +202,14 @@ public class CliniqueManager {
 							if (patientAppointmentList.size() < 5) {
 								patientAppointmentList.add(patient);
 								appointment.setListOfPatients(patientAppointmentList);
-								listOfAppointments.add(appointment);
 								System.out.println("Appointment is set");
+								break;
 							} else {
-								System.out.println("Appointment is full");
+								System.out.println(
+										"Appointment is full !!! Please wait for the next schedule or Select different doctor");
+
 							}
+							break;
 						} else {
 							Appointment newAppointment = new Appointment();
 							newAppointment.setDocName(doctor.getDocName());
@@ -215,6 +218,7 @@ public class CliniqueManager {
 							newAppointment.setListOfPatients(newPatientAppointmentList);
 							listOfAppointments.add(newAppointment);
 							System.out.println("Appointment is set");
+
 						}
 					}
 					if (listOfAppointments.size() == 0) {

@@ -21,6 +21,7 @@ public class Regex {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");  
 		LocalDateTime now = LocalDateTime.now();  
 		String date=dtf.format(now);
+		System.out.println(date);
 		String message = OopsUtility.replaceString(firstName, fullName, phoneNum, date, line);
 		System.out.println(message);
 		

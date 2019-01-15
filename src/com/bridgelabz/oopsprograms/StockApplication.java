@@ -10,7 +10,7 @@ import com.bridgelabz.util.StockPortfolio;
 
 public class StockApplication {
 	public static void main(String[] args) throws JsonGenerationException, JsonMappingException, IOException {
-		StockPortfolio stockPortfolio=new StockPortfolio();
+//		StockPortfolio stockPortfolio=new StockPortfolio();
 		boolean run=true;
 		while(run==true)
 		{

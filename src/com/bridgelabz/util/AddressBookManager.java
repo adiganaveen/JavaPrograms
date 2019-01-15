@@ -107,7 +107,7 @@ public class AddressBookManager {
 				run = true;
 				break;
 			case 7:
-				addressBookApplication.main(null);
+				AddressBookApplication.main(null);
 				run = false;
 				break;
 			default:

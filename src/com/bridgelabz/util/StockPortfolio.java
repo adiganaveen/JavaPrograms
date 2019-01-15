@@ -8,8 +8,6 @@ import java.util.List;
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
 
-import com.bridgelabz.oopsprograms.Stock;
-
 public class StockPortfolio {
 	static List<Stock> liOfStock = new ArrayList<Stock>();
 	static Stock stock = new Stock();
@@ -78,7 +76,7 @@ public class StockPortfolio {
 		for (Stock stock : liOfStock) {
 			sum += (stock.getNumberOfShare() * stock.getSharePrice());
 		}
-		System.out.println("Total value of stock is :" + sum+"\n");
+		System.out.println("Total value of stock is :" + sum + "\n");
 
 	}
 
