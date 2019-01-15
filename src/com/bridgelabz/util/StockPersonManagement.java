@@ -15,8 +15,8 @@ public class StockPersonManagement {
 	StockPersonOperation stockPersonOperation = null;
 	StockPerPerson stockPerPerson = null;
 	static List<StockPerPerson> liOfStockPerPerson = new ArrayList<StockPerPerson>();
-	File[] arrayOfFiles = new File(System.getProperty("user.dir")).listFiles();
-	static final String str = "/home/admin1/Documents/adiga_docs/New_Programs/JavaPrograms/";
+	private File[] arrayOfFiles = new File(System.getProperty("user.dir")).listFiles();
+	private static final String str = "/home/admin1/Documents/adiga_docs/New_Programs/JavaPrograms/";
 	static String accountName = null;
 
 	public static String getAccountName() {

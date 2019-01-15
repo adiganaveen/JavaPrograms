@@ -7,9 +7,10 @@ import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
 
 public class StockPersonOperation {
-	StockPortfolio stockPortfolio = null;
-	StockPersonOperation stockPersonOperation = null;
-	StockPerPerson stockPerPerson = null;
+	private StockPortfolio stockPortfolio = null;
+	private StockPersonOperation stockPersonOperation = null;
+	private StockPerPerson stockPerPerson = null;
+	
 
 	public StockPerPerson buyStock() throws JsonGenerationException, JsonMappingException, IOException {
 		stockPersonOperation = new StockPersonOperation();
@@ -44,7 +45,7 @@ public class StockPersonOperation {
 				stockPerPerson.setPrice(stock.getSharePrice());
 				Transactions transactions = new Transactions();
 				transactions.setDate(OopsUtility.getDate());
-				transactions.setTransactionStatus("stock added");
+				transactions.setTransactionStatus("purchased");
 				stockPerPerson.setTransactions(transactions);
 				flag = 1;
 				return stockPerPerson;
@@ -64,6 +65,18 @@ public class StockPersonOperation {
 		if (!StockPersonManagement.liOfStockPerPerson.isEmpty()) {
 			for (StockPerPerson stockPerPerson : StockPersonManagement.liOfStockPerPerson) {
 				if (sellStockName.equals(stockPerPerson.getStockName())) {
+					System.out.println("Enter how many number of shares has to be sold");
+					int share = OopsUtility.userInteger();
+					boolean run = true;
+					while (run == true) {
+						if (stockPerPerson.getNumberOfStock() >= share) {
+							stockPerPerson.setNumberOfStock(stockPerPerson.getNumberOfStock() - share);
+							run = false;
+						} else {
+							System.out.println("enter valid number of shares");
+							run = true;
+						}
+					}
 					for (Stock stock : StockPortfolio.liOfStock) {
 						if (stock.getStockName().equals(stockPerPerson.getStockName())) {
 							stock.setNumberOfShare(stock.getNumberOfShare() + stockPerPerson.getNumberOfStock());
@@ -71,18 +84,31 @@ public class StockPersonOperation {
 						String json = OopsUtility.userWriteValueAsString(StockPortfolio.liOfStock);
 						OopsUtility.writeFile(json, StockPortfolio.str);
 					}
-					StockPersonManagement.liOfStockPerPerson.remove(stockPerPerson);
+					sold(stockPerPerson, share);
 					System.out.println("Stock has been removed from account ");
 					break;
 				}
 				flag = 1;
 			}
+
 		} else {
 			System.out.println("There are no stocks in account...!");
 		}
 		if (flag == 0) {
 			System.out.println("Entered stock doesnot exist in account!!!");
 		}
+	}
+
+	public static void sold(StockPerPerson stockPerPerson, int share) {
+		StockPerPerson stockPerPerson2 = new StockPerPerson();
+		stockPerPerson2.setStockName(stockPerPerson.getStockName());
+		stockPerPerson2.setPrice(stockPerPerson.getPrice());
+		stockPerPerson2.setNumberOfStock(share);
+		Transactions transactions = new Transactions();
+		transactions.setDate(OopsUtility.getDate());
+		transactions.setTransactionStatus("sold");
+		stockPerPerson2.setTransactions(transactions);
+		StockPersonManagement.liOfStockPerPerson.add(stockPerPerson2);
 	}
 
 	public void displayPerPersonStock() throws FileNotFoundException {
@@ -93,9 +119,12 @@ public class StockPersonOperation {
 			System.out.println("File is empty!!! Nothing in data to display");
 		}
 		for (StockPerPerson stockPerPerson : StockPersonManagement.liOfStockPerPerson) {
-			System.out.println("Stock     	 : " + stockPerPerson.getStockName());
-			System.out.println("Number of shares : " + stockPerPerson.getNumberOfStock());
-			System.out.println("Stock price      : " + stockPerPerson.getPrice());
+			System.out.println("Stock     	   : " + stockPerPerson.getStockName());
+			System.out.println("Number of shares   : " + stockPerPerson.getNumberOfStock());
+			System.out.println("Stock price        : " + stockPerPerson.getPrice());
+			Transactions transactions = new Transactions();
+			System.out.println("Date      	   :" + stockPerPerson.getTransactions().getDate());
+			System.out.println("Transaction status :" + stockPerPerson.getTransactions().getTransactionStatus());
 			System.out.println("----------------------------------------------------");
 		}
 	}

@@ -4,7 +4,7 @@ public class StockPerPerson {
 	private String stockName;
 	private int numberOfStock;
 	private double price;
-	Transactions transactions = new Transactions();
+	private Transactions transactions;
 	
 	public StockPerPerson()
 	{
