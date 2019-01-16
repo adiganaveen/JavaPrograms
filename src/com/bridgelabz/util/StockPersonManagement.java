@@ -34,7 +34,7 @@ public class StockPersonManagement {
 		File file = new File(str + book);
 		boolean rs = file.createNewFile();
 		if (rs) {
-			System.out.println("Account is created");
+			System.out.println("Account is created\n Restart and Open your account with your account name given...!");
 		} else {
 			System.out.println("Account name already exists");
 		}
@@ -70,7 +70,7 @@ public class StockPersonManagement {
 		stockPersonOperation = new StockPersonOperation();
 		boolean run = true;
 		while (run == true) {
-			System.out.println("1.Buy Stock\n2.Sell Stock\n3.Save\n4.Print\n5.Go back to main menu");
+			System.out.println("1.Buy Stock\n2.Sell Stock\n3.Save\n4.Display Account Details\n5.Transaction Report\n6.Go back to main menu");
 			int choice = OopsUtility.userInteger();
 			switch (choice) {
 			case 1:
@@ -109,6 +109,10 @@ public class StockPersonManagement {
 				run = true;
 				break;
 			case 5:
+				stockPersonOperation.displayDynamic();
+				run = true;
+				break;
+			case 6:
 				StockCompanyApplication.main(null);
 				run = false;
 				break;

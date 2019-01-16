@@ -66,6 +66,20 @@ public class LinkedList<T> {
 			tmp = tmp.getNextRef();
 		}
 	}
+	public void getLikedList() {
+
+		Node<T> tmp = first;
+		while (true) {
+			if (tmp == null) {
+				break;
+			}
+			if(tmp.getValue()!=null)
+			{
+			System.out.print(tmp.getValue()+"\t\t\t\t");
+			}
+			tmp = tmp.getNextRef();
+		}
+	}
 	public LinkedList<Integer> getValue() {
 
 		Node<T> tmp = first;
@@ -82,6 +96,7 @@ public class LinkedList<T> {
 		}
 		return node;
 	}
+	
 	public int size() {
 
 		Node<T> tmp = first;

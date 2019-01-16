@@ -22,9 +22,9 @@ import com.bridgelabz.util.StackLinkedList;
 
 public class CalenderStack {
 	/*
-	* The main function is to take the input from the user 
-	* and printing the calendar by using queue and stacks 
-	*/
+	 * The main function is to take the input from the user and printing the
+	 * calendar by using queue and stacks
+	 */
 	public static void main(String[] args) {
 		int month = Integer.parseInt(args[0]);
 		int year = Integer.parseInt(args[1]);
@@ -37,22 +37,22 @@ public class CalenderStack {
 		System.out.println("\t\t " + months[month] + " " + year);
 		System.out.println("Sun\tMon\tTue\tWed\tThu\tFri\tSat");
 		int d = DataStructureUtility.day(month, 1, year);
-		StackLinkedList<QueueLinkedList<Integer>> mainStack=new StackLinkedList<>();
-		QueueLinkedList<Integer> queue=new QueueLinkedList<>();
+		StackLinkedList<QueueLinkedList<Integer>> mainStack = new StackLinkedList<>();
+		QueueLinkedList<Integer> queue = new QueueLinkedList<>();
 		for (int i = 1; i <= days[month]; i++) {
 			queue.enqueue(i);
-			if (((i + d) % 7 == 0 || i==days[month]) ) {
+			if (((i + d) % 7 == 0 || i == days[month])) {
 				mainStack.push(queue);
-				queue=new QueueLinkedList<Integer>();
+				queue = new QueueLinkedList<Integer>();
 				continue;
 			}
-		}	
+		}
 		for (int i = 0; i < d; i++)
-		System.out.print("\t");
+			System.out.print("\t");
 		int size = mainStack.getSize();
 		StackLinkedList<QueueLinkedList<Integer>> stackNew = new StackLinkedList<>();
-		
-		for(int i=0; i < size; i++){
+
+		for (int i = 0; i < size; i++) {
 			stackNew.push(mainStack.pop());
 		}
 

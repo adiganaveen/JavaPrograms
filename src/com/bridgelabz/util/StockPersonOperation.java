@@ -10,7 +10,10 @@ public class StockPersonOperation {
 	private StockPortfolio stockPortfolio = null;
 	private StockPersonOperation stockPersonOperation = null;
 	private StockPerPerson stockPerPerson = null;
-	
+	private static LinkedList<String> linkedList = new LinkedList<String>();
+	static QueueLinkedList<String> queueLinkedList = new QueueLinkedList<String>();
+	static StackLinkedList<String> stackLinkedList = new StackLinkedList<String>();
+	static StackLinkedList<String> stackLinkedList2 = new StackLinkedList<String>();
 
 	public StockPerPerson buyStock() throws JsonGenerationException, JsonMappingException, IOException {
 		stockPersonOperation = new StockPersonOperation();
@@ -122,10 +125,46 @@ public class StockPersonOperation {
 			System.out.println("Stock     	   : " + stockPerPerson.getStockName());
 			System.out.println("Number of shares   : " + stockPerPerson.getNumberOfStock());
 			System.out.println("Stock price        : " + stockPerPerson.getPrice());
-			Transactions transactions = new Transactions();
 			System.out.println("Date      	   :" + stockPerPerson.getTransactions().getDate());
 			System.out.println("Transaction status :" + stockPerPerson.getTransactions().getTransactionStatus());
 			System.out.println("----------------------------------------------------");
 		}
+	}
+
+	public void storeDynamic() throws FileNotFoundException {
+		String string = OopsUtility.readFile(StockPersonManagement.getAccountName());
+		try {
+			StockPersonManagement.liOfStockPerPerson = OopsUtility.userReadValue(string, Stock.class);
+		} catch (Exception e) {
+			System.out.println("File is empty!!! Nothing in data to display");
+		}
+		for (StockPerPerson stockPerPerson : StockPersonManagement.liOfStockPerPerson) {
+			linkedList.add(stockPerPerson.getStockName());
+			queueLinkedList.enqueue(stockPerPerson.getTransactions().getDate());
+			stackLinkedList.push(stockPerPerson.getTransactions().getTransactionStatus());
+		}
+
+	}
+
+	public void displayDynamic() throws FileNotFoundException {
+		storeDynamic();
+		System.out.println("Stock Name Bought with Date and Time and Transaction report is below :");
+		System.out.print("Stock Name : ");
+		linkedList.getLikedList();
+		System.out.println();
+		System.out.print("Date       : ");
+		for (int i = 0; i < queueLinkedList.getSize(); i++) {
+			System.out.print(queueLinkedList.dequeue() + "\t");
+		}
+		System.out.println();
+		while (!stackLinkedList.isEmpty()) {
+			stackLinkedList2.push(stackLinkedList.pop());
+		}
+		System.out.print("Status     : ");
+		while (!stackLinkedList2.isEmpty()) {
+			System.out.print(stackLinkedList2.pop() + "\t\t\t");
+		}
+		System.out.println(
+				"\n---------------------------------------------------------------------------------------------------------");
 	}
 }
