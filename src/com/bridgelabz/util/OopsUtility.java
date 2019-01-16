@@ -228,14 +228,14 @@ public class OopsUtility {
 		}
 		return mainQueue;
 	}
-	public static void displayDeck(QueueLinkedList<QueueLinkedList<String>> mainQueue)
+	public static void deal(QueueLinkedList<QueueLinkedList<String>> mainQueue)
 	{
 		for (int i = 0; i < mainQueue.getSize(); i++) {
 			QueueLinkedList<String> queue2 = mainQueue.dequeue();
 			System.out.println("---------------------------------------- Person " + (i + 1)
 					+ " -------------------------------------------");
 			for (int j = 0; j < queue2.getSize(); j++) {
-				System.out.print(queue2.dequeue() + " ");
+				System.out.print(queue2.dequeue() + " ,");
 			}
 			System.out.println();
 		}
