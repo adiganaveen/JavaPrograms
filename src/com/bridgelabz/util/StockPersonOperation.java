@@ -11,9 +11,9 @@ public class StockPersonOperation {
 	private StockPersonOperation stockPersonOperation = new StockPersonOperation();
 	private StockPerPerson stockPerPerson = null;
 	private static LinkedList<String> linkedList = new LinkedList<String>();
-	static QueueLinkedList<String> queueLinkedList = new QueueLinkedList<String>();
-	static StackLinkedList<String> stackLinkedList = new StackLinkedList<String>();
-	static StackLinkedList<String> stackLinkedList2 = new StackLinkedList<String>();
+	private static QueueLinkedList<String> queueLinkedList = new QueueLinkedList<String>();
+	private static StackLinkedList<String> stackLinkedList = new StackLinkedList<String>();
+	private static StackLinkedList<String> stackLinkedList2 = new StackLinkedList<String>();
 
 	public StockPerPerson buyStock() throws JsonGenerationException, JsonMappingException, IOException {
 		stockPersonOperation = new StockPersonOperation();
