@@ -68,19 +68,18 @@ public class StockPersonManagement {
 
 	public void insertDetails() throws JsonGenerationException, JsonMappingException, IOException {
 		stockPersonOperation = new StockPersonOperation();
-		boolean run = true;
-		while (run == true) {
-			System.out.println("1.Buy Stock\n2.Sell Stock\n3.Save\n4.Display Account Details\n5.Transaction Report\n6.Go back to main menu");
+		int run = 0;
+		do {
+			System.out.println(
+					"1.Buy Stock\n2.Sell Stock\n3.Save\n4.Display Account Details\n5.Transaction Report\n6.Go back to main menu");
 			int choice = OopsUtility.userInteger();
 			switch (choice) {
 			case 1:
 				stockPerPerson = stockPersonOperation.buyStock();
 				liOfStockPerPerson.add(stockPerPerson);
-				run = true;
 				break;
 			case 2:
 				stockPersonOperation.sellStock();
-				run = true;
 				break;
 			case 3:
 				int flag = 0;
@@ -101,26 +100,21 @@ public class StockPersonManagement {
 				if (flag == 0) {
 					System.out.println("File doesnot exist or u have not given extention(.json)");
 				}
-
-				run = true;
 				break;
 			case 4:
 				stockPersonOperation.displayPerPersonStock();
-				run = true;
 				break;
 			case 5:
 				stockPersonOperation.displayDynamic();
-				run = true;
 				break;
 			case 6:
 				StockCompanyApplication.main(null);
-				run = false;
 				break;
 			default:
 				System.out.println("Please select correct choice");
-				run = true;
 				break;
 			}
-		}
+			run++;
+		} while (run < 30);
 	}
 }

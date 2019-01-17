@@ -22,31 +22,26 @@ public class AddressBookApplication {
 	public static void main(String[] args) throws IOException {
 
 		AddressBookManager addressBookApplication = new AddressBookManager();
-		boolean run = true;
+		int run = 0;
 		System.out.println("***********Address Page***********");
-		while (run == true) {
+		do{
 			System.out.println("1.Create Book 2.Open Book 3.Save Book 4.Save As Book 5.Close Book 6.exit");
 			int choice = OopsUtility.userInteger();
 			switch (choice) {
 			case 1:
 				addressBookApplication.createBook();
-				run = true;
 				break;
 			case 2:
 				addressBookApplication.openBook();
-				run = true;
 				break;
 			case 3:
 				addressBookApplication.saveBook();
-				run = true;
 				break;
 			case 4:
 				addressBookApplication.saveAsBook();
-				run = true;
 				break;
 			case 5:
 				addressBookApplication.closeBook();
-				run = true;
 				System.out.println("Book Closed");
 				break;
 			case 6:
@@ -55,7 +50,7 @@ public class AddressBookApplication {
 			default:
 				System.out.println("Please select correct choice");
 			}
-		}
+		}while(run<1);
 
 	}
 }

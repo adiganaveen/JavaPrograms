@@ -14,7 +14,7 @@ import com.bridgelabz.util.OopsUtility;
 public class InventoryJson {
 	public static void main(String[] args) throws IOException {
 
-		final String str = "/home/admin1/Documents/adiga_docs/Programs/Files/json1.json";
+		final String str = "/home/admin1/Documents/adiga_docs/New_Programs/Files/json1.json";
 		ObjectMapper objectMapper = new ObjectMapper();
 		List<InventoryList> list2 = new ArrayList<InventoryList>();
 		InventoryList inventoryList = new InventoryList();
@@ -87,7 +87,6 @@ public class InventoryJson {
 				break;
 
 			}
-			z++;
-		} while (z < 30);
+		} while (z < 1);
 	}
 }
