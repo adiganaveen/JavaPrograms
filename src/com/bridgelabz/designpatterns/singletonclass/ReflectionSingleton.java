@@ -7,8 +7,9 @@ public class ReflectionSingleton {
 		EagerInitializedSingleton instanceOne = EagerInitializedSingleton.getInstance();
 		EagerInitializedSingleton instanceTwo = null;
 		try {
+			@SuppressWarnings("rawtypes")
 			Constructor[] constructors = EagerInitializedSingleton.class.getDeclaredConstructors();
-			for (Constructor constructor : constructors) {
+			for (@SuppressWarnings("rawtypes") Constructor constructor : constructors) {
 				// Below code will destroy the singleton pattern
 				constructor.setAccessible(true);
 				instanceTwo =  (EagerInitializedSingleton) constructor.newInstance();

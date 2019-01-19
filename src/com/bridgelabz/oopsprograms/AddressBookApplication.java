@@ -21,36 +21,41 @@ public class AddressBookApplication {
 	
 	public static void main(String[] args) throws IOException {
 
-		AddressBookManager addressBookApplication = new AddressBookManager();
-		int run = 0;
+		AddressBookManager addressBookManager = null;
 		System.out.println("***********Address Page***********");
 		do{
 			System.out.println("1.Create Book 2.Open Book 3.Save Book 4.Save As Book 5.Close Book 6.exit");
 			int choice = OopsUtility.userInteger();
 			switch (choice) {
 			case 1:
-				addressBookApplication.createBook();
+				addressBookManager = AddressBookManager.getInstance();
+				addressBookManager.createBook();
 				break;
 			case 2:
-				addressBookApplication.openBook();
+				addressBookManager = AddressBookManager.getInstance();
+				addressBookManager.openBook();
 				break;
 			case 3:
-				addressBookApplication.saveBook();
+				addressBookManager = AddressBookManager.getInstance();
+				addressBookManager.saveBook();
 				break;
 			case 4:
-				addressBookApplication.saveAsBook();
+				addressBookManager = AddressBookManager.getInstance();
+				addressBookManager.saveAsBook();
 				break;
 			case 5:
-				addressBookApplication.closeBook();
+				addressBookManager = AddressBookManager.getInstance();
+				addressBookManager.closeBook();
 				System.out.println("Book Closed");
 				break;
 			case 6:
+				addressBookManager = null;
 				System.exit(0);
 				break;
 			default:
 				System.out.println("Please select correct choice");
 			}
-		}while(run<1);
+		}while(addressBookManager != null);
 
 	}
 }

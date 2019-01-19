@@ -1,1 +1,1 @@
-[{"fName":"naveen","lName":"adiga","phNumber":1234567,"address":{"street":"34","city":"1","state":"1","zipCode":1}},{"fName":"varsha","lName":"hs","phNumber":88878,"address":{"street":"1","city":"2","state":"1","zipCode":1}}]
+[{"firstName":"varsha","lastName":"hs","phoneNumber":12345,"address":{"street":"aws","city":"shiv","state":"karnataka","zipCode":123456}},{"firstName":"naveen","lastName":"adiga","phoneNumber":8884073236,"address":{"street":"mg","city":"kanakapura","state":"karnataka","zipCode":562117}}]

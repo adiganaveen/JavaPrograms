@@ -5,13 +5,7 @@ public class Address {
 	private String city;
 	private String state;
 	private long zipCode;
-	public Address()
-	{
-		street=null;
-		city=null;
-		state=null;
-		zipCode=0;
-	}
+
 	public String getStreet() {
 		return street;
 	}

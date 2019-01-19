@@ -1,32 +1,37 @@
 package com.bridgelabz.util;
 
 public class Person {
-	private String fName;
-	private String lName;
-	private long phNumber;
-	private Address address = new Address();
+	private String firstName;
+	private String lastName;
+	private long phoneNumber;
+	private Address address;
 
 	public Person() {
-		fName = null;
-		lName = null;
-		phNumber = 0;
-		address = null;
+		address = new Address();
 	}
 
-	public String getfName() {
-		return fName;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setfName(String fName) {
-		this.fName = fName;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getlName() {
-		return lName;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setlName(String lName) {
-		this.lName = lName;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public long getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(long phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 	public Address getAddress() {
@@ -37,12 +42,6 @@ public class Person {
 		this.address = address;
 	}
 
-	public long getPhNumber() {
-		return phNumber;
-	}
 
-	public void setPhNumber(long phNumber) {
-		this.phNumber = phNumber;
-	}
 
 }

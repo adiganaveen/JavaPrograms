@@ -12,19 +12,13 @@ import org.codehaus.jackson.map.JsonMappingException;
 import com.bridgelabz.oopsprograms.StockCompanyApplication;
 
 public class StockPersonManagement {
-	StockPersonOperation stockPersonOperation = null;
-	StockPerPerson stockPerPerson = null;
-	static List<StockPerPerson> liOfStockPerPerson = new ArrayList<StockPerPerson>();
-	private File[] arrayOfFiles = new File(System.getProperty("user.dir")).listFiles();
+	private static StockPersonOperation stockPersonOperation = null;
+	static List<StockPerPerson> stockPersons = new ArrayList<StockPerPerson>();
 	private static final String str = "/home/admin1/Documents/adiga_docs/New_Programs/JavaPrograms/";
 	static String accountName = null;
 
-	public static String getAccountName() {
-		return accountName;
-	}
-
-	public static void setAccountName(String accountName) {
-		StockPersonManagement.accountName = accountName;
+	private File[] getFiles() {
+		return new File(System.getProperty("user.dir")).listFiles();
 	}
 
 	public void createPersonalAccount() throws IOException {
@@ -32,8 +26,7 @@ public class StockPersonManagement {
 				"Enter name of person account which has to be created with extension for security purpose (eg:file.json)");
 		String book = OopsUtility.userString();
 		File file = new File(str + book);
-		boolean rs = file.createNewFile();
-		if (rs) {
+		if (file.createNewFile()) {
 			System.out.println("Account is created\n Restart and Open your account with your account name given...!");
 		} else {
 			System.out.println("Account name already exists");
@@ -42,64 +35,44 @@ public class StockPersonManagement {
 
 	public void openPersonnelAccount() throws JsonParseException, JsonMappingException, IOException {
 		System.out.println("enter your account name with extension for security purpose (.json)");
-		String account = OopsUtility.userString();
-		setAccountName(account);
-		int flag = 0;
-		for (File file : arrayOfFiles) {
-			String filename = file.getName();
-			if (account.equals(filename)) {
+		accountName = OopsUtility.userString();
+		File[] files = getFiles();
+		boolean flag = false;
+		for (File file : files) {
+			if (accountName.equals(file.getName())) {
 				if (file.length() > 0) {
 					System.out.println("Account Details");
-					String string = OopsUtility.readFile(filename);
-					liOfStockPerPerson = OopsUtility.userReadValue(string, StockPerPerson.class);
-					insertDetails();
+					String string = OopsUtility.readFile(file.getName());
+					stockPersons = OopsUtility.userReadValue(string, StockPerPerson.class);
 				} else {
 					System.out.println("Account is empty");
 					System.out.println("Add new data onto your Account");
-					insertDetails();
 				}
-				flag = 1;
+				insertDetails();
+				flag = true;
 			}
 		}
-		if (flag == 0) {
+		if (!flag) {
 			System.out.println("Account doesnot exist or u have not given extention(.json)");
 		}
 	}
 
 	public void insertDetails() throws JsonGenerationException, JsonMappingException, IOException {
 		stockPersonOperation = new StockPersonOperation();
-		int run = 0;
 		do {
 			System.out.println(
 					"1.Buy Stock\n2.Sell Stock\n3.Save\n4.Display Account Details\n5.Transaction Report\n6.Go back to main menu");
 			int choice = OopsUtility.userInteger();
 			switch (choice) {
 			case 1:
-				stockPerPerson = stockPersonOperation.buyStock();
-				liOfStockPerPerson.add(stockPerPerson);
+				StockPerPerson stockPerPerson = stockPersonOperation.buyStock();
+				stockPersons.add(stockPerPerson);
 				break;
 			case 2:
 				stockPersonOperation.sellStock();
 				break;
 			case 3:
-				int flag = 0;
-				String acc = getAccountName();
-				for (File file : arrayOfFiles) {
-					String filename = file.getName();
-					if (acc.equals(filename)) {
-						try {
-							String json = OopsUtility.userWriteValueAsString(liOfStockPerPerson);
-							OopsUtility.writeFile(json, filename);
-							System.out.println("Account Updated");
-							flag = 1;
-						} catch (Exception e) {
-							System.out.println("Cannot write to file");
-						}
-					}
-				}
-				if (flag == 0) {
-					System.out.println("File doesnot exist or u have not given extention(.json)");
-				}
+				save();
 				break;
 			case 4:
 				stockPersonOperation.displayPerPersonStock();
@@ -108,13 +81,34 @@ public class StockPersonManagement {
 				stockPersonOperation.displayDynamic();
 				break;
 			case 6:
+				stockPersonOperation = null;
 				StockCompanyApplication.main(null);
 				break;
 			default:
 				System.out.println("Please select correct choice");
 				break;
 			}
-			run++;
-		} while (run < 30);
+		} while (stockPersonOperation != null);
+	}
+
+	public void save() {
+		boolean flag = false;
+		File[] files = getFiles();
+		for (File file : files) {
+			String filename = file.getName();
+			if (accountName.equals(filename)) {
+				try {
+					String json = OopsUtility.userWriteValueAsString(stockPersons);
+					OopsUtility.writeFile(json, filename);
+					System.out.println("Account Updated");
+					flag = true;
+				} catch (Exception e) {
+					System.out.println("Cannot write to file");
+				}
+			}
+		}
+		if (!flag) {
+			System.out.println("File doesnot exist or u have not given extention(.json)");
+		}
 	}
 }

@@ -2,71 +2,72 @@ package com.bridgelabz.util;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Optional;
 
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
 
 public class StockPersonOperation {
-	StockPortfolio stockPortfolio = new StockPortfolio();
-	StockPersonOperation stockPersonOperation = null;
-	private StockPerPerson stockPerPerson = null;
+	private static StockPerPerson stockPerPerson = null;
 	private static LinkedList<String> linkedList = new LinkedList<String>();
 	private static QueueLinkedList<String> queueLinkedList = new QueueLinkedList<String>();
 	private static StackLinkedList<String> stackLinkedList = new StackLinkedList<String>();
 	private static StackLinkedList<String> stackLinkedList2 = new StackLinkedList<String>();
 
 	public StockPerPerson buyStock() throws JsonGenerationException, JsonMappingException, IOException {
-		stockPersonOperation = new StockPersonOperation();
-		stockPortfolio = new StockPortfolio();
 		StockPortfolio.displayStock();
 		System.out.println("Select the stock name which has to be bought");
 		String name = OopsUtility.userString();
-		int flag = 0;
-		for (Stock stock : StockPortfolio.liOfStock) {
-			if (name.equals(stock.getStockName())) {
-				System.out.println("Stock found");
-				System.out.println("adding to your account");
-				stockPerPerson = new StockPerPerson();
-				stockPerPerson.setStockName(stock.getStockName());
-				boolean yes = true;
-				while (yes == true) {
-					System.out.println("Select number of shares");
-					int share = OopsUtility.userInteger();
-					if (stock.getNumberOfShare() >= share) {
-						stockPerPerson.setNumberOfStock(share);
-						stock.setNumberOfShare(stock.getNumberOfShare() - share);
-						yes = false;
-						String json = OopsUtility.userWriteValueAsString(StockPortfolio.liOfStock);
-						OopsUtility.writeFile(json, StockPortfolio.str);
-						break;
-					} else {
-						System.out.println("That amount of shares doesnot exist!!!");
-						yes = true;
-					}
-				}
-				System.out.println("number of stocks setted");
-				stockPerPerson.setPrice(stock.getSharePrice());
-				Transactions transactions = new Transactions();
-				transactions.setDate(OopsUtility.getDate());
-				transactions.setTransactionStatus("purchased");
-				stockPerPerson.setTransactions(transactions);
-				flag = 1;
-				return stockPerPerson;
+		boolean flag = false;
+				Optional<Stock> optional = StockPortfolio.stocks.parallelStream()
+						.filter(stock -> name.equals(stock.getStockName())).findAny();
+				if (optional.isPresent()) {
+				flag = true;
+				return buyingStock(optional.get());
 			}
-		}
-		if (flag == 0) {
+		if (!flag) {
 			System.out.println("Stock name not found");
 		}
 		return null;
 	}
 
+	public StockPerPerson buyingStock(Stock stock) throws JsonGenerationException, JsonMappingException, IOException
+	{
+		System.out.println("Stock found");
+		System.out.println("adding to your account");
+		stockPerPerson = new StockPerPerson();
+		stockPerPerson.setStockName(stock.getStockName());
+		boolean yes = true;
+		while (yes == true) {
+			System.out.println("Select number of shares");
+			int share = OopsUtility.userInteger();
+			if (stock.getNumberOfShare() >= share) {
+				stockPerPerson.setNumberOfStock(share);
+				stock.setNumberOfShare(stock.getNumberOfShare() - share);
+				yes = false;
+				String json = OopsUtility.userWriteValueAsString(StockPortfolio.stocks);
+				OopsUtility.writeFile(json, StockPortfolio.STOCK_PATH);
+				break;
+			} else {
+				System.out.println("That amount of shares doesnot exist!!!");
+				yes = true;
+			}
+		}
+		System.out.println("number of stocks setted");
+		stockPerPerson.setPrice(stock.getSharePrice());
+		Transactions transactions = new Transactions();
+		transactions.setDate(OopsUtility.getDate());
+		transactions.setTransactionStatus("purchased");
+		stockPerPerson.setTransactions(transactions);
+		return stockPerPerson;
+	}
 	public void sellStock() throws JsonGenerationException, JsonMappingException, IOException {
 		displayPerPersonStock();
 		System.out.println("Enter the name to the stack to be sold");
 		String sellStockName = OopsUtility.userString();
-		int flag = 0;
-		if (!StockPersonManagement.liOfStockPerPerson.isEmpty()) {
-			for (StockPerPerson stockPerPerson : StockPersonManagement.liOfStockPerPerson) {
+		boolean flag = false;
+		if (!StockPersonManagement.stockPersons.isEmpty()) {
+			for (StockPerPerson stockPerPerson : StockPersonManagement.stockPersons) {
 				if (sellStockName.equals(stockPerPerson.getStockName())) {
 					System.out.println("Enter how many number of shares has to be sold");
 					int share = OopsUtility.userInteger();
@@ -80,24 +81,24 @@ public class StockPersonOperation {
 							run = true;
 						}
 					}
-					for (Stock stock : StockPortfolio.liOfStock) {
+					for (Stock stock : StockPortfolio.stocks) {
 						if (stock.getStockName().equals(stockPerPerson.getStockName())) {
 							stock.setNumberOfShare(stock.getNumberOfShare() + stockPerPerson.getNumberOfStock());
 						}
-						String json = OopsUtility.userWriteValueAsString(StockPortfolio.liOfStock);
-						OopsUtility.writeFile(json, StockPortfolio.str);
+						String json = OopsUtility.userWriteValueAsString(StockPortfolio.stocks);
+						OopsUtility.writeFile(json, StockPortfolio.STOCK_PATH);
 					}
 					sold(stockPerPerson, share);
 					System.out.println("Stock has been removed from account ");
 					break;
 				}
-				flag = 1;
+				flag = true;
 			}
 
 		} else {
 			System.out.println("There are no stocks in account...!");
 		}
-		if (flag == 0) {
+		if (!flag) {
 			System.out.println("Entered stock doesnot exist in account!!!");
 		}
 	}
@@ -111,17 +112,17 @@ public class StockPersonOperation {
 		transactions.setDate(OopsUtility.getDate());
 		transactions.setTransactionStatus("sold");
 		stockPerPerson2.setTransactions(transactions);
-		StockPersonManagement.liOfStockPerPerson.add(stockPerPerson2);
+		StockPersonManagement.stockPersons.add(stockPerPerson2);
 	}
 
 	public void displayPerPersonStock() throws FileNotFoundException {
-		String string = OopsUtility.readFile(StockPersonManagement.getAccountName());
+		String string = OopsUtility.readFile(StockPersonManagement.accountName);
 		try {
-			StockPersonManagement.liOfStockPerPerson = OopsUtility.userReadValue(string, Stock.class);
+			StockPersonManagement.stockPersons = OopsUtility.userReadValue(string, Stock.class);
 		} catch (Exception e) {
 			System.out.println("File is empty!!! Nothing in data to display");
 		}
-		for (StockPerPerson stockPerPerson : StockPersonManagement.liOfStockPerPerson) {
+		for (StockPerPerson stockPerPerson : StockPersonManagement.stockPersons) {
 			System.out.println("Stock     	   : " + stockPerPerson.getStockName());
 			System.out.println("Number of shares   : " + stockPerPerson.getNumberOfStock());
 			System.out.println("Stock price        : " + stockPerPerson.getPrice());
@@ -132,13 +133,13 @@ public class StockPersonOperation {
 	}
 
 	public void storeDynamic() throws FileNotFoundException {
-		String string = OopsUtility.readFile(StockPersonManagement.getAccountName());
+		String string = OopsUtility.readFile(StockPersonManagement.accountName);
 		try {
-			StockPersonManagement.liOfStockPerPerson = OopsUtility.userReadValue(string, Stock.class);
+			StockPersonManagement.stockPersons = OopsUtility.userReadValue(string, Stock.class);
 		} catch (Exception e) {
 			System.out.println("File is empty!!! Nothing in data to display");
 		}
-		for (StockPerPerson stockPerPerson : StockPersonManagement.liOfStockPerPerson) {
+		for (StockPerPerson stockPerPerson : StockPersonManagement.stockPersons) {
 			linkedList.add(stockPerPerson.getStockName());
 			queueLinkedList.enqueue(stockPerPerson.getTransactions().getDate());
 			stackLinkedList.push(stockPerPerson.getTransactions().getTransactionStatus());
@@ -167,4 +168,5 @@ public class StockPersonOperation {
 		System.out.println(
 				"\n---------------------------------------------------------------------------------------------------------");
 	}
+
 }
