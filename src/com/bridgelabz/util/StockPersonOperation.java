@@ -7,8 +7,8 @@ import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
 
 public class StockPersonOperation {
-	private StockPortfolio stockPortfolio = new StockPortfolio();
-	private StockPersonOperation stockPersonOperation = new StockPersonOperation();
+	StockPortfolio stockPortfolio = new StockPortfolio();
+	StockPersonOperation stockPersonOperation = null;
 	private StockPerPerson stockPerPerson = null;
 	private static LinkedList<String> linkedList = new LinkedList<String>();
 	private static QueueLinkedList<String> queueLinkedList = new QueueLinkedList<String>();

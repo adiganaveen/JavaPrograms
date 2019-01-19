@@ -193,6 +193,7 @@ public class CliniqueManager {
 	public static void searchDoc(List<Doctor> doctorList, Patient patient) {
 		System.out.println("Enter id");
 		int id = OopsUtility.userInteger();
+		int flag = 1;
 		try {
 			for (Doctor doctor : doctorList) {
 				if (id == doctor.getDocId()) {
@@ -200,28 +201,29 @@ public class CliniqueManager {
 						if (doctor.getDocName().equals(appointment.getDocName())) {
 							List<Patient> patientAppointmentList = appointment.getListOfPatients();
 							if (patientAppointmentList.size() < 5) {
-								patientAppointmentList.add(patient);
-								appointment.setListOfPatients(patientAppointmentList);
-								System.out.println("Appointment is set");
-								break;
+								for (Patient patient2 : patientAppointmentList) {
+									if (patient2.getpId() == patient.getpId()) {
+										System.out.println(
+												"Appointment already set for today for this doctor cannot set again");
+										flag = 0;
+										break;
+									} else {
+										patientAppointmentList.add(patient);
+										appointment.setListOfPatients(patientAppointmentList);
+										System.out.println("Appointment is set");
+										flag = 0;
+										break;
+									}
+								}
 							} else {
 								System.out.println(
 										"Appointment is full !!! Please wait for the next schedule or Select different doctor");
-
+								flag = 0;
 							}
 							break;
-						} else {
-							Appointment newAppointment = new Appointment();
-							newAppointment.setDocName(doctor.getDocName());
-							List<Patient> newPatientAppointmentList = new ArrayList<>();
-							newPatientAppointmentList.add(patient);
-							newAppointment.setListOfPatients(newPatientAppointmentList);
-							listOfAppointments.add(newAppointment);
-							System.out.println("Appointment is set");
-
 						}
 					}
-					if (listOfAppointments.size() == 0) {
+					if (flag == 1) {
 						Appointment appointment2 = new Appointment();
 						List<Patient> patientList1 = new ArrayList<Patient>();
 						patientList1.add(patient);
@@ -230,7 +232,6 @@ public class CliniqueManager {
 						listOfAppointments.add(appointment2);
 						System.out.println("Appointment is set");
 					}
-
 				}
 			}
 
