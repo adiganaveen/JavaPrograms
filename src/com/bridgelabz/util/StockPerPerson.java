@@ -8,10 +8,7 @@ public class StockPerPerson {
 	
 	public StockPerPerson()
 	{
-		stockName=null;
-		numberOfStock=0;
-		price=0.0;
-		transactions=null;
+		transactions=new Transactions();
 	}
 
 	public Transactions getTransactions() {

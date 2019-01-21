@@ -24,7 +24,8 @@ public class PalindromeChecker {
 	* or not
 	*/
 	public static void main(String[] args) {
-		Deque deque = new Deque(100);
+		@SuppressWarnings("rawtypes")
+		Deque<Comparable> deque = new Deque<Comparable>(100);
 		System.out.println("Enter string to check to check it is palindrome or not");
 		String str = DataStructureUtility.userString();
 		str = str.toLowerCase();

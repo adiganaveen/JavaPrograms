@@ -14,7 +14,7 @@ public class StockPersonOperation {
 	private static StackLinkedList<String> stackLinkedList = new StackLinkedList<String>();
 	private static StackLinkedList<String> stackLinkedList2 = new StackLinkedList<String>();
 
-	public StockPerPerson buyStock() throws JsonGenerationException, JsonMappingException, IOException {
+	public static StockPerPerson buyStock() throws JsonGenerationException, JsonMappingException, IOException {
 		StockPortfolio.displayStock();
 		System.out.println("Select the stock name which has to be bought");
 		String name = OopsUtility.userString();
@@ -31,7 +31,7 @@ public class StockPersonOperation {
 		return null;
 	}
 
-	public StockPerPerson buyingStock(Stock stock) throws JsonGenerationException, JsonMappingException, IOException
+	public static StockPerPerson buyingStock(Stock stock) throws JsonGenerationException, JsonMappingException, IOException
 	{
 		System.out.println("Stock found");
 		System.out.println("adding to your account");
@@ -55,11 +55,15 @@ public class StockPersonOperation {
 		}
 		System.out.println("number of stocks setted");
 		stockPerPerson.setPrice(stock.getSharePrice());
+		stockPerPerson.setTransactions(transactions("purchased"));
+		return stockPerPerson;
+	}
+	public static Transactions transactions(String status)
+	{
 		Transactions transactions = new Transactions();
 		transactions.setDate(OopsUtility.getDate());
-		transactions.setTransactionStatus("purchased");
-		stockPerPerson.setTransactions(transactions);
-		return stockPerPerson;
+		transactions.setTransactionStatus(status);
+		return transactions;
 	}
 	public void sellStock() throws JsonGenerationException, JsonMappingException, IOException {
 		displayPerPersonStock();
@@ -108,10 +112,7 @@ public class StockPersonOperation {
 		stockPerPerson2.setStockName(stockPerPerson.getStockName());
 		stockPerPerson2.setPrice(stockPerPerson.getPrice());
 		stockPerPerson2.setNumberOfStock(share);
-		Transactions transactions = new Transactions();
-		transactions.setDate(OopsUtility.getDate());
-		transactions.setTransactionStatus("sold");
-		stockPerPerson2.setTransactions(transactions);
+		stockPerPerson2.setTransactions(transactions("sold"));
 		StockPersonManagement.stockPersons.add(stockPerPerson2);
 	}
 
@@ -152,8 +153,7 @@ public class StockPersonOperation {
 		System.out.println("Stock Name Bought with Date and Time and Transaction report is below :");
 		System.out.print("Stock Name : ");
 		linkedList.getLikedList();
-		System.out.println();
-		System.out.print("Date       : ");
+		System.out.print("\nDate       : ");
 		for (int i = 0; i < queueLinkedList.getSize(); i++) {
 			System.out.print(queueLinkedList.dequeue() + "\t");
 		}

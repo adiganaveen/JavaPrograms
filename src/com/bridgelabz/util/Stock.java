@@ -6,9 +6,6 @@ public class Stock {
 	private double sharePrice;
 
 	public Stock() {
-		stockName = null;
-		numberOfShare = 0;
-		sharePrice = 0.0;
 	}
 
 	public String getStockName() {

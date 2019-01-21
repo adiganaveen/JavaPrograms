@@ -18,13 +18,9 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 
-import com.bridgelabz.util.AlgorithmUtility;
 import com.bridgelabz.util.DataStructureUtility;
 import com.bridgelabz.util.LinkedList;
 

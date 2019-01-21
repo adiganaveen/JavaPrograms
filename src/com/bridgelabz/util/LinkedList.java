@@ -147,23 +147,23 @@ public class LinkedList<T> {
 		return 0;
 	}
 	
-	public void remove(int index){
-		if(isEmpty())
-			return;
-		Node<T> temp=first;
-		if(index==0){
-			first=temp.getNextRef();
-			return;
-		}
-		for(int i=0;temp!=null && i<index-1;i++){
-			temp=temp.getNextRef();
-		}
-		if (temp == null || temp.getNextRef() == null) 
-	            return; 
-	        Node<T> next = temp.getNextRef().getNextRef(); 
-	  
-	        next=temp.getNextRef();
-	}
+//	public void remove(int index){
+//		if(isEmpty())
+//			return;
+//		Node<T> temp=first;
+//		if(index==0){
+//			first=temp.getNextRef();
+//			return;
+//		}
+//		for(int i=0;temp!=null && i<index-1;i++){
+//			temp=temp.getNextRef();
+//		}
+//		if (temp == null || temp.getNextRef() == null) 
+//	            return; 
+//	        Node<T> next = temp.getNextRef().getNextRef(); 
+//	  
+//	        next=temp.getNextRef();
+//	}
 	public int [] convInteger(LinkedList<Integer> li,int len)
 	{
 		Node<Integer> nd2 = li.first;

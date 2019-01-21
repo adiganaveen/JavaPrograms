@@ -65,7 +65,7 @@ public class StockPersonManagement {
 			int choice = OopsUtility.userInteger();
 			switch (choice) {
 			case 1:
-				StockPerPerson stockPerPerson = stockPersonOperation.buyStock();
+				StockPerPerson stockPerPerson = StockPersonOperation.buyStock();
 				stockPersons.add(stockPerPerson);
 				break;
 			case 2:
