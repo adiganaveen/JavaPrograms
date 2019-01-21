@@ -122,12 +122,11 @@ public class AddressBook {
 				System.out.println("First name : " + person.getFirstName());
 				System.out.println("Last name : " + person.getLastName());
 				System.out.println("Phone number : " + person.getPhoneNumber());
-				Address addr = person.getAddress();
 				System.out.println("Address :\n");
-				System.out.println("Street : " + addr.getStreet());
-				System.out.println("City : " + addr.getCity());
-				System.out.println("State : " + addr.getState());
-				System.out.println("Zip Code : " + addr.getZipCode());
+				System.out.println("Street : " + person.getAddress().getStreet());
+				System.out.println("City : " + person.getAddress().getCity());
+				System.out.println("State : " + person.getAddress().getState());
+				System.out.println("Zip Code : " + person.getAddress().getZipCode());
 				System.out.println("--------------------------------------");
 			});
 		} else {
@@ -135,6 +134,9 @@ public class AddressBook {
 		}
 	}
 
+	/**
+	 * To delete a person
+	 */
 	public void deletePerson() {
 		System.out.println("Enter the first name of the person which has to be deleted");
 		String fName = OopsUtility.userString();

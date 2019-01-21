@@ -17,6 +17,10 @@ public class AddressBookManager {
 	private AddressBookManager() {
 	}
 
+	/**
+	 * CReating a singleton method for AddressBookManager
+	 * @return instance of address book manager
+	 */
 	public static AddressBookManager getInstance() {
 		if (ADDRESS_BOOK_MANAGER == null) {
 			return new AddressBookManager();
@@ -24,6 +28,10 @@ public class AddressBookManager {
 		return ADDRESS_BOOK_MANAGER;
 	}
 
+	/**
+	 * creating new book
+	 * @throws IOException
+	 */
 	public void createBook() throws IOException {
 		System.out.println("Enter name of address book with extension (eg:file.json)");
 		String book = OopsUtility.userString();
@@ -35,6 +43,10 @@ public class AddressBookManager {
 		}
 	}
 
+	/**
+	 * Opening the old book using this open method
+	 * @throws IOException
+	 */
 	public void openBook() throws IOException {
 		File[] files = getFiles();
 		selectAddressBookName();
@@ -58,10 +70,17 @@ public class AddressBookManager {
 		}
 	}
 
+	/**
+	 * To get files present in the directory
+	 * @return array of files present
+	 */
 	private File[] getFiles() {
 		return new File(System.getProperty("user.dir")).listFiles();
 	}
 
+	/**
+	 * To compare whether the selected files is present or not`	
+	 */
 	public void selectAddressBookName() {
 		File[] files = getFiles();
 		System.out.println("Files available are:");

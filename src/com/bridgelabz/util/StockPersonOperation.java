@@ -19,20 +19,20 @@ public class StockPersonOperation {
 		System.out.println("Select the stock name which has to be bought");
 		String name = OopsUtility.userString();
 		boolean flag = false;
-				Optional<Stock> optional = StockPortfolio.stocks.parallelStream()
-						.filter(stock -> name.equals(stock.getStockName())).findAny();
-				if (optional.isPresent()) {
-				flag = true;
-				return buyingStock(optional.get());
-			}
+		Optional<Stock> optional = StockPortfolio.stocks.parallelStream()
+				.filter(stock -> name.equals(stock.getStockName())).findAny();
+		if (optional.isPresent()) {
+			flag = true;
+			return buyingStock(optional.get());
+		}
 		if (!flag) {
 			System.out.println("Stock name not found");
 		}
 		return null;
 	}
 
-	public static StockPerPerson buyingStock(Stock stock) throws JsonGenerationException, JsonMappingException, IOException
-	{
+	public static StockPerPerson buyingStock(Stock stock)
+			throws JsonGenerationException, JsonMappingException, IOException {
 		System.out.println("Stock found");
 		System.out.println("adding to your account");
 		stockPerPerson = new StockPerPerson();
@@ -58,53 +58,58 @@ public class StockPersonOperation {
 		stockPerPerson.setTransactions(transactions("purchased"));
 		return stockPerPerson;
 	}
-	public static Transactions transactions(String status)
-	{
+
+	public static Transactions transactions(String status) {
 		Transactions transactions = new Transactions();
 		transactions.setDate(OopsUtility.getDate());
 		transactions.setTransactionStatus(status);
 		return transactions;
 	}
-	public void sellStock() throws JsonGenerationException, JsonMappingException, IOException {
+
+	public static void sellStock() throws JsonGenerationException, JsonMappingException, IOException {
 		displayPerPersonStock();
 		System.out.println("Enter the name to the stack to be sold");
 		String sellStockName = OopsUtility.userString();
 		boolean flag = false;
 		if (!StockPersonManagement.stockPersons.isEmpty()) {
-			for (StockPerPerson stockPerPerson : StockPersonManagement.stockPersons) {
-				if (sellStockName.equals(stockPerPerson.getStockName())) {
-					System.out.println("Enter how many number of shares has to be sold");
-					int share = OopsUtility.userInteger();
-					boolean run = true;
-					while (run == true) {
-						if (stockPerPerson.getNumberOfStock() >= share) {
-							stockPerPerson.setNumberOfStock(stockPerPerson.getNumberOfStock() - share);
-							run = false;
-						} else {
-							System.out.println("enter valid number of shares");
-							run = true;
-						}
-					}
-					for (Stock stock : StockPortfolio.stocks) {
-						if (stock.getStockName().equals(stockPerPerson.getStockName())) {
-							stock.setNumberOfShare(stock.getNumberOfShare() + stockPerPerson.getNumberOfStock());
-						}
-						String json = OopsUtility.userWriteValueAsString(StockPortfolio.stocks);
-						OopsUtility.writeFile(json, StockPortfolio.STOCK_PATH);
-					}
-					sold(stockPerPerson, share);
-					System.out.println("Stock has been removed from account ");
-					break;
-				}
+			Optional<StockPerPerson> optional = StockPersonManagement.stockPersons.parallelStream()
+					.filter(stockPerPerson -> sellStockName.equals(stockPerPerson.getStockName())).findAny();
+			if (optional.isPresent()) {
+				shareSelling(optional.get());
 				flag = true;
 			}
-
 		} else {
 			System.out.println("There are no stocks in account...!");
+			flag = true;
 		}
 		if (!flag) {
 			System.out.println("Entered stock doesnot exist in account!!!");
 		}
+	}
+
+	public static void shareSelling(StockPerPerson stockPerPerson)
+			throws JsonGenerationException, JsonMappingException, IOException {
+		System.out.println("Enter how many number of shares has to be sold");
+		int share = OopsUtility.userInteger();
+		boolean run = true;
+		while (run == true) {
+			if (stockPerPerson.getNumberOfStock() >= share) {
+				stockPerPerson.setNumberOfStock(stockPerPerson.getNumberOfStock() - share);
+				run = false;
+			} else {
+				System.out.println("enter valid number of shares");
+				run = true;
+			}
+		}
+		for (Stock stock : StockPortfolio.stocks) {
+			if (stock.getStockName().equals(stockPerPerson.getStockName())) {
+				stock.setNumberOfShare(stock.getNumberOfShare() + stockPerPerson.getNumberOfStock());
+			}
+			String json = OopsUtility.userWriteValueAsString(StockPortfolio.stocks);
+			OopsUtility.writeFile(json, StockPortfolio.STOCK_PATH);
+		}
+		sold(stockPerPerson, share);
+		System.out.println("Stock has been removed from account ");
 	}
 
 	public static void sold(StockPerPerson stockPerPerson, int share) {
@@ -116,7 +121,7 @@ public class StockPersonOperation {
 		StockPersonManagement.stockPersons.add(stockPerPerson2);
 	}
 
-	public void displayPerPersonStock() throws FileNotFoundException {
+	public static void displayPerPersonStock() throws FileNotFoundException {
 		String string = OopsUtility.readFile(StockPersonManagement.accountName);
 		try {
 			StockPersonManagement.stockPersons = OopsUtility.userReadValue(string, Stock.class);

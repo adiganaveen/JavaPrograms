@@ -27,7 +27,7 @@ public class StockPersonManagement {
 		String book = OopsUtility.userString();
 		File file = new File(str + book);
 		if (file.createNewFile()) {
-			System.out.println("Account is created\n Restart and Open your account with your account name given...!");
+			System.out.println("Account is created...!!!");
 		} else {
 			System.out.println("Account name already exists");
 		}
@@ -69,18 +69,23 @@ public class StockPersonManagement {
 				stockPersons.add(stockPerPerson);
 				break;
 			case 2:
-				stockPersonOperation.sellStock();
+				StockPersonOperation.sellStock();
 				break;
 			case 3:
 				save();
 				break;
 			case 4:
-				stockPersonOperation.displayPerPersonStock();
+				StockPersonOperation.displayPerPersonStock();
 				break;
 			case 5:
 				stockPersonOperation.displayDynamic();
 				break;
 			case 6:
+				System.out.println("Do you want to save before going back to main menu (Y/N)");
+				String select = OopsUtility.userString();
+				if (select.equalsIgnoreCase("y")) {
+					save();
+				}
 				stockPersonOperation = null;
 				StockCompanyApplication.main(null);
 				break;

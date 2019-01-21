@@ -9,8 +9,8 @@ import com.bridgelabz.util.CliniqueManager;
 import com.bridgelabz.util.OopsUtility;
 
 public class ClinicalManagement {
+	private static CliniqueManager cliniqueManager=new CliniqueManager();
 	public static void main(String[] args) throws IOException, JsonMappingException, JsonParseException {
-		int run = 0;
 		do {
 			System.out.println("Enter the choice");
 			System.out.println("1:Add\n2:Search\n3:Take Appointment\n4:Famous Doctor\n5.Famous Specialist\n6:Exit");
@@ -32,12 +32,13 @@ public class ClinicalManagement {
 				CliniqueManager.famousSpecialist();
 				break;
 			case 6:System.out.println("Thank you");
+				cliniqueManager=null;
 				System.exit(0);
 				break;
 			default:
 				System.out.println("Please select correct choice");
 				break;
 			}
-		}while(run<1);
+		}while(cliniqueManager!=null);
 	}
 }
